@@ -1,5 +1,9 @@
 # TME 2026 基年 DCF（11% 折现率）
 
+> 2026-03-29 口径复核更新：这份文档保留为旧版 `简化 FCFF DCF` 平移版。  
+> 更谨慎的资产结构拆分与 FCFF 口径，请优先参考：[TME资产结构与谨慎FCFF复核_第一版.md](E:/Codex/investment/腾讯音乐研究/TME资产结构与谨慎FCFF复核_第一版.md)。  
+> 按复核后的更谨慎口径，`2026E FCFF` 中枢与可加回超额现金都应低于本文件原始假设，因此本文件结果应视为偏积极版本。
+
 > 研究日期：2026-03-29  
 > 标的：Tencent Music Entertainment Group（NYSE: TME / HKEX: 1698）  
 > 方法：简化 FCFF DCF  
