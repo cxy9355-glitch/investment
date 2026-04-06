@@ -195,23 +195,48 @@ def configure_matplotlib_fonts() -> None:
     plt.rcParams["axes.unicode_minus"] = False
 
 
-def clean_text(text: str) -> str:
-    text = re.sub(r"东鹏饮料（集团）股份有限公司\s*\d{4}\s*年年度报告", " ", text)
-    text = re.sub(r"东鹏饮料（集团）股份有限公司\s*首次公开发行股票招股说明书", " ", text)
-    text = re.sub(r"\d+\s*/\s*\d+", " ", text)
-    text = re.sub(r"单位[:：]?\s*元\s*币种[:：]?\s*人民币", " ", text)
-    text = re.sub(r"单位[:：]?\s*万元", " ", text)
-    text = re.sub(r"编制单位[:：]?\s*东鹏饮料（集团）股份有限公司", " ", text)
-    text = re.sub(r"主管会计工作负责人[:：].+?会计机构负责人[:：].+?(?=母公司|合并现金流量表|$)", " ", text)
-    text = re.sub(r"公司负责人[:：].+?(?=母公司|合并现金流量表|$)", " ", text)
-    text = re.sub(r"\s+", " ", text)
-    return text.strip()
+STOP_MARKERS = {
+    "balance": ["母公司资产负债表"],
+    "income": ["母公司利润表"],
+    "cashflow": ["母公司现金流量表"],
+}
 
 
-def read_pages(pdf_path: Path, pages: list[int]) -> str:
+def clean_lines(text: str) -> list[str]:
+    cleaned: list[str] = []
+    for raw_line in text.splitlines():
+        line = re.sub(r"\s+", " ", raw_line).strip()
+        if not line:
+            continue
+        if re.search(r"东鹏饮料（集团）股份有限公司\s*\d{4}\s*年年度报告", line):
+            continue
+        if re.search(r"东鹏饮料（集团）股份有限公司\s*首次公开发行股票招股说明书", line):
+            continue
+        if re.fullmatch(r"\d+\s*/\s*\d+", line):
+            continue
+        if re.search(r"^编制单位[:：]?\s*东鹏饮料（集团）股份有限公司", line):
+            continue
+        if re.search(r"^单位[:：]?\s*(元|万元)\s*币种[:：]?\s*人民币", line):
+            continue
+        if re.search(r"^单位[:：]?\s*万元", line):
+            continue
+        if re.search(r"公司负责人[:：]|主管会计工作负责人[:：]|会计机构负责人[:：]", line):
+            continue
+        cleaned.append(line)
+    return cleaned
+
+
+def read_pages_lines(pdf_path: Path, pages: list[int], statement: str) -> list[str]:
     reader = PdfReader(str(pdf_path))
-    text = " ".join((reader.pages[p - 1].extract_text() or "") for p in pages)
-    return clean_text(text)
+    lines: list[str] = []
+    stop_markers = STOP_MARKERS.get(statement, [])
+    for page_num in pages:
+        page_text = reader.pages[page_num - 1].extract_text() or ""
+        for line in clean_lines(page_text):
+            if any(marker in line for marker in stop_markers):
+                return lines
+            lines.append(line)
+    return lines
 
 
 def parse_value(raw: str | None, scale: float) -> float | None:
@@ -235,22 +260,36 @@ def build_pattern(label_pattern: str, count: int) -> re.Pattern[str]:
     return re.compile(fuzzy_label(label_pattern) + gap + body, re.S)
 
 
-def extract_row(text: str, item_name: str, label_patterns: list[str], count: int, scale: float) -> list[float | None]:
+def extract_row(lines: list[str], item_name: str, label_patterns: list[str], count: int, scale: float) -> list[float | None]:
     item_scale = 1.0 if item_name in NO_SCALE_ITEMS else scale
-    for label in label_patterns:
-        pattern = build_pattern(label, count)
-        match = pattern.search(text)
-        if match:
-            return [parse_value(item, item_scale) for item in match.groups()]
+    num_pattern = re.compile(r"(-?[\d,]+\.\d+|-{1,2})")
+    for start in range(len(lines)):
+        candidate = ""
+        for step in range(4):
+            if start + step >= len(lines):
+                break
+            candidate = (candidate + " " + lines[start + step]).strip()
+            for label in label_patterns:
+                label_match = re.search(fuzzy_label(label), candidate)
+                if not label_match:
+                    continue
+                tail = candidate[label_match.end() :]
+                raw_values = num_pattern.findall(tail)
+                if not raw_values:
+                    continue
+                parsed = [parse_value(raw, item_scale) for raw in raw_values[:count]]
+                if len(parsed) < count:
+                    parsed.extend([None] * (count - len(parsed)))
+                return parsed
     return [None] * count
 
 
 def extract_statement(config: dict, statement: str, pattern_map: dict[str, list[str]]) -> pd.DataFrame:
-    text = read_pages(config["pdf"], config["pages"][statement])
+    lines = read_pages_lines(config["pdf"], config["pages"][statement], statement)
     count = config["value_count"]
     data: list[dict[str, float | int | str | None]] = []
     for line_item, labels in pattern_map.items():
-        values = extract_row(text, line_item, labels, count, config["scale"])
+        values = extract_row(lines, line_item, labels, count, config["scale"])
         row: dict[str, float | int | str | None] = {"项目": line_item}
         for idx, year in enumerate(config["column_order"][:count]):
             row[str(year)] = values[idx]
@@ -388,6 +427,49 @@ def apply_manual_adjustments(balance_df: pd.DataFrame, income_df: pd.DataFrame, 
     set_value(b, "其他综合收益", 2020, 0.0)
     set_value(b, "其他综合收益", 2021, 0.0)
 
+    long_borrowing_values = {
+        2020: 301726600.0,
+        2021: 25825000.0,
+        2022: 0.0,
+        2023: 220000000.0,
+        2024: 0.0,
+    }
+    lease_values = {
+        2020: 0.0,
+        2021: 94317364.27,
+        2022: 85244622.44,
+        2023: 95386367.70,
+        2024: 85454382.38,
+    }
+    parent_np_values = {
+        2020: 812063500.0,
+        2021: 1192960407.59,
+        2022: 1440520571.36,
+        2023: 2039772803.92,
+        2024: 3326708852.44,
+    }
+    minority_np_values = {
+        2020: 0.0,
+        2021: 0.0,
+        2022: 0.0,
+        2023: 0.0,
+        2024: -279847.75,
+    }
+    total_comprehensive_values = {
+        2020: 812063500.0,
+        2021: 1192960407.59,
+        2022: 1426180470.26,
+        2023: 2059178043.77,
+        2024: 3363815641.63,
+    }
+    parent_comprehensive_values = {
+        2020: 812063500.0,
+        2021: 1192960407.59,
+        2022: 1426180470.26,
+        2023: 2059178043.77,
+        2024: 3364095489.38,
+    }
+
     absorb_values = {
         2020: 0.0,
         2021: 1851262700.0,
@@ -402,6 +484,18 @@ def apply_manual_adjustments(balance_df: pd.DataFrame, income_df: pd.DataFrame, 
         2023: -28557118.63,
         2024: 31721563.28,
     }
+    for year, value in long_borrowing_values.items():
+        set_value(b, "长期借款", year, value)
+    for year, value in lease_values.items():
+        set_value(b, "租赁负债", year, value)
+    for year, value in parent_np_values.items():
+        set_value(i, "归母净利润", year, value)
+    for year, value in minority_np_values.items():
+        set_value(i, "少数股东损益", year, value)
+    for year, value in total_comprehensive_values.items():
+        set_value(i, "综合收益总额", year, value)
+    for year, value in parent_comprehensive_values.items():
+        set_value(i, "归母综合收益总额", year, value)
     for year, value in absorb_values.items():
         set_value(c, "吸收投资收到的现金", year, value)
     for year, value in fx_values.items():
