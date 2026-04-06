@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"
+    />
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="x5-page-mode" content="app" />
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="full-screen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <meta name="browsermode" content="application" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="expires" content="0" />
+    <script>
+      function GetUrlRelativePath() {
+        var url = document.location.toString();
+        var arrUrl = url.split("//");
+        var start = arrUrl[1].indexOf("/");
+        var relUrl = arrUrl[1].substring(start);
+        if (relUrl.indexOf("?") != -1) {
+          relUrl = "?" + relUrl.split("?")[1];
+        } else {
+          relUrl = "";
+        }
+        return relUrl;
+      }
+      if (
+        /AppleWebKit.*Mobile/i.test(navigator.userAgent) ||
+        /MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(
+          navigator.userAgent
+        )
+      ) {
+        if (window.location.href.indexOf("?mobile") < 0) {
+          try {
+            if (
+              /Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(
+                navigator.userAgent
+              )
+            ) {
+            }
+          } catch (e) {}
+        }
+      } else {
+        window.location.href =
+          "//www.nongfuspring.com/financialinfo.html" + GetUrlRelativePath();
+      }
+    </script>
+    <link
+      rel="alternate"
+      href="https://www.nongfuspring.com/mobile/financialinfo.html"
+      hreflang="x-default"
+    />
+    <link
+      rel="alternate"
+      href="https://en.nongfuspring.com/mobile/financialinfo.html"
+      hreflang="en"
+    />
+    <link
+      rel="alternate"
+      href="https://hk.nongfuspring.com/mobile/financialinfo.html"
+      hreflang="zh-Hant"
+    />
+    <link
+      rel="canonical"
+      href="https://www.nongfuspring.com/financialinfo.html"
+    />
+    <title>财务信息-农夫山泉</title>
+    <meta name="keywords" content="财务信息" />
+    <meta name="description" content="财务信息" />
+    <link
+      rel="stylesheet"
+      href="/assets/mobile/dist/umi.6b125561.css?_t=1773886483304"
+    />
+    <link
+      href="/assets/common/swiper.min.css?_t=1773886483304"
+      rel="stylesheet"
+    />
+    <link type="text/css" rel="stylesheet" href="" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="/assets/common/video/videojs-allPlugins.min.css?_t=1773886483304"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/assets/mobile/dist/vendors.fea274c5.chunk.css?_t=1773886483304"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/assets/mobile/dist/layouts__index.02f1fcff.chunk.css?_t=1773886483304"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/assets/mobile/dist/custom.css?_t=1773886483304"
+    />
+    <script src="/assets/common/swiper.min.js?_t=1773886483304"></script>
+    <script src="/assets/common/jquery.min.js?_t=1773886483304"></script>
+    <script src="/assets/common/gio.init.js?_t=1773886483304"></script>
+    <script src="/assets/js/common.js?_t=1773886483304"></script>
+  </head>
+  <body>
+    <noscript
+      ><strong
+        >很抱歉，如果没有启用JavaScript，此项目将无法正常运行。请启用它。</strong
+      ></noscript
+    >
+    <script>
+      // 禁止ios10双击/手势缩放
+      window.onload = function () {
+        document.addEventListener("touchstart", function (event) {
+          if (event.touches.length > 1) {
+            event.preventDefault();
+          }
+        });
+        var lastTouchEnd = 0;
+        document.addEventListener(
+          "touchend",
+          function (event) {
+            var now = new Date().getTime();
+            if (now - lastTouchEnd <= 300) {
+              event.preventDefault();
+            }
+            lastTouchEnd = now;
+          },
+          false
+        );
+        document.addEventListener("gesturestart", function (event) {
+          event.preventDefault();
+        });
+      };
+    </script>
+    <script src="/assets/common/video/hwplayer.min.js?_t=1773886483304"></script>
+    <!-- 处理英文断行 -->
+    <script
+      src="/assets/common/Hyphenator_Loader.js?_t=1773886483304"
+      type="text/javascript"
+    ></script>
+    <div id="root">
+      <header class="header nav-wrapper" style="opacity: 1">
+        <div class="nav">
+          <div class="nav-nav">
+            <div class="logo">
+              <a href="/mobile/"
+                ><img
+                  class="logo"
+                  src="/assets/img/mobile/nav/logo_nav.png"
+                  alt="img"
+              /></a>
+            </div>
+            <div
+              id="toggleNav"
+              class="nfsq-site-content-components-nav-index-mobileMenu"
+            >
+              <img
+                id="toggleOpen"
+                class="nfsq-site-content-components-nav-index-iconMenuOpen"
+                src="/assets/img/mobile/nav/icon_menu_open@2x.png"
+                alt="img"
+              />
+              <img
+                id="toggleClose"
+                style="display: none"
+                class="nfsq-site-content-components-nav-index-iconMenuClose"
+                src="/assets/img/mobile/nav/icon_menu_close@2x.png"
+                alt="img"
+              />
+            </div>
+          </div>
+          <div
+            class="header-menu"
+            style="transform: translate(0px, 0px); height: 0px"
+          >
+            <ul
+              class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+              role="menu"
+            >
+              <li
+                name="/home"
+                class="ant-menu-item header-item"
+                role="menuitem"
+                style="padding-left: 24px"
+              >
+                <a
+                  class="header-item-block undefined"
+                  href="/mobile/"
+                  aria-current="page"
+                  ><div name="menu.home">首页</div></a
+                >
+              </li>
+              <li
+                name="/about-us"
+                class="ant-menu-submenu ant-menu-submenu-inline header-item"
+                role="menuitem"
+              >
+                <div
+                  class="ant-menu-submenu-title"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  style="padding-left: 24px"
+                >
+                  <div class="header-item-block undefined">
+                    <div name="menu.about-us">关于我们</div>
+                    <i class="ant-menu-submenu-arrow"></i>
+                  </div>
+                  <i class="ant-menu-submenu-arrow"></i>
+                </div>
+                <ul
+                  id="/about-us$Menu"
+                  class="ant-menu ant-menu-sub ant-menu-inline ant-menu-hidden"
+                  role="menu"
+                  style=""
+                >
+                  <li
+                    name="/about-us/introduce"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a
+                      aria-current="page"
+                      class="item-sub-item"
+                      href="/mobile/aboutus/introduce.html"
+                      ><div name="menu.about-us.introduce">企业介绍</div></a
+                    >
+                  </li>
+                  <li
+                    name="/about-us/management"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a
+                      class="item-sub-item"
+                      href="/mobile/aboutus/management.html"
+                    >
+                      <div name="menu.about-us.management">管理层信息</div>
+                    </a>
+                  </li>
+                  <li
+                    name="/about-us/culture"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a
+                      class="item-sub-item"
+                      href="/mobile/aboutus/culture.html"
+                    >
+                      <div name="menu.about-us.culture">人和文化</div>
+                    </a>
+                  </li>
+                  <li
+                    name="/about-us/video"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a
+                      class="item-sub-item"
+                      href="/mobile/aboutus/videolist.html"
+                    >
+                      <div name="menu.about-us.video">宣传片</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li
+                name="/products"
+                class="ant-menu-item header-item"
+                role="menuitem"
+                style="padding-left: 24px"
+              >
+                <a
+                  class="header-item-block undefined"
+                  href="/mobile/goods/logos.html"
+                >
+                  <div name="menu.products">旗下产品</div>
+                </a>
+              </li>
+              <li
+                name="/water-source"
+                class="ant-menu-submenu ant-menu-submenu-inline header-item"
+                role="menuitem"
+              >
+                <div
+                  class="ant-menu-submenu-title"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  style="padding-left: 24px"
+                >
+                  <div class="header-item-block undefined">
+                    <div name="menu.water-source">水源与产地</div>
+                    <i class="ant-menu-submenu-arrow"></i>
+                  </div>
+                  <i class="ant-menu-submenu-arrow"></i>
+                </div>
+                <ul
+                  id="/water-source$Menu"
+                  class="ant-menu ant-menu-sub ant-menu-hidden ant-menu-inline"
+                  role="menu"
+                  style=""
+                >
+                  <li
+                    name="/water-source/water-introduce"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a
+                      class="item-sub-item"
+                      href="/mobile/originplace/water-origin.html"
+                    >
+                      <div name="menu.water-source.introduce">水源介绍</div>
+                    </a>
+                  </li>
+                  <li
+                    name="/water-source/planting"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a
+                      class="item-sub-item"
+                      href="/mobile/originplace/production-origin.html"
+                    >
+                      <div name="menu.water-source.planting">种植基地介绍</div>
+                    </a>
+                  </li>
+                  <li
+                    name="/water-source/factory"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a
+                      class="item-sub-item"
+                      href="/mobile/originplace/factory.html"
+                    >
+                      <div name="menu.water-source.factory">工厂介绍</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li
+                name="/water-health"
+                class="ant-menu-item header-item"
+                role="menuitem"
+                style="padding-left: 24px"
+              >
+                <a
+                  class="header-item-block undefined"
+                  href="/mobile/water-health.html"
+                >
+                  <div name="menu.water-health">水健康知识</div>
+                </a>
+              </li>
+              <li
+                name="/investor-relations"
+                class="ant-menu-submenu ant-menu-submenu-inline header-item ant-menu-submenu-open"
+                role="menuitem"
+              >
+                <div
+                  class="ant-menu-submenu-title"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  style="padding-left: 24px"
+                >
+                  <div class="header-item-block undefined">
+                    <div name="menu.investor-relations">投资者关系</div>
+                    <i class="ant-menu-submenu-arrow"></i>
+                  </div>
+                  <i class="ant-menu-submenu-arrow"></i>
+                </div>
+                <ul
+                  id="/investor-relations$Menu"
+                  class="ant-menu ant-menu-sub ant-menu-inline"
+                  role="menu"
+                  style=""
+                >
+                  <li
+                    name="/investor-relations/announcement"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a class="item-sub-item" href="/mobile/announcement.html">
+                      <div name="menu.investor-relations.announcement">
+                        公告及通函
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    name="/investor-relations/finance"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a
+                      class="item-sub-item active"
+                      href="/mobile/financialinfo.html"
+                    >
+                      <div name="menu.investor-relations.finance">财务信息</div>
+                    </a>
+                  </li>
+                  <li
+                    name="/investor-relations/governance"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a class="item-sub-item" href="/mobile/governance.html">
+                      <div name="menu.investor-relations.governance">
+                        公司治理
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a class="item-sub-item" href="/mobile/sustainability.html">
+                      <div name="menu.investor-relations.governance">
+                        ESG/可持续发展
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a
+                      class="item-sub-item"
+                      href="/mobile/iframe.html?url=/adapting/investor_activity?language=zh-CN"
+                    >
+                      <div name="menu.investor-relations.governance">
+                        投资者日历
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li
+                name="/news"
+                class="ant-menu-submenu ant-menu-submenu-inline header-item"
+                role="menuitem"
+              >
+                <div
+                  class="ant-menu-submenu-title"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  style="padding-left: 24px"
+                >
+                  <div class="header-item-block undefined">
+                    <div name="menu.news">新闻公告</div>
+                    <i class="ant-menu-submenu-arrow"></i>
+                  </div>
+                  <i class="ant-menu-submenu-arrow"></i>
+                </div>
+                <ul
+                  id="/news$Menu"
+                  class="ant-menu ant-menu-sub ant-menu-hidden ant-menu-inline"
+                  role="menu"
+                  style=""
+                >
+                  <li
+                    name="/news/tender-notice"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a
+                      class="item-sub-item"
+                      href="/mobile/bid-announcement.html"
+                    >
+                      <div name="menu.news.tender-notice">招标公告</div>
+                    </a>
+                  </li>
+                  <li
+                    name="/news/news-list"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a class="item-sub-item" href="/mobile/media-centre.html">
+                      <div name="menu.news.media">媒体报道</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li
+                name="/contact-us"
+                class="ant-menu-submenu ant-menu-submenu-inline header-item"
+                role="menuitem"
+              >
+                <div
+                  class="ant-menu-submenu-title"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  style="padding-left: 24px"
+                >
+                  <div class="header-item-block undefined">
+                    <div name="menu.contact-us">联系我们</div>
+                    <i class="ant-menu-submenu-arrow"></i>
+                  </div>
+                  <i class="ant-menu-submenu-arrow"></i>
+                </div>
+                <ul
+                  id="/contact-us$Menu"
+                  class="ant-menu ant-menu-sub ant-menu-hidden ant-menu-inline"
+                  role="menu"
+                  style=""
+                >
+                  <li
+                    name="/contact-us/job"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a
+                      class="item-sub-item"
+                      to="//www.baidu.com"
+                      href="https://jobs.yst.com.cn/"
+                    >
+                      <div name="menu.contact-us.job">招聘</div>
+                    </a>
+                  </li>
+                  <li
+                    name="/contact-us/address"
+                    class="ant-menu-item item-sub"
+                    role="menuitem"
+                    style="padding-left: 48px"
+                  >
+                    <a class="item-sub-item" href="/mobile/contact.html">
+                      <div name="menu.contact-us.address">地址/电话</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="nfsq-site-content-components-toggle-language-index-languageWrapper"
+            id="langList"
+          >
+            <div
+              class="nfsq-site-content-components-toggle-language-index-languageItem nfsq-site-content-components-toggle-language-index-active"
+            >
+              简体中文
+            </div>
+
+            <a href="//en.nongfuspring.com/mobile/" title="Nongfu Spring">
+              <div
+                class="nfsq-site-content-components-toggle-language-index-languageItem"
+              >
+                English
+              </div>
+            </a>
+            <a href="https://www.nongfuspring.com/hk/mobile/" title="農夫山泉"
+              ><div
+                class="nfsq-site-content-components-toggle-language-index-languageItem"
+              >
+                繁體中文
+              </div></a
+            >
+                        <a href="https://www.nongfuspring.com/sg/mobile/" title="Nongfu Spring">
+              <div
+              style="width: 110px;"
+                class="nfsq-site-content-components-toggle-language-index-languageItem"
+              >
+                 Singapore English
+              </div>
+            </a>
+                  <a href="https://www.nongfuspring.com/my/mobile/" title="Nongfu Spring">
+              <div
+              style="width: 110px;"
+                class="nfsq-site-content-components-toggle-language-index-languageItem"
+              >
+                 Malaysia English
+              </div>
+            </a>
+          </div>
+        </div>
+      </header>
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="/assets/mobile/dist/p__investor-relations__finance.57b4ee61.chunk.css?_t=1773886483304"
+      />
+      <script
+        charset="utf-8"
+        src="/assets/mobile/dist/p__investor-relations__finance.b180c9f1.async.js?_t=1773886483304"
+      ></script>
+      <div
+        class="nfsq-site-content-layouts-index-layouts"
+        style="display: block; padding-top: 59.0278px"
+      >
+        <div
+          class="nfsq-site-content-pages-investor-relations-finance-index-announcement"
+        >
+          <div
+            class="nfsq-site-content-pages-investor-relations-finance-share-price-card-index-sharePriceCard right-stock"
+          ></div>
+          <h2>财务信息</h2>
+          <ul class="list-box"></ul>
+        </div>
+        <div class="footer-wrapper">
+          <div class="footer">
+            <div
+              class="copyright"
+              style="transform: translate(0px, 0px); opacity: 1"
+            >
+              <div class="text">
+                <span class="text-item"
+                  >© 2021 Nongfu Spring. All rights reserved.</span
+                ><a
+                  href="https://beian.miit.gov.cn/#/Integrated/index"
+                  class="text-item number"
+                  >浙ICP备：10201315号-3</a
+                >
+              </div>
+              <div class="logo">
+                <img src="/assets/img/mobile/nav/logo_nav.png" alt="img" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function loadNewsList() {
+        $.getJSON(
+          "/cms-api-web/investor-finances/getFinanceList?status=published&lang_code=zh-CN&page_size=100",
+          function (newslist) {
+            renderCardListByDataForMobile(newslist);
+          }
+        );
+      }
+      $(function () {
+        loadNewsList();
+      });
+      function loadStock() {
+        $.getJSON(
+          "/cms-api-web/stock-infos/getStockInfo?lang_code=zh-CN",
+          function (stockdata) {
+            ///cms-api-web/stock-infos/getStockInfo?lang_code=zh-CN
+
+            $(".right-stock").html(""); //清空内容
+            if (stockdata.data.change > 0) {
+              var stockcolor = "color: rgb(46, 156, 0);";
+              var stockicon = "&#xe60f;";
+            } else {
+              var stockcolor = "color: rgb(219, 0, 41);";
+              var stockicon = "&#xe610;";
+            }
+
+            $(".right-stock").append(
+              '<div class="nfsq-site-content-pages-investor-relations-finance-share-price-card-index-cardDivName"> ' +
+                stockdata.data.stock_name +
+                " " +
+                stockdata.data.stock_code +
+                ' </div> <div style="' +
+                stockcolor +
+                '"> <span class="nfsq-site-content-pages-investor-relations-finance-share-price-card-index-cardSpanPrice">' +
+                stockdata.data.lowest_price +
+                '</span> <span class="nfsq-site-content-pages-investor-relations-finance-share-price-card-index-cardSpanHkd">' +
+                stockdata.data.unit +
+                '</span><i class="nfsq-site-content-pages-investor-relations-finance-share-price-card-index-cardIcon iconfont">' +
+                stockicon +
+                '</i><span class="nfsq-site-content-pages-investor-relations-finance-share-price-card-index-cardSpanRate">' +
+                stockdata.data.change +
+                "(" +
+                stockdata.data.change_p +
+                ')</span> </div> <div class="nfsq-site-content-pages-investor-relations-finance-share-price-card-index-cardDivDesc"> ' +
+                stockdata.data.delay_time +
+                " <br> " +
+                stockdata.data.delay_text +
+                " </div>"
+            );
+          }
+        );
+      }
+      $(function () {
+        loadStock();
+      });
+    </script>
+    <script>
+      // 初始化导航事件
+      function initNav() {
+        $("#toggleNav").click(function () {
+          if ($(".nav").hasClass("open")) {
+            $(".nav").removeClass("open");
+            $(".header-menu").slideUp("normal");
+            $(".nfsq-site-content-layouts-index-layouts").show();
+            $("#toggleOpen").show();
+            $("#toggleClose").hide();
+            $("#langList").hide();
+          } else {
+            $(".header-menu").show().css("height", "auto");
+            $(".nav").addClass("open");
+            $(".nfsq-site-content-layouts-index-layouts").hide();
+            $("#toggleOpen").hide();
+            $("#toggleClose").show();
+            $("#langList").show();
+          }
+        });
+
+        function setItemHide(parent) {
+          if (!parent.hasClass("ant-menu-submenu-open")) {
+            return;
+          }
+          parent.removeClass("ant-menu-submenu-open");
+          parent
+            .find(".ant-menu")
+            .animate({ opacity: 0, height: 0 }, 200, "linear", function () {
+              $(this).addClass("ant-menu-hidden");
+            });
+        }
+        function setItemShow(parent) {
+          if (parent.hasClass("ant-menu-submenu-open")) {
+            return;
+          }
+          parent.addClass("ant-menu-submenu-open");
+          // 57单项高度，44padding总高度
+          const h = parent.find(".ant-menu>li").length * 57 + 44;
+          parent
+            .find(".ant-menu")
+            .css({ opacity: 0, height: 0, display: "" })
+            .removeClass("ant-menu-hidden")
+            .animate({ opacity: 1, height: h + "px" }, 200);
+        }
+
+        // 导航展开与收起
+        $(".header-menu .ant-menu-submenu-title").click(function () {
+          const parent = $(this).parent();
+          parent.addClass("ant-menu-submenu-active");
+          if (parent.hasClass("ant-menu-submenu-open")) {
+            setItemHide(parent);
+          } else {
+            setItemShow(parent);
+            parent.siblings().each(function () {
+              setItemHide($(this));
+            });
+          }
+        });
+      }
+
+      $(function () {
+        initNav();
+      });
+    </script>
+    <script type="text/javascript">
+      // 腾讯统计
+      var _mtac = {};
+      (function () {
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500718139");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+      })();
+    </script>
+  </body>
+</html>
