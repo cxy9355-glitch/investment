@@ -44,12 +44,16 @@ function formatDate(value) {
   return `${date.getFullYear()}-${month}-${day}`;
 }
 
+function getAvailableYears() {
+  const start = parseDate(dataBundle.meta.dateRange.start);
+  const end = parseDate(dataBundle.meta.dateRange.end);
+  return (end - start) / (365.25 * 24 * 60 * 60 * 1000);
+}
+
 function getRangeLabel(range) {
-  if (range === "1Y") {
-    return "近1年";
-  }
-  if (range === "3Y") {
-    return "近3年";
+  const yearMatch = /^(\d+)Y$/.exec(range);
+  if (yearMatch) {
+    return `近${yearMatch[1]}年`;
   }
   return "全部样本";
 }
@@ -84,14 +88,32 @@ function getFilteredRecords() {
     return records;
   }
 
+  const yearMatch = /^(\d+)Y$/.exec(state.range);
+  const yearWindow = yearMatch ? Number(yearMatch[1]) : 3;
   const boundary = new Date(latest);
-  if (state.range === "1Y") {
-    boundary.setFullYear(boundary.getFullYear() - 1);
-  } else {
-    boundary.setFullYear(boundary.getFullYear() - 3);
-  }
+  boundary.setFullYear(boundary.getFullYear() - yearWindow);
 
   return records.filter((item) => parseDate(item.date) >= boundary);
+}
+
+function setupRangeButtons() {
+  const availableYears = getAvailableYears();
+  const tolerance = 0.25;
+  rangeSwitch.querySelectorAll("button[data-range]").forEach((button) => {
+    const yearMatch = /^(\d+)Y$/.exec(button.dataset.range);
+    if (!yearMatch) {
+      button.disabled = false;
+      button.removeAttribute("title");
+      return;
+    }
+    const requiredYears = Number(yearMatch[1]);
+    const isAvailable = availableYears + tolerance >= requiredYears;
+    button.disabled = !isAvailable;
+    button.title = isAvailable ? "" : `当前公开样本不足${requiredYears}年`;
+    if (!isAvailable && state.range === button.dataset.range) {
+      state.range = "ALL";
+    }
+  });
 }
 
 function getActiveRecord(records) {
@@ -430,7 +452,7 @@ function render() {
 
 rangeSwitch.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-range]");
-  if (!button) {
+  if (!button || button.disabled) {
     return;
   }
   state.range = button.dataset.range;
@@ -442,6 +464,7 @@ rangeSwitch.addEventListener("click", (event) => {
 });
 
 buildHeroMeta();
+setupRangeButtons();
 buildLegend();
 buildBenchmarks();
 buildNotes();

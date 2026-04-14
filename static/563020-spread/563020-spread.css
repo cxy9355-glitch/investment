@@ -156,6 +156,12 @@ h1 {
   transform: translateY(-1px);
 }
 
+.range-switch button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .range-switch .is-active,
 .legend-chip.is-active {
   border-color: transparent;
