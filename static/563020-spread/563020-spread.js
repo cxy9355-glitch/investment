@@ -80,6 +80,29 @@ function calculateMidrankPercentile(records, key, targetValue) {
   return ((lowerCount + (equalCount / 2)) / values.length) * 100;
 }
 
+function calculateQuantile(records, key, percentile) {
+  const values = records
+    .map((item) => item[key])
+    .filter((value) => Number.isFinite(value))
+    .sort((left, right) => left - right);
+
+  if (!values.length) {
+    return null;
+  }
+  if (values.length === 1) {
+    return values[0];
+  }
+
+  const index = (values.length - 1) * percentile;
+  const lower = Math.floor(index);
+  const upper = Math.ceil(index);
+  if (lower === upper) {
+    return values[lower];
+  }
+  const weight = index - lower;
+  return values[lower] * (1 - weight) + values[upper] * weight;
+}
+
 function getFilteredRecords() {
   const records = dataBundle.records;
   const latest = parseDate(records[records.length - 1].date);
@@ -120,20 +143,23 @@ function getActiveRecord(records) {
   return records.find((item) => item.date === state.activeDate) || records[records.length - 1];
 }
 
-function buildHeroMeta() {
+function buildHeroMeta(records = dataBundle.records) {
   const meta = dataBundle.meta;
+  const rangeLabel = getRangeLabel(state.range);
+  const latestRecord = records.at(-1) || meta.latest;
+  const spreadPercentile = calculateMidrankPercentile(records, "spread", latestRecord.spread);
   document.getElementById("heroMeta").innerHTML = `
     <div class="hero-meta-card">
       <p class="eyebrow">数据区间</p>
-      <strong>${meta.dateRange.start} ~ ${meta.dateRange.end}</strong>
+      <strong>${records[0].date} ~ ${records.at(-1).date}</strong>
     </div>
     <div class="hero-meta-card">
-      <p class="eyebrow">当前息差分位</p>
-      <strong>${formatPercent(meta.spreadPercentile, 2)}</strong>
+      <p class="eyebrow">${rangeLabel}息差分位</p>
+      <strong>${formatPercent(spreadPercentile, 2)}</strong>
     </div>
     <div class="hero-meta-card">
       <p class="eyebrow">最新指数点位</p>
-      <strong>${formatNumber(meta.latest.closePoint, 2)}</strong>
+      <strong>${formatNumber(latestRecord.closePoint, 2)}</strong>
     </div>
   `;
 }
@@ -157,9 +183,16 @@ function buildLegend() {
   }
 }
 
-function buildBenchmarks() {
-  const { p20, p50, p80 } = dataBundle.meta.spreadQuantiles;
+function buildBenchmarks(records) {
+  const p20 = calculateQuantile(records, "spread", 0.2);
+  const p50 = calculateQuantile(records, "spread", 0.5);
+  const p80 = calculateQuantile(records, "spread", 0.8);
+  const rangeLabel = getRangeLabel(state.range);
   document.getElementById("benchmarkGrid").innerHTML = `
+    <div class="benchmark-item">
+      <span>${rangeLabel}口径</span>
+      <strong>息差基准</strong>
+    </div>
     <div class="benchmark-item">
       <span>20% 分位</span>
       <strong>${formatPercent(p20, 2)}</strong>
@@ -192,6 +225,7 @@ function updateReadout(record, currentRangeRecords) {
   const rangeLabel = getRangeLabel(state.range);
   const rangePercentile = calculateMidrankPercentile(currentRangeRecords, "dividendYield", record.dividendYield);
   const fullSamplePercentile = record.dividendYieldPercentile;
+  const rangeSpreadPercentile = calculateMidrankPercentile(currentRangeRecords, "spread", record.spread);
 
   document.getElementById("readoutDate").textContent = formatDate(record.date);
   document.getElementById("readoutList").innerHTML = `
@@ -199,6 +233,7 @@ function updateReadout(record, currentRangeRecords) {
     <div class="readout-row"><dt>10Y 国债利率</dt><dd>${formatPercent(record.treasuryYield, 2)}</dd></div>
     <div class="readout-row"><dt>股债息差</dt><dd>${formatPercent(record.spread, 2)}</dd></div>
     <div class="readout-row"><dt>${rangeLabel}股息率分位</dt><dd>${formatPercent(rangePercentile, 2)}</dd></div>
+    <div class="readout-row"><dt>${rangeLabel}息差分位</dt><dd>${formatPercent(rangeSpreadPercentile, 2)}</dd></div>
     <div class="readout-row"><dt>全样本股息率分位</dt><dd>${formatPercent(fullSamplePercentile, 2)}</dd></div>
     <div class="readout-row"><dt>指数点位</dt><dd>${formatNumber(record.closePoint, 2)}</dd></div>
   `;
@@ -208,7 +243,7 @@ function updateReadout(record, currentRangeRecords) {
   document.getElementById("treasuryYieldValue").textContent = formatPercent(record.treasuryYield, 2);
   document.getElementById("treasuryYieldSub").textContent = "中国 10 年期国债收益率";
   document.getElementById("spreadValue").textContent = formatPercent(record.spread, 2);
-  document.getElementById("spreadSub").textContent = `全样本分位 ${formatPercent(dataBundle.meta.spreadPercentile, 2)}`;
+  document.getElementById("spreadSub").textContent = `${rangeLabel}分位 ${formatPercent(rangeSpreadPercentile, 2)}`;
   document.getElementById("dividendPercentileValue").textContent = formatPercent(rangePercentile, 2);
   document.getElementById("dividendPercentileSub").textContent = `${rangeLabel}口径；全样本 ${formatPercent(fullSamplePercentile, 2)}`;
 }
@@ -231,11 +266,16 @@ function getChartContext(records) {
 
   const visibleKeys = seriesCatalog.filter((series) => state.visible[series.key]).map((series) => series.key);
   const values = records.flatMap((item) => visibleKeys.map((key) => item[key]));
+  const currentSpreadQuantiles = {
+    p20: calculateQuantile(records, "spread", 0.2),
+    p50: calculateQuantile(records, "spread", 0.5),
+    p80: calculateQuantile(records, "spread", 0.8)
+  };
   if (state.visible.spread) {
     values.push(
-      dataBundle.meta.spreadQuantiles.p20,
-      dataBundle.meta.spreadQuantiles.p50,
-      dataBundle.meta.spreadQuantiles.p80
+      currentSpreadQuantiles.p20,
+      currentSpreadQuantiles.p50,
+      currentSpreadQuantiles.p80
     );
   }
 
@@ -255,7 +295,7 @@ function getChartContext(records) {
     return height - margin.bottom - ((value - yMin) / (yMax - yMin || 1)) * innerHeight;
   };
 
-  return { width, height, margin, xMin, xMax, yMin, yMax, xScale, yScale };
+  return { width, height, margin, xMin, xMax, yMin, yMax, xScale, yScale, currentSpreadQuantiles };
 }
 
 function buildLinePath(records, key, xScale, yScale) {
@@ -277,7 +317,7 @@ function buildSpreadArea(records, xScale, yScale, bottom) {
 }
 
 function renderChart(records) {
-  const { width, height, margin, yMin, yMax, xScale, yScale } = getChartContext(records);
+  const { width, height, margin, yMin, yMax, xScale, yScale, currentSpreadQuantiles } = getChartContext(records);
   const activeRecord = getActiveRecord(records);
 
   svg.innerHTML = "";
@@ -341,7 +381,7 @@ function renderChart(records) {
 
     [["p20", "20% 分位", "quantile-p20"], ["p50", "50% 分位", "quantile-p50"], ["p80", "80% 分位", "quantile-p80"]]
       .forEach(([key, labelText, className], idx) => {
-        const y = yScale(dataBundle.meta.spreadQuantiles[key]);
+        const y = yScale(currentSpreadQuantiles[key]);
         svg.appendChild(createSvgNode("line", {
           x1: margin.left,
           x2: width - margin.right,
@@ -354,7 +394,7 @@ function renderChart(records) {
           y: y + (idx === 1 ? -6 : 4),
           class: "quantile-label"
         });
-        label.textContent = `${labelText} ${formatPercent(dataBundle.meta.spreadQuantiles[key], 2)}`;
+        label.textContent = `${labelText} ${formatPercent(currentSpreadQuantiles[key], 2)}`;
         svg.appendChild(label);
       });
   }
@@ -446,6 +486,8 @@ function positionTooltip(event, record) {
 function render() {
   const records = getFilteredRecords();
   const activeRecord = getActiveRecord(records);
+  buildHeroMeta(records);
+  buildBenchmarks(records);
   updateReadout(activeRecord, records);
   renderChart(records);
 }
@@ -463,9 +505,7 @@ rangeSwitch.addEventListener("click", (event) => {
   render();
 });
 
-buildHeroMeta();
 setupRangeButtons();
 buildLegend();
-buildBenchmarks();
 buildNotes();
 render();

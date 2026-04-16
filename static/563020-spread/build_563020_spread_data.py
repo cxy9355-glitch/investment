@@ -272,6 +272,22 @@ def align_records(
     return aligned
 
 
+def populate_dividend_percentiles(records: list[dict]) -> None:
+    """按当前输出样本重算全部股息率分位。
+
+    第三方源字段可能不是“股息率从低到高”的历史分位，直接沿用容易把口径带偏。
+    页面统一使用 midrank 口径：股息率越低，分位越低。
+    """
+    if not records:
+        return
+    dividend_values = [item["dividendYield"] for item in records]
+    for item in records:
+        item["dividendYieldPercentile"] = round(
+            calculate_midrank_percentile(dividend_values, item["dividendYield"]),
+            3,
+        )
+
+
 def compute_quantile(values: list[float], percentile: float) -> float:
     if not values:
         return math.nan
@@ -384,6 +400,7 @@ def main() -> None:
 
     treasury_records = fetch_treasury_history(args.start_date, args.end_date)
     records = align_records(dividend_records, treasury_records)
+    populate_dividend_percentiles(records)
     meta = build_meta(records, args.source)
     write_bundle(args.output, meta, records)
     print(
