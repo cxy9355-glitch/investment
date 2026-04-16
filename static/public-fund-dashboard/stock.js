@@ -24,10 +24,11 @@ function renderMetrics(detail) {
   const metrics = [
     ["PE(TTM)", formatNumber(detail.snapshot.peTtm, 2)],
     ["PE 历史分位", formatPercent(detail.snapshot.pePercentile, 2)],
-    ["PB", formatNumber(detail.snapshot.pb, 2)],
-    ["ROE", formatPercent(detail.snapshot.roe, 2)],
-    ["ROA", formatPercent(detail.snapshot.roa, 2)],
-    ["最新基金家数", detail.snapshot.latestFundCount ?? "--"]
+    ["PB 历史分位", formatPercent(detail.snapshot.pbPercentile, 2)],
+    ["ROE (TTM)", formatPercent(detail.snapshot.roe, 2)],
+    ["ROA (TTM)", formatPercent(detail.snapshot.roa, 2)],
+    ["ROIC (年化)", formatPercent(detail.snapshot.roic, 2)],
+    ["毛利率", formatPercent(detail.snapshot.grossMargin, 2)],
   ];
   nodes.detailMetrics.innerHTML = metrics
     .map(

@@ -62,7 +62,7 @@
           <input id="pbFilter" type="number" min="0" max="100" step="1" placeholder="例如 20">
         </label>
         <label class="field">
-          <span>ROE ≥</span>
+          <span>ROE(TTM) ≥</span>
           <input id="roeFilter" type="number" min="0" max="100" step="1" placeholder="例如 8">
         </label>
         <label class="field">
@@ -71,8 +71,6 @@
         </label>
       </div>
     </section>
-
-    <section class="summary-grid" id="summaryGrid"></section>
 
     <section class="table-panel">
       <div class="section-head table-head">
@@ -86,14 +84,18 @@
         <table>
           <thead>
             <tr>
-              <th data-sort="rank">排名</th>
-              <th data-sort="name">股票</th>
-              <th data-sort="currentValue">当前口径值</th>
-              <th data-sort="cumulativeValue">累计口径值</th>
-              <th data-sort="pePercentile">PE分位</th>
-              <th data-sort="pbPercentile">PB分位</th>
-              <th data-sort="roe">ROE</th>
-              <th data-sort="latestFundCount">最新基金家数</th>
+            <th data-sort="rank">排名</th>
+            <th data-sort="name">股票</th>
+            <th data-sort="currentValue">当前口径值</th>
+            <th data-sort="cumulativeValue">累计口径值</th>
+            <th data-sort="pePercentile">PE分位</th>
+            <th data-sort="pbPercentile">PB分位</th>
+            <th data-sort="roe">ROE(TTM)</th>
+            <th data-sort="roa">ROA(TTM)</th>
+            <th data-sort="roic">ROIC(年化)</th>
+            <th data-sort="grossMargin">毛利率</th>
+            <th data-sort="netMargin">净利率</th>
+            <th data-sort="latestFundCount">最新基金家数</th>
               <th data-sort="candidate">候选</th>
               <th>详情</th>
             </tr>

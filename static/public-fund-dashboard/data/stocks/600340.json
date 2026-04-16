@@ -10,9 +10,9 @@
     "pb": 4.43,
     "pbPercentile": 68.1445,
     "valuationScore": 35.599,
-    "roe": null,
-    "roa": -3.43,
-    "roic": -1.85,
+    "roe": 118.13,
+    "roa": 4.21,
+    "roic": -2.46,
     "grossMargin": 8.96,
     "netMargin": -255.66,
     "latestFundCount": 8,
@@ -26,7 +26,7 @@
       "cumulativeValue": 217.458111,
       "averageValue": 3.749278,
       "peakValue": 14.5332,
-      "candidateReason": ""
+      "candidateReason": "ROE(TTM)较高"
     },
     "pool-share": {
       "rank": 160,
@@ -34,7 +34,7 @@
       "cumulativeValue": 7.15066,
       "averageValue": 0.123287,
       "peakValue": 0.530678,
-      "candidateReason": ""
+      "candidateReason": "ROE(TTM)较高"
     }
   },
   "series": [

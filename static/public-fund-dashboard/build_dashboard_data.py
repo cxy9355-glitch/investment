@@ -121,12 +121,24 @@ def apply_candidate_logic(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     df["valuation_score"] = df[["pe_ttm_percentile", "pb_percentile"]].mean(axis=1)
     df["is_st"] = df["stock_name"].astype(str).str.contains("ST", na=False)
+    
+    # Calculate ROE TTM from PB and PE_TTM
+    df["ROE_TTM"] = df["pb"] / df["pe_ttm"] * 100
+    
+    # Calculate ROA TTM (ROE_TTM * Equity/Assets)
+    df["ROA_TTM"] = df["ROE_TTM"] * (1 - df["ZCFZL"].fillna(0) / 100)
+    
+    # Calculate ROIC Annualized
+    months = pd.to_datetime(df["REPORT_DATE"]).dt.month
+    df["annual_factor"] = 12.0 / months.where(months.isin([3, 6, 9, 12]), 12.0)
+    df["ROIC_ANNUAL"] = df["ROIC"].fillna(0) * df["annual_factor"]
+    
     df["candidate"] = (
         (~df["is_st"])
         & (df["appearances"] >= 20)
         & (df["latest_hold_fund_count"] >= 30)
-        & (df["ROEJQ"].fillna(0) >= 8)
-        & (df["ZZCJLL"].fillna(0) >= 3)
+        & (df["ROE_TTM"].fillna(0) >= 8)
+        & (df["ROA_TTM"].fillna(0) >= 3)
     )
     return df
 
@@ -145,12 +157,12 @@ def build_reason(row: pd.Series, methodology_key: str) -> str:
             parts.append("当前机构持股深度高")
         if pd.notna(row.get("average_value")) and row["average_value"] >= 10:
             parts.append("长期持股比例深")
-    if pd.notna(row.get("ROEJQ")) and row["ROEJQ"] >= 15:
-        parts.append("ROE较高")
-    elif pd.notna(row.get("ROEJQ")) and row["ROEJQ"] >= 10:
-        parts.append("ROE稳定")
-    if pd.notna(row.get("ZZCJLL")) and row["ZZCJLL"] >= 8:
-        parts.append("ROA/总资产净利率较好")
+    if pd.notna(row.get("ROE_TTM")) and row["ROE_TTM"] >= 15:
+        parts.append("ROE(TTM)较高")
+    elif pd.notna(row.get("ROE_TTM")) and row["ROE_TTM"] >= 10:
+        parts.append("ROE(TTM)稳定")
+    if pd.notna(row.get("ROA_TTM")) and row["ROA_TTM"] >= 8:
+        parts.append("ROA(TTM)较好")
     return "；".join(parts)
 
 
@@ -191,6 +203,7 @@ def main() -> None:
         "ROEJQ",
         "ZZCJLL",
         "ROIC",
+        "ZCFZL",
         "XSMLL",
         "XSJLL",
     ]
@@ -272,9 +285,9 @@ def main() -> None:
                     "valuationScore": round(float(row["valuation_score"]), 4)
                     if pd.notna(row["valuation_score"])
                     else None,
-                    "roe": round(float(row["ROEJQ"]), 2) if pd.notna(row["ROEJQ"]) else None,
-                    "roa": round(float(row["ZZCJLL"]), 2) if pd.notna(row["ZZCJLL"]) else None,
-                    "roic": round(float(row["ROIC"]), 2) if pd.notna(row["ROIC"]) else None,
+                    "roe": round(float(row["ROE_TTM"]), 2) if pd.notna(row.get("ROE_TTM")) else None,
+                    "roa": round(float(row["ROA_TTM"]), 2) if pd.notna(row.get("ROA_TTM")) else None,
+                    "roic": round(float(row["ROIC_ANNUAL"]), 2) if pd.notna(row.get("ROIC_ANNUAL")) else None,
                     "grossMargin": round(float(row["XSMLL"]), 2)
                     if pd.notna(row["XSMLL"])
                     else None,
@@ -319,9 +332,9 @@ def main() -> None:
                 "valuationScore": round(float(base_row["valuation_score"]), 4)
                 if pd.notna(base_row["valuation_score"])
                 else None,
-                "roe": round(float(base_row["ROEJQ"]), 2) if pd.notna(base_row["ROEJQ"]) else None,
-                "roa": round(float(base_row["ZZCJLL"]), 2) if pd.notna(base_row["ZZCJLL"]) else None,
-                "roic": round(float(base_row["ROIC"]), 2) if pd.notna(base_row["ROIC"]) else None,
+                "roe": round(float(base_row["ROE_TTM"]), 2) if pd.notna(base_row.get("ROE_TTM")) else None,
+                "roa": round(float(base_row["ROA_TTM"]), 2) if pd.notna(base_row.get("ROA_TTM")) else None,
+                "roic": round(float(base_row["ROIC_ANNUAL"]), 2) if pd.notna(base_row.get("ROIC_ANNUAL")) else None,
                 "grossMargin": round(float(base_row["XSMLL"]), 2)
                 if pd.notna(base_row["XSMLL"])
                 else None,

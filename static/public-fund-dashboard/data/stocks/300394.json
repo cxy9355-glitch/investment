@@ -10,8 +10,8 @@
     "pb": 50.2,
     "pbPercentile": 99.1176,
     "valuationScore": 99.1912,
-    "roe": 41.91,
-    "roa": 36.07,
+    "roe": 36.63,
+    "roa": 31.31,
     "roic": 40.58,
     "grossMargin": 53.96,
     "netMargin": 39.08,
@@ -26,7 +26,7 @@
       "cumulativeValue": 405.208891,
       "averageValue": 9.209293,
       "peakValue": 26.373043,
-      "candidateReason": "当前机构持股深度高；ROE较高；ROA/总资产净利率较好"
+      "candidateReason": "当前机构持股深度高；ROE(TTM)较高；ROA(TTM)较好"
     },
     "pool-share": {
       "rank": 401,
@@ -34,7 +34,7 @@
       "cumulativeValue": 3.289396,
       "averageValue": 0.074759,
       "peakValue": 0.419873,
-      "candidateReason": "ROE较高；ROA/总资产净利率较好"
+      "candidateReason": "ROE(TTM)较高；ROA(TTM)较好"
     }
   },
   "series": [

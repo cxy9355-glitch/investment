@@ -2,8 +2,8 @@ import { formatNumber, formatPercent, loadJson } from "./utils.js";
 
 const state = {
   methodology: "pool-share",
-  sortKey: "currentValue",
-  sortDirection: "desc",
+  sortKey: "rank",
+  sortDirection: "asc",
   filters: {
     search: "",
     candidateOnly: false,
@@ -21,7 +21,6 @@ const nodes = {
   methodSwitch: document.getElementById("methodSwitch"),
   methodDescription: document.getElementById("methodDescription"),
   updatedAt: document.getElementById("updatedAt"),
-  summaryGrid: document.getElementById("summaryGrid"),
   tableBody: document.getElementById("tableBody"),
   resultSummary: document.getElementById("resultSummary"),
   featuredList: document.getElementById("featuredList")
@@ -102,8 +101,8 @@ function renderMethodSwitch() {
   nodes.methodSwitch.querySelectorAll("[data-key]").forEach((button) => {
     button.addEventListener("click", () => {
       state.methodology = button.dataset.key;
-      state.sortKey = "currentValue";
-      state.sortDirection = "desc";
+      state.sortKey = "rank";
+      state.sortDirection = "asc";
       render();
     });
   });
@@ -155,46 +154,6 @@ function sortRows(rows) {
   });
 }
 
-function renderSummary(rows) {
-  const methodMeta = state.rankings[state.methodology].methodology;
-  const top = rows[0];
-  const candidateCount = rows.filter((row) => row.candidate).length;
-  const summaryCards = [
-    {
-      label: "当前排序首位",
-      value: top ? `${top.name}` : "--",
-      sub: top ? `${top.code} · 当前口径值 ${formatPercent(top.currentValue, 2)}` : "无结果"
-    },
-    {
-      label: "筛选后样本数",
-      value: `${rows.length}`,
-      sub: `原始发布样本 ${methodMeta.universeCount}`
-    },
-    {
-      label: "深研候选数",
-      value: `${candidateCount}`,
-      sub: "符合当前筛选条件"
-    },
-    {
-      label: "最新季度",
-      value: methodMeta.latestQuarter,
-      sub: state.metadata.updatedAt
-    }
-  ];
-
-  nodes.summaryGrid.innerHTML = summaryCards
-    .map(
-      (card) => `
-      <article class="summary-card">
-        <p class="eyebrow">${card.label}</p>
-        <h3>${card.value}</h3>
-        <p>${card.sub}</p>
-      </article>
-    `
-    )
-    .join("");
-}
-
 function renderTable(rows) {
   nodes.tableBody.innerHTML = rows
     .map(
@@ -207,6 +166,10 @@ function renderTable(rows) {
         <td>${formatPercent(row.pePercentile, 2)}</td>
         <td>${formatPercent(row.pbPercentile, 2)}</td>
         <td>${formatPercent(row.roe, 2)}</td>
+        <td>${formatPercent(row.roa, 2)}</td>
+        <td>${formatPercent(row.roic, 2)}</td>
+        <td>${formatPercent(row.grossMargin, 2)}</td>
+        <td>${formatPercent(row.netMargin, 2)}</td>
         <td>${row.latestFundCount ?? "--"}</td>
         <td>${row.candidate ? '<span class="tag tag-positive">候选</span>' : '<span class="tag tag-neutral">观察</span>'}</td>
         <td>查看 ></td>
@@ -244,7 +207,6 @@ function renderFeatured() {
 function render() {
   renderMethodSwitch();
   const rows = sortRows(getFilteredRows());
-  renderSummary(rows);
   renderTable(rows);
   nodes.resultSummary.textContent = `当前方法：${state.rankings[state.methodology].methodology.label} · 共 ${rows.length} 条结果`;
   nodes.updatedAt.textContent = `数据更新：${state.summary.updatedAt}`;

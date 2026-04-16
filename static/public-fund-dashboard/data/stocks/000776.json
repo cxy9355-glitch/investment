@@ -10,9 +10,9 @@
     "pb": 1.2,
     "pbPercentile": 16.7742,
     "valuationScore": 10.9823,
-    "roe": 10.16,
-    "roa": 1.72,
-    "roic": null,
+    "roe": 10.58,
+    "roa": 1.76,
+    "roic": 0.0,
     "grossMargin": null,
     "netMargin": 42.13,
     "latestFundCount": 725,
@@ -26,7 +26,7 @@
       "cumulativeValue": 196.297252,
       "averageValue": 3.115829,
       "peakValue": 8.998027,
-      "candidateReason": "估值处历史偏低区间；当前机构持股深度高；ROE稳定"
+      "candidateReason": "估值处历史偏低区间；当前机构持股深度高；ROE(TTM)稳定"
     },
     "pool-share": {
       "rank": 104,
@@ -34,7 +34,7 @@
       "cumulativeValue": 10.275629,
       "averageValue": 0.163105,
       "peakValue": 0.564703,
-      "candidateReason": "估值处历史偏低区间；ROE稳定"
+      "candidateReason": "估值处历史偏低区间；ROE(TTM)稳定"
     }
   },
   "series": [
