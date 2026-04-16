@@ -1,0 +1,427 @@
+{
+  "identity": {
+    "code": "300120",
+    "name": "经纬辉开",
+    "secucode": "300120.SZ"
+  },
+  "snapshot": {
+    "peTtm": 1884.93,
+    "pePercentile": 99.823,
+    "pb": 1.45,
+    "pbPercentile": 25.1185,
+    "valuationScore": 62.4707,
+    "roe": -0.31,
+    "roa": -0.2,
+    "roic": 0.79,
+    "grossMargin": 14.5,
+    "netMargin": -0.48,
+    "latestFundCount": 12,
+    "latestHoldValue": 4297600.0,
+    "latestReportDate": "2025-09-30 00:00:00"
+  },
+  "methodologies": {
+    "float-ratio": {
+      "rank": 271,
+      "currentValue": 0.088023,
+      "cumulativeValue": 410.116067,
+      "averageValue": 7.456656,
+      "peakValue": 22.734491,
+      "candidateReason": ""
+    },
+    "pool-share": {
+      "rank": 1437,
+      "currentValue": 5.7e-05,
+      "cumulativeValue": 0.660068,
+      "averageValue": 0.012001,
+      "peakValue": 0.05255,
+      "candidateReason": ""
+    }
+  },
+  "series": [
+    {
+      "date": "2010-12-31",
+      "holdValue": 4874957.12,
+      "fundCount": 1,
+      "totalsharesRatio": 0.209708,
+      "poolShare": 0.000273
+    },
+    {
+      "date": "2011-03-31",
+      "holdValue": 46353893.32,
+      "fundCount": 2,
+      "totalsharesRatio": 2.120189,
+      "poolShare": 0.004442
+    },
+    {
+      "date": "2011-06-30",
+      "holdValue": 34040582.36,
+      "fundCount": 3,
+      "totalsharesRatio": 1.985341,
+      "poolShare": 0.002137
+    },
+    {
+      "date": "2011-12-31",
+      "holdValue": 59218342.76,
+      "fundCount": 2,
+      "totalsharesRatio": 4.981853,
+      "poolShare": 0.004544
+    },
+    {
+      "date": "2012-03-31",
+      "holdValue": 5442800.25,
+      "fundCount": 1,
+      "totalsharesRatio": 0.447663,
+      "poolShare": 0.000678
+    },
+    {
+      "date": "2012-12-31",
+      "holdValue": 4349779.2,
+      "fundCount": 1,
+      "totalsharesRatio": 0.408276,
+      "poolShare": 0.000317
+    },
+    {
+      "date": "2013-03-31",
+      "holdValue": 2659945.4,
+      "fundCount": 1,
+      "totalsharesRatio": 0.243463,
+      "poolShare": 0.000331
+    },
+    {
+      "date": "2013-06-30",
+      "holdValue": 2041110.9,
+      "fundCount": 2,
+      "totalsharesRatio": 0.20392,
+      "poolShare": 0.000164
+    },
+    {
+      "date": "2013-12-31",
+      "holdValue": 5978677.99,
+      "fundCount": 2,
+      "totalsharesRatio": 0.423753,
+      "poolShare": 0.000449
+    },
+    {
+      "date": "2014-06-30",
+      "holdValue": 3443426.46,
+      "fundCount": 1,
+      "totalsharesRatio": 0.251108,
+      "poolShare": 0.000281
+    },
+    {
+      "date": "2014-09-30",
+      "holdValue": 51635036.5,
+      "fundCount": 2,
+      "totalsharesRatio": 2.639761,
+      "poolShare": 0.006244
+    },
+    {
+      "date": "2014-12-31",
+      "holdValue": 26685179.44,
+      "fundCount": 1,
+      "totalsharesRatio": 1.486269,
+      "poolShare": 0.001689
+    },
+    {
+      "date": "2015-03-31",
+      "holdValue": 19926723.92,
+      "fundCount": 1,
+      "totalsharesRatio": 0.742168,
+      "poolShare": 0.001686
+    },
+    {
+      "date": "2015-06-30",
+      "holdValue": 136587500.32,
+      "fundCount": 10,
+      "totalsharesRatio": 2.579192,
+      "poolShare": 0.006312
+    },
+    {
+      "date": "2015-09-30",
+      "holdValue": 411212390.0,
+      "fundCount": 10,
+      "totalsharesRatio": 17.000132,
+      "poolShare": 0.033033
+    },
+    {
+      "date": "2015-12-31",
+      "holdValue": 634515166.32,
+      "fundCount": 17,
+      "totalsharesRatio": 17.773813,
+      "poolShare": 0.028608
+    },
+    {
+      "date": "2016-03-31",
+      "holdValue": 603375220.68,
+      "fundCount": 12,
+      "totalsharesRatio": 18.668803,
+      "poolShare": 0.05023
+    },
+    {
+      "date": "2016-06-30",
+      "holdValue": 560417365.54,
+      "fundCount": 19,
+      "totalsharesRatio": 18.450427,
+      "poolShare": 0.029526
+    },
+    {
+      "date": "2016-09-30",
+      "holdValue": 536041348.05,
+      "fundCount": 11,
+      "totalsharesRatio": 18.36468,
+      "poolShare": 0.041815
+    },
+    {
+      "date": "2016-12-31",
+      "holdValue": 589358593.95,
+      "fundCount": 21,
+      "totalsharesRatio": 18.458048,
+      "poolShare": 0.031024
+    },
+    {
+      "date": "2017-03-31",
+      "holdValue": 666127744.2,
+      "fundCount": 12,
+      "totalsharesRatio": 21.495817,
+      "poolShare": 0.05255
+    },
+    {
+      "date": "2017-06-30",
+      "holdValue": 611042679.18,
+      "fundCount": 32,
+      "totalsharesRatio": 22.734491,
+      "poolShare": 0.030242
+    },
+    {
+      "date": "2017-09-30",
+      "holdValue": 469670058.48,
+      "fundCount": 11,
+      "totalsharesRatio": 17.161128,
+      "poolShare": 0.034582
+    },
+    {
+      "date": "2017-12-31",
+      "holdValue": 429523049.16,
+      "fundCount": 13,
+      "totalsharesRatio": 11.87561,
+      "poolShare": 0.020441
+    },
+    {
+      "date": "2018-03-31",
+      "holdValue": 374304250.0,
+      "fundCount": 10,
+      "totalsharesRatio": 11.821814,
+      "poolShare": 0.027878
+    },
+    {
+      "date": "2018-06-30",
+      "holdValue": 320294277.2,
+      "fundCount": 22,
+      "totalsharesRatio": 12.260008,
+      "poolShare": 0.016619
+    },
+    {
+      "date": "2018-09-30",
+      "holdValue": 272827138.8,
+      "fundCount": 10,
+      "totalsharesRatio": 11.545993,
+      "poolShare": 0.022401
+    },
+    {
+      "date": "2018-12-31",
+      "holdValue": 294890299.86,
+      "fundCount": 40,
+      "totalsharesRatio": 12.459143,
+      "poolShare": 0.016924
+    },
+    {
+      "date": "2019-03-31",
+      "holdValue": 366920987.0,
+      "fundCount": 10,
+      "totalsharesRatio": 11.545993,
+      "poolShare": 0.025532
+    },
+    {
+      "date": "2019-06-30",
+      "holdValue": 286062619.58,
+      "fundCount": 19,
+      "totalsharesRatio": 11.504361,
+      "poolShare": 0.012359
+    },
+    {
+      "date": "2019-09-30",
+      "holdValue": 273384092.8,
+      "fundCount": 11,
+      "totalsharesRatio": 9.771274,
+      "poolShare": 0.017317
+    },
+    {
+      "date": "2019-12-31",
+      "holdValue": 288319968.0,
+      "fundCount": 13,
+      "totalsharesRatio": 9.693245,
+      "poolShare": 0.010478
+    },
+    {
+      "date": "2020-03-31",
+      "holdValue": 293086579.8,
+      "fundCount": 10,
+      "totalsharesRatio": 9.687001,
+      "poolShare": 0.016334
+    },
+    {
+      "date": "2020-06-30",
+      "holdValue": 300847126.6,
+      "fundCount": 13,
+      "totalsharesRatio": 9.690447,
+      "poolShare": 0.008638
+    },
+    {
+      "date": "2020-09-30",
+      "holdValue": 641548965.0,
+      "fundCount": 10,
+      "totalsharesRatio": 9.687001,
+      "poolShare": 0.024193
+    },
+    {
+      "date": "2020-12-31",
+      "holdValue": 779712.0,
+      "fundCount": 2,
+      "totalsharesRatio": 0.016018,
+      "poolShare": 1.5e-05
+    },
+    {
+      "date": "2021-03-31",
+      "holdValue": 421846582.6,
+      "fundCount": 10,
+      "totalsharesRatio": 9.692806,
+      "poolShare": 0.012662
+    },
+    {
+      "date": "2021-06-30",
+      "holdValue": 423748915.2,
+      "fundCount": 11,
+      "totalsharesRatio": 9.715778,
+      "poolShare": 0.007283
+    },
+    {
+      "date": "2021-09-30",
+      "holdValue": 402487561.2,
+      "fundCount": 10,
+      "totalsharesRatio": 9.692806,
+      "poolShare": 0.010343
+    },
+    {
+      "date": "2021-12-31",
+      "holdValue": 369213383.66,
+      "fundCount": 12,
+      "totalsharesRatio": 8.707898,
+      "poolShare": 0.005538
+    },
+    {
+      "date": "2022-03-31",
+      "holdValue": 284137433.1,
+      "fundCount": 9,
+      "totalsharesRatio": 8.678527,
+      "poolShare": 0.007872
+    },
+    {
+      "date": "2022-06-30",
+      "holdValue": 202505951.34,
+      "fundCount": 15,
+      "totalsharesRatio": 6.292326,
+      "poolShare": 0.003276
+    },
+    {
+      "date": "2022-09-30",
+      "holdValue": 187773454.44,
+      "fundCount": 7,
+      "totalsharesRatio": 6.606774,
+      "poolShare": 0.005437
+    },
+    {
+      "date": "2022-12-31",
+      "holdValue": 162810422.72,
+      "fundCount": 17,
+      "totalsharesRatio": 5.804328,
+      "poolShare": 0.002836
+    },
+    {
+      "date": "2023-03-31",
+      "holdValue": 187987819.14,
+      "fundCount": 6,
+      "totalsharesRatio": 5.575792,
+      "poolShare": 0.005261
+    },
+    {
+      "date": "2023-06-30",
+      "holdValue": 224151604.11,
+      "fundCount": 12,
+      "totalsharesRatio": 3.877625,
+      "poolShare": 0.003885
+    },
+    {
+      "date": "2023-09-30",
+      "holdValue": 167185443.04,
+      "fundCount": 6,
+      "totalsharesRatio": 3.949309,
+      "poolShare": 0.005025
+    },
+    {
+      "date": "2023-12-31",
+      "holdValue": 114318348.54,
+      "fundCount": 55,
+      "totalsharesRatio": 2.741382,
+      "poolShare": 0.002135
+    },
+    {
+      "date": "2024-03-31",
+      "holdValue": 498960.0,
+      "fundCount": 1,
+      "totalsharesRatio": 0.016087,
+      "poolShare": 1.6e-05
+    },
+    {
+      "date": "2024-06-30",
+      "holdValue": 22373301.12,
+      "fundCount": 38,
+      "totalsharesRatio": 0.750504,
+      "poolShare": 0.000433
+    },
+    {
+      "date": "2024-09-30",
+      "holdValue": 27305154.64,
+      "fundCount": 1,
+      "totalsharesRatio": 0.711637,
+      "poolShare": 0.000697
+    },
+    {
+      "date": "2024-12-31",
+      "holdValue": 139523287.2,
+      "fundCount": 27,
+      "totalsharesRatio": 2.611884,
+      "poolShare": 0.00232
+    },
+    {
+      "date": "2025-03-31",
+      "holdValue": 86612850.9,
+      "fundCount": 3,
+      "totalsharesRatio": 1.763626,
+      "poolShare": 0.00243
+    },
+    {
+      "date": "2025-06-30",
+      "holdValue": 141208919.68,
+      "fundCount": 23,
+      "totalsharesRatio": 2.451045,
+      "poolShare": 0.00228
+    },
+    {
+      "date": "2025-12-31",
+      "holdValue": 4297600.0,
+      "fundCount": 12,
+      "totalsharesRatio": 0.088023,
+      "poolShare": 5.7e-05
+    }
+  ]
+}

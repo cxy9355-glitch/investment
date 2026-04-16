@@ -1,0 +1,28 @@
+{
+  "updatedAt": "2025-12-31",
+  "featuredCodes": [
+    "600519",
+    "300750",
+    "300308",
+    "000858",
+    "000651"
+  ],
+  "methodologies": [
+    {
+      "key": "float-ratio",
+      "label": "占总股本比例",
+      "topCode": "600887",
+      "topName": "伊利股份",
+      "topCurrentValue": 15.166347,
+      "universeCount": 300
+    },
+    {
+      "key": "pool-share",
+      "label": "池内占比",
+      "topCode": "600519",
+      "topName": "贵州茅台",
+      "topCurrentValue": 1.611663,
+      "universeCount": 300
+    }
+  ]
+}

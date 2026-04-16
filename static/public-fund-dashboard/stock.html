@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>股票详情</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2311263a'/%3E%3Cpath d='M14 44h12l7-10 8 7 9-18' fill='none' stroke='%23fff7ed' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./dashboard.css">
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="top-nav">
+      <a href="./index.html" class="ghost-link">← 返回主看板</a>
+      <a href="./methodology.html" class="ghost-link">方法说明</a>
+    </nav>
+
+    <header class="hero-panel detail-hero">
+      <div>
+        <p class="eyebrow">Stock Detail</p>
+        <h1 id="stockTitle">载入中...</h1>
+        <p id="stockSub" class="hero-copy">读取股票数据中...</p>
+      </div>
+      <div class="hero-links">
+        <p id="detailUpdatedAt" class="muted-text"></p>
+      </div>
+    </header>
+
+    <section class="summary-grid" id="detailMetrics"></section>
+
+    <section class="detail-grid">
+      <article class="chart-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Trend</p>
+            <h2>持仓浓度走势</h2>
+          </div>
+        </div>
+        <div class="chart-wrap">
+          <svg id="detailChart" viewBox="0 0 1000 420" role="img" aria-label="持仓浓度走势"></svg>
+        </div>
+      </article>
+
+      <aside class="side-stack">
+        <article class="info-card">
+          <p class="eyebrow">Method Comparison</p>
+          <div id="methodComparison" class="comparison-list"></div>
+        </article>
+        <article class="info-card">
+          <p class="eyebrow">Why It Matters</p>
+          <div id="candidateReason" class="bullet-card"></div>
+        </article>
+        <article class="info-card">
+          <p class="eyebrow">Source Context</p>
+          <div id="sourceInfo" class="bullet-card"></div>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <script type="module" src="./stock.js"></script>
+</body>
+</html>
