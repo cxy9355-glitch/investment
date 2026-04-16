@@ -111,6 +111,11 @@ function renderMethodSwitch() {
 function getFilteredRows() {
   const rows = state.rankings[state.methodology]?.rows ?? [];
   return rows.filter((row) => {
+    // 自动隐藏完全缺失估值和财务数据的公司（底层数据抓取缺失）
+    if (row.pePercentile === null && row.pbPercentile === null && row.roe === null && row.roa === null) {
+      return false;
+    }
+
     if (state.filters.search) {
       const haystack = `${row.name} ${row.code}`.toLowerCase();
       if (!haystack.includes(state.filters.search)) {
