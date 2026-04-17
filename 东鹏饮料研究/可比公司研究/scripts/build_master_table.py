@@ -34,30 +34,16 @@ def pct(value: float | None) -> float | None:
 
 
 def build_eastroc_rows(columns: list[str]) -> pd.DataFrame:
-    key_df = pd.read_csv(
-        ROOT_DIR / "东鹏饮料研究" / "data" / "东鹏饮料_关键指标_2020_2025.csv"
-    )
+    key_df = pd.read_csv(ROOT_DIR / "data" / "东鹏饮料_关键指标_2020_2025.csv")
     key_df["年份"] = key_df["年份"].astype(int)
 
-    income_2024 = pd.read_csv(
-        ROOT_DIR / "东鹏饮料研究" / "data" / "东鹏饮料_合并利润表_2020_2024_元.csv"
-    )
-    balance_2024 = pd.read_csv(
-        ROOT_DIR / "东鹏饮料研究" / "data" / "东鹏饮料_合并资产负债表_2020_2024_元.csv"
-    )
-    cashflow_2024 = pd.read_csv(
-        ROOT_DIR / "东鹏饮料研究" / "data" / "东鹏饮料_合并现金流量表_2020_2024_元.csv"
-    )
+    income_2024 = pd.read_csv(ROOT_DIR / "data" / "东鹏饮料_合并利润表_2020_2024_元.csv")
+    balance_2024 = pd.read_csv(ROOT_DIR / "data" / "东鹏饮料_合并资产负债表_2020_2024_元.csv")
+    cashflow_2024 = pd.read_csv(ROOT_DIR / "data" / "东鹏饮料_合并现金流量表_2020_2024_元.csv")
 
-    income_2025 = pd.read_csv(
-        ROOT_DIR / "东鹏饮料研究" / "data" / "东鹏饮料_2025_HKEX_IFRS_合并利润表_元.csv"
-    )
-    balance_2025 = pd.read_csv(
-        ROOT_DIR / "东鹏饮料研究" / "data" / "东鹏饮料_2025_HKEX_IFRS_合并资产负债表_元.csv"
-    )
-    cashflow_2025 = pd.read_csv(
-        ROOT_DIR / "东鹏饮料研究" / "data" / "东鹏饮料_2025_HKEX_IFRS_合并现金流量表_元.csv"
-    )
+    income_2025 = pd.read_csv(ROOT_DIR / "data" / "东鹏饮料_2025_HKEX_IFRS_合并利润表_元.csv")
+    balance_2025 = pd.read_csv(ROOT_DIR / "data" / "东鹏饮料_2025_HKEX_IFRS_合并资产负债表_元.csv")
+    cashflow_2025 = pd.read_csv(ROOT_DIR / "data" / "东鹏饮料_2025_HKEX_IFRS_合并现金流量表_元.csv")
 
     rows: list[dict[str, object]] = []
     for year in (2024, 2025):
@@ -108,7 +94,7 @@ def build_eastroc_rows(columns: list[str]) -> pd.DataFrame:
                 "经营现金流/归母净利润": float(key["经营现金流/归母净利润"]),
                 "资本开支/收入": float(key["资本开支/收入"]),
                 "官方文件类型": "年度报告",
-                "官方来源": str(ROOT_DIR / "东鹏饮料研究" / "raw" / "official" / "2024年年度报告.pdf"),
+                "官方来源": str(ROOT_DIR / "raw" / "official" / "2024年年度报告.pdf"),
             }
         else:
             y = str(year)
@@ -160,7 +146,7 @@ def build_eastroc_rows(columns: list[str]) -> pd.DataFrame:
                 "经营现金流/归母净利润": float(key["经营现金流/归母净利润"]),
                 "资本开支/收入": float(key["资本开支/收入"]),
                 "官方文件类型": "年度报告/HKEX年报",
-                "官方来源": str(ROOT_DIR / "东鹏饮料研究" / "raw" / "official" / "2025年度业绩公告_HKEX_2026-03-30.pdf"),
+                "官方来源": str(ROOT_DIR / "raw" / "official" / "2025年度业绩公告_HKEX_2026-03-30.pdf"),
             }
 
         normalized = {column: row.get(column) for column in columns}
