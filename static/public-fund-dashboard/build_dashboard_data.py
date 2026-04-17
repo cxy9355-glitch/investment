@@ -122,11 +122,11 @@ def apply_candidate_logic(df: pd.DataFrame) -> pd.DataFrame:
     df["valuation_score"] = df[["pe_ttm_percentile", "pb_percentile"]].mean(axis=1)
     df["is_st"] = df["stock_name"].astype(str).str.contains("ST", na=False)
     
-    # Calculate ROE TTM from PB and PE_TTM
-    df["ROE_TTM"] = df["pb"] / df["pe_ttm"] * 100
+    # Calculate ROE TTM from PB and PE_TTM, fallback to ROEJQ if missing
+    df["ROE_TTM"] = (df["pb"] / df["pe_ttm"] * 100).fillna(df["ROEJQ"])
     
-    # Calculate ROA TTM (ROE_TTM * Equity/Assets)
-    df["ROA_TTM"] = df["ROE_TTM"] * (1 - df["ZCFZL"].fillna(0) / 100)
+    # Calculate ROA TTM (ROE_TTM * Equity/Assets), fallback to ZZCJLL if missing
+    df["ROA_TTM"] = (df["ROE_TTM"] * (1 - df["ZCFZL"].fillna(0) / 100)).fillna(df["ZZCJLL"])
     
     # Calculate ROIC Annualized
     months = pd.to_datetime(df["REPORT_DATE"]).dt.month
