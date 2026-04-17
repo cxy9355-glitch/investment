@@ -272,6 +272,22 @@ def align_records(
     return aligned
 
 
+def populate_dividend_percentiles(records: list[dict]) -> None:
+    """按当前输出样本重算全部股息率分位。
+
+    第三方源字段可能不是“股息率从低到高”的历史分位，直接沿用容易把口径带偏。
+    页面统一使用 midrank 口径：股息率越低，分位越低。
+    """
+    if not records:
+        return
+    dividend_values = [item["dividendYield"] for item in records]
+    for item in records:
+        item["dividendYieldPercentile"] = round(
+            calculate_midrank_percentile(dividend_values, item["dividendYield"]),
+            3,
+        )
+
+
 def compute_quantile(values: list[float], percentile: float) -> float:
     if not values:
         return math.nan
@@ -298,28 +314,18 @@ def calculate_midrank_percentile(values: list[float], target: float) -> float:
     return ((lower_count + equal_count / 2) / len(values)) * 100
 
 
-def populate_dividend_percentiles(records: list[dict]) -> None:
-    """按当前页面完整样本重算每个观察点的股息率分位。
-
-    外部源自带的 quantile 往往基于更长历史、不同口径或隐藏样本。
-    页面展示如果直接混用，会导致：
-    1. 全样本股息率分位和当前样本不一致；
-    2. 区间分位、全样本分位和卡片数值彼此对不上。
-    所以这里统一只认当前 records 本身。
-    """
-    dividend_values = [item["dividendYield"] for item in records]
-    for item in records:
-        item["dividendYieldPercentile"] = round(
-            calculate_midrank_percentile(dividend_values, item["dividendYield"]),
-            2,
-        )
-
-
 def build_meta(records: list[dict], source_type: str) -> dict:
     if not records:
         raise ValueError("没有可用的重叠记录，无法构建页面数据包")
     spread_values = [item["spread"] for item in records]
+    dividend_values = [item["dividendYield"] for item in records]
     latest = records[-1]
+    latest_dividend_percentile = latest.get("dividendYieldPercentile")
+    if latest_dividend_percentile is None:
+        latest_dividend_percentile = calculate_midrank_percentile(
+            dividend_values, latest["dividendYield"]
+        )
+        latest["dividendYieldPercentile"] = round(latest_dividend_percentile, 2)
 
     if source_type == "legulegu-browser":
         series_label = "中证红利低波动指数(H30269)加权股息率(TTM)"
