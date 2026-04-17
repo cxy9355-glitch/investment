@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>长期持有审美四象限面板</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --line: #d9e2ef;
+      --text: #1d2a3a;
+      --muted: #5a6b80;
+      --winner: #2b7a0b;
+      --decline: #c55a11;
+      --excellent: #1f78b4;
+      --weak: #9e2a2b;
+      --watch: #a38b00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f4f7fb 0%, #eef3f9 100%);
+    }
+    .shell {
+      display: grid;
+      grid-template-columns: minmax(760px, 1fr) 360px;
+      gap: 16px;
+      min-height: 100vh;
+      padding: 16px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(24, 45, 72, 0.06);
+    }
+    .controls {
+      padding: 14px 16px 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    .controls h1 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+    .control-grid {
+      display: grid;
+      grid-template-columns: 220px 180px 180px 180px 1fr;
+      gap: 10px;
+      align-items: end;
+    }
+    .field label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .field input, .field select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+    }
+    .toggle-wrap {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding-top: 24px;
+      flex-wrap: wrap;
+    }
+    .toggle-wrap label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 8px 16px 0;
+    }
+    #chart {
+      height: calc(100vh - 150px);
+      min-height: 680px;
+    }
+    .detail {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .detail h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .detail .sub {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: -4px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fbfdff;
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .kv {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      row-gap: 8px;
+      column-gap: 10px;
+      font-size: 13px;
+    }
+    .kv .k { color: var(--muted); }
+    .pill {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: #fff;
+    }
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="panel">
+      <div class="controls">
+        <h1>长期持有审美四象限面板</h1>
+        <div class="control-grid">
+          <div class="field">
+            <label for="searchInput">搜索代码 / 公司名</label>
+            <input id="searchInput" type="text" placeholder="例如 AAPL / 阿里巴巴 / 腾讯音乐">
+          </div>
+          <div class="field">
+            <label for="categorySelect">分类</label>
+            <select id="categorySelect"></select>
+          </div>
+          <div class="field">
+            <label for="marketSelect">市场</label>
+            <select id="marketSelect"></select>
+          </div>
+          <div class="field">
+            <label for="currentSelect">当前持有</label>
+            <select id="currentSelect">
+              <option value="all">全部</option>
+              <option value="current">仅当前在仓</option>
+              <option value="notCurrent">仅当前不在仓</option>
+            </select>
+          </div>
+          <div class="toggle-wrap">
+            <label><input id="showObservation" type="checkbox" checked> 显示观察区</label>
+            <label><input id="labelExtremes" type="checkbox"> 标注极端样本</label>
+          </div>
+        </div>
+      </div>
+      <div class="meta-bar">
+        <div id="metaLeft">读取中...</div>
+        <div id="metaRight"></div>
+      </div>
+      <div id="chart"></div>
+    </section>
+
+    <aside class="panel detail">
+      <div>
+        <h2 id="detailTitle">点击任一点查看详情</h2>
+        <div id="detailSub" class="sub">面板按启动时的当前分类总表动态取数</div>
+      </div>
+
+      <div class="card">
+        <h3>当前样本</h3>
+        <div id="detailSummary" class="muted">左侧散点图支持 hover 和 click；click 后这里会显示个股详情。</div>
+      </div>
+
+      <div class="card">
+        <h3>研究字段</h3>
+        <div id="detailFields" class="kv"></div>
+      </div>
+
+      <div class="card">
+        <h3>说明</h3>
+        <div class="muted">
+          横轴是 <strong>持有持续性分位</strong>，纵轴是 <strong>经营持续性分位</strong>。<br>
+          四类和观察区来自当前分类总表，不在图里重新计算。<br>
+          如果你刷新了分类总表，重新启动面板即可读取新数据。
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    const categoryColors = {
+      "长期赢家": "#2b7a0b",
+      "审美失效/退化案例": "#c55a11",
+      "经营优秀但未被长期拿住": "#1f78b4",
+      "弱质/陷阱样本": "#9e2a2b",
+      "观察区": "#a38b00"
+    };
+
+    let allRecords = [];
+    let selected = null;
+
+    const fmtPct = v => (v == null || Number.isNaN(v)) ? "—" : `${(v * 100).toFixed(1)}%`;
+    const fmtScore = v => (v == null || Number.isNaN(v)) ? "—" : Number(v).toFixed(1);
+    const fmtNum = v => (v == null || Number.isNaN(v)) ? "—" : Number(v).toLocaleString("zh-CN");
+    const fmtDate = v => v || "—";
+
+    function buildOptions(select, values, allLabel) {
+      select.innerHTML = "";
+      const all = document.createElement("option");
+      all.value = "all";
+      all.textContent = allLabel;
+      select.appendChild(all);
+      values.forEach(v => {
+        const option = document.createElement("option");
+        option.value = v;
+        option.textContent = v;
+        select.appendChild(option);
+      });
+    }
+
+    function setMeta(data, visibleCount) {
+      document.getElementById("metaLeft").textContent = `当前显示 ${visibleCount} / ${data.records.length} 个样本`;
+      document.getElementById("metaRight").textContent = `数据时间：${data.generatedAt}`;
+    }
+
+    function applyFilters() {
+      const query = document.getElementById("searchInput").value.trim().toLowerCase();
+      const category = document.getElementById("categorySelect").value;
+      const market = document.getElementById("marketSelect").value;
+      const current = document.getElementById("currentSelect").value;
+      const showObservation = document.getElementById("showObservation").checked;
+
+      return allRecords.filter(item => {
+        if (!showObservation && item.category === "观察区") return false;
+        if (category !== "all" && item.category !== category) return false;
+        if (market !== "all" && item.market !== market) return false;
+        if (current === "current" && !item.isCurrent) return false;
+        if (current === "notCurrent" && item.isCurrent) return false;
+        if (query) {
+          const hay = `${item.ticker} ${item.name || ""} ${item.englishName || ""}`.toLowerCase();
+          if (!hay.includes(query)) return false;
+        }
+        return true;
+      });
+    }
+
+    function updateDetail(item) {
+      if (!item) return;
+      selected = item;
+      document.getElementById("detailTitle").textContent = `${item.ticker} · ${item.name || item.englishName || ""}`;
+      document.getElementById("detailSub").innerHTML =
+        `<span class="pill" style="background:${categoryColors[item.category] || '#666'}">${item.category}</span>` +
+        `　${item.market || "未知市场"}　${item.currentStatus || "状态未知"}`;
+      document.getElementById("detailSummary").textContent =
+        item.observationReason || "该样本当前没有额外观察原因。";
+
+      const fields = [
+        ["当前持有机构", item.currentHolder || "—"],
+        ["持有持续性分数", fmtScore(item.holdingScore)],
+        ["经营持续性分数", fmtScore(item.operatingScore)],
+        ["持有持续性分位", fmtPct(item.holdingPercentile)],
+        ["经营持续性分位", fmtPct(item.operatingPercentile)],
+        ["覆盖机构数", fmtNum(item.coverageInstitutions)],
+        ["出现季度数", fmtNum(item.quartersHeld)],
+        ["覆盖年份数", fmtNum(item.yearsHeld)],
+        ["当前持有机构数", fmtNum(item.currentHolderCount)],
+        ["平均持仓权重", fmtPct(item.avgWeight)],
+        ["峰值持仓权重", fmtPct(item.peakWeight)],
+        ["有效财年行数", fmtNum(item.validYears)],
+        ["核心完整财年行数", fmtNum(item.completeYears)],
+        ["最新财报期", fmtDate(item.latestReport)],
+        ["5年平均ROE", fmtPct(item.roe5y)],
+        ["5年平均ROA", fmtPct(item.roa5y)],
+        ["5年平均毛利率", fmtPct(item.grossMargin5y)],
+        ["5年平均净利率", fmtPct(item.netMargin5y)],
+        ["5年平均FCF利润率", fmtPct(item.fcfMargin5y)],
+        ["5年平均Debt/Equity", item.debtToEquity5y == null ? "—" : Number(item.debtToEquity5y).toFixed(2)]
+      ];
+      const container = document.getElementById("detailFields");
+      container.innerHTML = "";
+      fields.forEach(([k, v]) => {
+        const kEl = document.createElement("div");
+        kEl.className = "k";
+        kEl.textContent = k;
+        const vEl = document.createElement("div");
+        vEl.textContent = v;
+        container.appendChild(kEl);
+        container.appendChild(vEl);
+      });
+    }
+
+    function buildTraces(records, labelExtremes) {
+      const categories = ["长期赢家", "审美失效/退化案例", "经营优秀但未被长期拿住", "弱质/陷阱样本", "观察区"];
+      return categories.map(category => {
+        const subset = records.filter(x => x.category === category);
+        return {
+          type: "scatter",
+          mode: labelExtremes ? "markers+text" : "markers",
+          name: category,
+          x: subset.map(x => x.holdingPercentile * 100),
+          y: subset.map(x => x.operatingPercentile * 100),
+          text: subset.map(x => {
+            if (!labelExtremes) return "";
+            const extreme = x.holdingPercentile >= 0.9 || x.holdingPercentile <= 0.1 || x.operatingPercentile >= 0.9 || x.operatingPercentile <= 0.1;
+            return extreme ? x.ticker : "";
+          }),
+          textposition: "top center",
+          customdata: subset,
+          marker: {
+            size: subset.map(x => Math.max(10, Math.min(28, (x.coverageInstitutions || 1) * 4 + (x.isCurrent ? 2 : 0)))),
+            color: categoryColors[category],
+            opacity: category === "观察区" ? 0.55 : 0.85,
+            line: {
+              width: subset.map(x => x.isCurrent ? 2 : 0.5),
+              color: subset.map(x => x.isCurrent ? "#0f172a" : "#ffffff")
+            },
+            symbol: subset.map(x => x.isObservation ? "diamond" : "circle")
+          },
+          hovertemplate:
+            "<b>%{customdata.ticker}</b> · %{customdata.name}<br>" +
+            "分类：%{customdata.category}<br>" +
+            "持有持续性分位：%{x:.1f}%<br>" +
+            "经营持续性分位：%{y:.1f}%<br>" +
+            "持有持续性分数：%{customdata.holdingScore:.1f}<br>" +
+            "经营持续性分数：%{customdata.operatingScore:.1f}<br>" +
+            "当前持有：%{customdata.currentStatus}<extra></extra>"
+        };
+      });
+    }
+
+    function renderChart(records) {
+      const labelExtremes = document.getElementById("labelExtremes").checked;
+      const traces = buildTraces(records, labelExtremes);
+      const layout = {
+        margin: { l: 60, r: 20, t: 24, b: 56 },
+        paper_bgcolor: "#ffffff",
+        plot_bgcolor: "#fbfdff",
+        hovermode: "closest",
+        xaxis: {
+          title: "持有持续性分位",
+          range: [0, 100],
+          ticksuffix: "%",
+          gridcolor: "#e6edf5",
+          zeroline: false
+        },
+        yaxis: {
+          title: "经营持续性分位",
+          range: [0, 100],
+          ticksuffix: "%",
+          gridcolor: "#e6edf5",
+          zeroline: false
+        },
+        legend: { orientation: "h", y: 1.1 },
+        shapes: [
+          { type: "line", x0: 35, x1: 35, y0: 0, y1: 100, line: { color: "#c9d4e2", dash: "dot" } },
+          { type: "line", x0: 65, x1: 65, y0: 0, y1: 100, line: { color: "#c9d4e2", dash: "dot" } },
+          { type: "line", x0: 0, x1: 100, y0: 35, y1: 35, line: { color: "#c9d4e2", dash: "dot" } },
+          { type: "line", x0: 0, x1: 100, y0: 65, y1: 65, line: { color: "#c9d4e2", dash: "dot" } }
+        ],
+        annotations: [
+          { x: 82, y: 88, text: "长期赢家", showarrow: false, font: { color: "#2b7a0b", size: 14 } },
+          { x: 18, y: 88, text: "经营优秀但未被长期拿住", showarrow: false, font: { color: "#1f78b4", size: 12 } },
+          { x: 82, y: 12, text: "审美失效/退化案例", showarrow: false, font: { color: "#c55a11", size: 12 } },
+          { x: 18, y: 12, text: "弱质/陷阱样本", showarrow: false, font: { color: "#9e2a2b", size: 12 } }
+        ]
+      };
+      Plotly.newPlot("chart", traces, layout, { responsive: true, displaylogo: false });
+      const chart = document.getElementById("chart");
+      chart.on("plotly_click", event => {
+        const item = event.points?.[0]?.customdata;
+        if (item) updateDetail(item);
+      });
+    }
+
+    async function loadData() {
+      const res = await fetch(`data.json?t=${Date.now()}`);
+      const data = await res.json();
+      allRecords = data.records;
+      buildOptions(document.getElementById("categorySelect"), data.categories, "全部分类");
+      buildOptions(document.getElementById("marketSelect"), data.markets, "全部市场");
+      setMeta(data, data.records.length);
+      const first = data.records.find(x => x.category !== "观察区") || data.records[0];
+      if (first) updateDetail(first);
+      return data;
+    }
+
+    function rerender(data) {
+      const filtered = applyFilters();
+      setMeta(data, filtered.length);
+      renderChart(filtered);
+      if (selected) {
+        const matched = filtered.find(x => x.ticker === selected.ticker);
+        if (matched) updateDetail(matched);
+      }
+    }
+
+    async function init() {
+      const data = await loadData();
+      const controls = ["searchInput", "categorySelect", "marketSelect", "currentSelect", "showObservation", "labelExtremes"];
+      controls.forEach(id => {
+        document.getElementById(id).addEventListener("input", () => rerender(data));
+        document.getElementById(id).addEventListener("change", () => rerender(data));
+      });
+      rerender(data);
+    }
+
+    init().catch(err => {
+      document.getElementById("metaLeft").textContent = `加载失败：${err}`;
+      console.error(err);
+    });
+  </script>
+</body>
+</html>
