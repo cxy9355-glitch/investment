@@ -20,7 +20,7 @@ from openpyxl.utils import get_column_letter
 
 
 ROOT = Path(r"G:\Codex\个人\investment")
-OUTPUT_XLSX = ROOT / "output" / "spreadsheet" / "巴芒_喜马拉雅_高瓴_历史持仓筛选_2026-04-16.xlsx"
+OUTPUT_XLSX = ROOT / "机构持仓研究" / "巴芒_喜马拉雅_高瓴_历史持仓筛选_2026-04-17.xlsx"
 CACHE_DIR = ROOT / "tmp" / "spreadsheets" / "cache"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
