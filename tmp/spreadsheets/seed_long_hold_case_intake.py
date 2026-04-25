@@ -23,6 +23,12 @@ TAG_DEFINITIONS = [
     ("高资本回报", "entry", "买入逻辑建立在长期高ROIC/ROE或强资本效率之上。"),
     ("企业软件平台", "entry", "买入逻辑建立在企业软件安装基础、数据库或关键IT基础设施地位上。"),
     ("成熟产品现金牛", "entry", "买入逻辑建立在成熟产品组合的稳定现金流和利润释放能力上。"),
+    ("内容与线上娱乐", "entry", "买入逻辑建立在内容、社区、游戏、媒体或线上娱乐消费场景上。"),
+    ("金融基础设施", "entry", "买入逻辑建立在支付、清算、经纪、托管或金融市场基础设施地位上。"),
+    ("工业基础设施", "entry", "买入逻辑建立在工业设备、基础设施、能源供给或关键工程体系上。"),
+    ("半导体硬件", "entry", "买入逻辑建立在芯片、半导体制造、硬件平台或电子供应链地位上。"),
+    ("消费品牌渠道", "entry", "买入逻辑建立在消费品牌、线下渠道、服务网络或零售运营能力上。"),
+    ("能源转型叙事", "entry", "买入逻辑建立在新能源、电气化或能源结构变化带来的长期需求上。"),
     ("轻资产模式", "entry", "资本开支较轻，增长更多依赖网络、软件或标准化复制。"),
     ("行业寡头", "entry", "所处行业集中度高，头部公司份额与议价能力明显。"),
     ("高增长渗透", "entry", "买入逻辑建立在行业渗透率提升和收入高增长预期上。"),
@@ -698,18 +704,36 @@ def build_evidence_refs(ticker: str, holdings: pd.DataFrame, annual: pd.DataFram
 
 def keyword_tags(name: str) -> str:
     text = name.lower()
-    if any(word in text for word in ["pharma", "therapeutics", "biotech", "immuno", "moderna", "novavax", "sarepta"]):
+    if any(word in text for word in ["berkshire", "johnson & johnson", "sanofi", "organon"]):
+        return "成熟产品现金牛|现金流稳定"
+    if any(word in text for word in ["pharma", "therapeutics", "biotech", "biosciences", "immuno", "apellis", "argenx", "cytokinetics", "geron", "moderna", "novavax", "organon", "sarepta", "sanofi"]):
         return "创新药叙事|高增长渗透"
     if any(word in text for word in ["software", "cadence", "salesforce", "sentinelone", "oracle"]):
         return "企业软件平台|高转换成本"
-    if any(word in text for word in ["semiconductor", "broadcom", "arista", "microsoft", "meta", "baidu", "netease"]):
+    if any(word in text for word in ["semiconductor", "broadcom", "arista", "tsmc", "taiwan semiconductor", "wolfspeed"]):
+        return "半导体硬件|高资本回报"
+    if any(word in text for word in ["microsoft", "meta", "baidu", "netease", "shopify", "coupang"]):
         return "平台网络效应|高资本回报|长期增长空间"
-    if any(word in text for word in ["bank", "financial", "paypal", "futu", "mellon"]):
+    if any(word in text for word in ["bilibili", "iqiyi", "weibo", "playtika", "roblox", "new york times", "yalla"]):
+        return "内容与线上娱乐|平台网络效应"
+    if any(word in text for word in ["sirius"]):
+        return "内容与线上娱乐|现金流稳定"
+    if any(word in text for word in ["bank", "financial", "paypal", "futu", "mellon", "mastercard", "visa", "verisign"]):
+        return "金融基础设施|行业寡头"
+    if any(word in text for word in ["marsh", "mclennan"]):
         return "行业寡头|现金流稳定"
-    if any(word in text for word in ["restaurant", "beauty", "beverage", "food", "krispy", "vipshop", "pg "]):
-        return "品牌与定价权|现金流稳定"
-    if any(word in text for word in ["gold", "barrick", "energy", "sunrun", "ge "]):
-        return "资源品杠杆|周期复苏"
+    if any(word in text for word in ["restaurant", "beauty", "beverage", "food", "krispy", "vipshop", "pg ", "procter", "ulta", "beyond meat", "yatsen", "h world", "melco"]):
+        return "消费品牌渠道|品牌与定价权"
+    if any(word in text for word in ["coupang"]):
+        return "高增长渗透|消费品牌渠道"
+    if any(word in text for word in ["zto", "liberty latin"]):
+        return "行业寡头|长期增长空间"
+    if any(word in text for word in ["sunrun", "constellation energy"]):
+        return "能源转型叙事|高增长渗透"
+    if any(word in text for word in ["vnet"]):
+        return "工业基础设施|高增长渗透"
+    if any(word in text for word in ["gold", "barrick", "energy", "ge ", "trane", "lennar", "constellation"]):
+        return "工业基础设施|周期复苏"
     return "高资本回报|现金流稳定"
 
 
