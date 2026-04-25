@@ -696,10 +696,118 @@ def build_evidence_refs(ticker: str, holdings: pd.DataFrame, annual: pd.DataFram
     return "; ".join(refs)
 
 
+def keyword_tags(name: str) -> str:
+    text = name.lower()
+    if any(word in text for word in ["pharma", "therapeutics", "biotech", "immuno", "moderna", "novavax", "sarepta"]):
+        return "创新药叙事|高增长渗透"
+    if any(word in text for word in ["software", "cadence", "salesforce", "sentinelone", "oracle"]):
+        return "企业软件平台|高转换成本"
+    if any(word in text for word in ["semiconductor", "broadcom", "arista", "microsoft", "meta", "baidu", "netease"]):
+        return "平台网络效应|高资本回报|长期增长空间"
+    if any(word in text for word in ["bank", "financial", "paypal", "futu", "mellon"]):
+        return "行业寡头|现金流稳定"
+    if any(word in text for word in ["restaurant", "beauty", "beverage", "food", "krispy", "vipshop", "pg "]):
+        return "品牌与定价权|现金流稳定"
+    if any(word in text for word in ["gold", "barrick", "energy", "sunrun", "ge "]):
+        return "资源品杠杆|周期复苏"
+    return "高资本回报|现金流稳定"
+
+
+def build_auto_payload(row: pd.Series) -> dict[str, object]:
+    ticker = str(row["代码"])
+    cn_name = str(row["中文公司名"])
+    en_name = str(row["英文公司名"])
+    name = f"{cn_name} {en_name}"
+    category = str(row["分类结果"])
+    current_status = str(row.get("当前持有状态", ""))
+    base_tags = keyword_tags(name)
+    is_current = "当前在仓" in current_status
+
+    if category == "长期赢家":
+        return {
+            "entry_tags": base_tags,
+            "entry_summary": f"{cn_name} 的入池逻辑来自已经验证过的高质量经营特征：长期盈利能力、现金流质量或行业地位相对突出，因此在全池里被归为长期赢家。",
+            "entry_confidence": 0.68,
+            "hold_tags": "现金流稳定|长期增长空间" + ("|核心仓位" if is_current else ""),
+            "hold_summary": f"{cn_name} 被持续研究的重点是经营质量能否长期维持。当前分类显示其持有持续性和经营持续性都处在较高区间，适合作为正面样本继续拆解。",
+            "hold_confidence": 0.66,
+            "exit_tags": "" if is_current else "组合集中度让位|非核心仓位",
+            "exit_summary": "" if is_current else f"{cn_name} 当前不在仓，初步按组合取舍或非核心仓位处理；是否属于卖出误判，需要后续案例复盘再确认。",
+            "exit_confidence": None if is_current else 0.45,
+            "degradation_tags": "",
+            "degradation_summary": "",
+            "degradation_confidence": None,
+            "degradation_nature": "",
+            "exit_hindsight": "当前仍持有，暂不评价退出对错" if is_current else "需后续复盘退出后经营表现",
+        }
+    if category == "经营优秀但未被长期拿住":
+        return {
+            "entry_tags": base_tags,
+            "entry_summary": f"{cn_name} 的经营持续性较强，买入逻辑更多来自质量、回报或行业地位，而不是短期交易机会。",
+            "entry_confidence": 0.62,
+            "hold_tags": "现金流稳定|长期增长空间",
+            "hold_summary": f"从经营数据看，{cn_name} 具备继续研究的质量基础；但持有持续性偏低，说明它没有被机构稳定沉淀为长期核心仓位。",
+            "hold_confidence": 0.58,
+            "exit_tags": "非核心仓位|组合集中度让位",
+            "exit_summary": f"{cn_name} 未被长期拿住，当前先归因为仓位优先级、组合约束或机构能力圈边界，而不是经营质量明显恶化。",
+            "exit_confidence": 0.5,
+            "degradation_tags": "",
+            "degradation_summary": "",
+            "degradation_confidence": None,
+            "degradation_nature": "",
+            "exit_hindsight": "从经营质量看，后续需要重点复盘是否卖早",
+        }
+    if category == "审美失效/退化案例":
+        return {
+            "entry_tags": base_tags,
+            "entry_summary": f"{cn_name} 曾经具备被机构关注的成长、周期或平台叙事，因此进入持仓池；但这类逻辑对兑现质量要求较高。",
+            "entry_confidence": 0.58,
+            "hold_tags": "长期增长空间",
+            "hold_summary": f"{cn_name} 的持有持续性不低，说明机构曾愿意给它时间验证逻辑；问题在于经营持续性没有同步维持在高位。",
+            "hold_confidence": 0.56,
+            "exit_tags": "" if is_current else "盈利兑现不足|组合集中度让位",
+            "exit_summary": "" if is_current else f"{cn_name} 当前不在仓，初步判断退出与经营质量兑现不足或组合重新排序有关。",
+            "exit_confidence": None if is_current else 0.55,
+            "degradation_tags": "盈利兑现不足|竞争加剧",
+            "degradation_summary": f"{cn_name} 落入退化象限，核心含义是历史持有偏好和当前经营持续性不匹配；后续研究应重点核实利润、现金流或竞争格局为何变弱。",
+            "degradation_confidence": 0.68,
+            "degradation_nature": "经营兑现不足",
+            "exit_hindsight": "需后续结合退化原因判断退出是否正确",
+        }
+    return {
+        "entry_tags": base_tags,
+        "entry_summary": f"{cn_name} 曾进入机构持仓池，但当前经营质量或持续性不足，暂按弱质/陷阱样本处理。",
+        "entry_confidence": 0.52,
+        "hold_tags": "长期增长空间",
+        "hold_summary": f"{cn_name} 的持有基础较弱，更多来自远期故事或阶段性机会，尚未形成稳定复利型持有理由。",
+        "hold_confidence": 0.45,
+        "exit_tags": "" if is_current else "非核心仓位|盈利兑现不足",
+        "exit_summary": "" if is_current else f"{cn_name} 未形成长期持有，初步看是因为经营质量、兑现确定性或仓位重要性不足。",
+        "exit_confidence": None if is_current else 0.6,
+        "degradation_tags": "盈利兑现不足|竞争加剧",
+        "degradation_summary": f"{cn_name} 在当前框架中属于负面样本，后续研究重点是识别买入时的叙事与实际经营质量之间的偏差。",
+        "degradation_confidence": 0.72,
+        "degradation_nature": "质量不足或叙事落空",
+        "exit_hindsight": "在长期持有框架下，需要作为负面样本保留",
+    }
+
+
+def build_case_payloads(classification: pd.DataFrame) -> dict[str, dict[str, object]]:
+    eligible = classification[~classification["分类结果"].isin(["观察区", "未进入分类样本"])].copy()
+    generated = {
+        str(row["代码"]): build_auto_payload(row)
+        for _, row in eligible.iterrows()
+        if str(row["代码"]) not in CASE_DATA
+    }
+    generated.update(CASE_DATA)
+    return generated
+
+
 def update_research_judgement(workbook: Path) -> tuple[int, int]:
     research = pd.read_excel(workbook, sheet_name="research_judgement")
     holdings = pd.read_excel(workbook, sheet_name="holding_timeline")
     annual = pd.read_excel(workbook, sheet_name="operating_timeline")
+    classification = pd.read_excel(workbook, sheet_name="classification_snapshot")
     target_columns = {
         "entry_tags",
         "entry_summary",
@@ -724,7 +832,8 @@ def update_research_judgement(workbook: Path) -> tuple[int, int]:
 
     updated = 0
     used_tags: set[str] = set()
-    for ticker, payload in CASE_DATA.items():
+    case_payloads = build_case_payloads(classification)
+    for ticker, payload in case_payloads.items():
         mask = research["ticker"] == ticker
         if not mask.any():
             continue
