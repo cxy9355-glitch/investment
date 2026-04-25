@@ -14,6 +14,11 @@ DATASET = ROOT / "机构持仓研究" / "长期持有全池数据集_2026-04-17_
 RESEARCH = ROOT / "机构持仓研究" / "巴芒_喜马拉雅_高瓴_研究总表_2026-04-17.xlsx"
 OUTPUT = ROOT / "机构持仓研究" / "巴芒_喜马拉雅_高瓴_长期持有审美分类总表_2026-04-17.xlsx"
 
+# Stable model: durable facts live in DATASET standard sheets. RESEARCH is a
+# derived reading workbook kept only as an auxiliary input for current display.
+HOLDING_SHEETS = ["holding_timeline", "实体级持仓历史_可比池"]
+OPERATING_SHEETS = ["operating_timeline", "年度经营质量_可比池"]
+
 HEADER_FILL = PatternFill("solid", fgColor="1F4E78")
 SUB_FILL = PatternFill("solid", fgColor="D9EAF7")
 WHITE_FONT = Font(color="FFFFFF", bold=True)
@@ -41,11 +46,19 @@ def percentile_rank(series: pd.Series, inverse: bool = False) -> pd.Series:
     return numeric.rank(pct=True)
 
 
+def read_first_sheet(path: Path, sheet_names: list[str]) -> pd.DataFrame:
+    available = set(pd.ExcelFile(path).sheet_names)
+    for sheet_name in sheet_names:
+        if sheet_name in available:
+            return pd.read_excel(path, sheet_name=sheet_name)
+    raise ValueError(f"None of {sheet_names} found in {path}")
+
+
 def load_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     main = pd.read_excel(RESEARCH, sheet_name="研究主表")
     negative = pd.read_excel(RESEARCH, sheet_name="观察与负样本")
-    holdings = pd.read_excel(DATASET, sheet_name="实体级持仓历史_可比池")
-    annual = pd.read_excel(DATASET, sheet_name="年度经营质量_可比池")
+    holdings = read_first_sheet(DATASET, HOLDING_SHEETS)
+    annual = read_first_sheet(DATASET, OPERATING_SHEETS)
     return main, negative, holdings, annual
 
 

@@ -16,6 +16,20 @@ import pandas as pd
 ROOT = Path(r"G:\Codex\个人\investment")
 WORKBOOK = ROOT / "机构持仓研究" / "巴芒_喜马拉雅_高瓴_长期持有审美分类总表_2026-04-17.xlsx"
 HTML_PATH = ROOT / "机构持仓研究" / "长期持有审美四象限面板.html"
+REQUIRED_FIELDS = [
+    "代码",
+    "中文公司名",
+    "英文公司名",
+    "市场",
+    "当前持有机构",
+    "当前持有状态",
+    "持有持续性分数",
+    "持有持续性分位",
+    "经营持续性分数",
+    "经营持续性分位",
+    "分类结果",
+    "观察原因",
+]
 
 
 def find_free_port() -> int:
@@ -39,6 +53,9 @@ def normalize_value(value):
 
 def load_panel_data() -> dict:
     df = pd.read_excel(WORKBOOK, sheet_name="分类总表")
+    missing = [field for field in REQUIRED_FIELDS if field not in df.columns]
+    if missing:
+        raise ValueError(f"分类总表缺少四象限面板必需字段: {', '.join(missing)}")
     records = []
     for record in df.to_dict(orient="records"):
         current_holder = normalize_value(record.get("当前持有机构"))
