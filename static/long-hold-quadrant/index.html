@@ -3,74 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>长期持有审美四象限面板</title>
+  <title>长期持有研究面板</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c49343'/%3E%3Ccircle cx='10' cy='22' r='3' fill='%23a54b4b'/%3E%3Ccircle cx='22' cy='10' r='4' fill='%234c8f2f'/%3E%3Ccircle cx='22' cy='22' r='3' fill='%23cf7b36'/%3E%3C/svg%3E">
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <style>
     :root {
-      --bg: #f4f7fb;
-      --panel: #ffffff;
-      --line: #d9e2ef;
-      --text: #1d2a3a;
-      --muted: #5a6b80;
-      --winner: #2b7a0b;
-      --decline: #c55a11;
-      --excellent: #1f78b4;
-      --weak: #9e2a2b;
-      --watch: #a38b00;
+      --bg: #f5f1e8;
+      --panel: #fffdf8;
+      --panel-soft: #f8f4ec;
+      --line: #ddd3c2;
+      --line-strong: #cbbba3;
+      --text: #1d2d3f;
+      --muted: #6b7280;
+      --winner: #4c8f2f;
+      --decline: #cf7b36;
+      --excellent: #4c8fbd;
+      --weak: #a54b4b;
+      --watch: #c8b55e;
+      --accent: #c49343;
+      --shadow: 0 18px 50px rgba(63, 46, 27, 0.08);
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, #f4f7fb 0%, #eef3f9 100%);
+      background: var(--bg);
     }
     .shell {
       display: grid;
-      grid-template-columns: minmax(760px, 1fr) 360px;
-      gap: 16px;
+      grid-template-columns: minmax(840px, 1fr) 380px;
+      gap: 18px;
       min-height: 100vh;
-      padding: 16px;
+      padding: 18px;
     }
     .panel {
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(24, 45, 72, 0.06);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
     }
     .controls {
-      padding: 14px 16px 8px;
-      border-bottom: 1px solid var(--line);
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid rgba(203, 187, 163, 0.55);
     }
     .controls h1 {
-      margin: 0 0 10px;
-      font-size: 20px;
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 0.01em;
+    }
+    .controls-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .controls-head p {
+      margin: 6px 0 0;
+      font-size: 13px;
+      color: var(--muted);
     }
     .control-grid {
       display: grid;
-      grid-template-columns: 220px 180px 180px 180px 1fr;
-      gap: 10px;
-      align-items: end;
+      grid-template-columns: minmax(240px, 1.3fr) repeat(4, minmax(120px, 0.78fr)) auto;
+      gap: 12px;
+      align-items: stretch;
+      padding: 12px;
+      border: 1px solid rgba(203, 187, 163, 0.65);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(251, 248, 241, 0.92), rgba(247, 241, 231, 0.92));
     }
     .field label {
       display: block;
       font-size: 12px;
       color: var(--muted);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      padding-left: 2px;
     }
     .field input, .field select {
       width: 100%;
-      padding: 8px 10px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: #fff;
+      min-height: 42px;
+      padding: 10px 12px;
+      border: 1px solid rgba(201, 184, 157, 0.9);
+      border-radius: 12px;
+      background: rgba(255, 253, 248, 0.96);
       color: var(--text);
+      font-size: 14px;
+    }
+    .field input:focus, .field select:focus {
+      outline: none;
+      border-color: #b88943;
+      box-shadow: 0 0 0 3px rgba(196, 147, 67, 0.12);
     }
     .toggle-wrap {
       display: flex;
       gap: 14px;
       align-items: center;
-      padding-top: 24px;
+      justify-content: flex-end;
+      padding: 22px 4px 0 8px;
       flex-wrap: wrap;
     }
     .toggle-wrap label {
@@ -86,52 +117,253 @@
       align-items: center;
       font-size: 12px;
       color: var(--muted);
-      padding: 8px 16px 0;
+      padding: 10px 18px 0;
     }
     #chart {
-      height: calc(100vh - 150px);
-      min-height: 680px;
+      height: calc(100vh - 186px);
+      min-height: 720px;
     }
     .detail {
-      padding: 16px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
+      overflow: auto;
     }
     .detail h2 {
       margin: 0;
-      font-size: 18px;
+      font-size: 26px;
     }
     .detail .sub {
       color: var(--muted);
-      font-size: 13px;
-      margin-top: -4px;
+      font-size: 14px;
+      margin-top: 4px;
     }
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px;
-      background: #fbfdff;
+    .detail-hero {
+      padding: 16px 18px;
+      border: 1px solid rgba(203, 187, 163, 0.65);
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fffcf6 0%, #f8f2e8 100%);
     }
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 13px;
+    .hero-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid transparent;
+      background: #efe5d1;
+      color: #59431c;
+    }
+    .pill.category {
+      color: #fff;
+      border-color: rgba(16, 24, 40, 0.08);
+    }
+    .pill.market {
+      background: #f6efe2;
+      color: #6f5c3f;
+      border-color: rgba(170, 144, 104, 0.3);
+    }
+    .dock {
+      border: 1px solid rgba(203, 187, 163, 0.6);
+      border-radius: 18px;
+      background: #fffdf8;
+      overflow: hidden;
+    }
+    .dock summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      user-select: none;
+    }
+    .dock summary::-webkit-details-marker {
+      display: none;
+    }
+    .dock summary::after {
+      content: "＋";
+      font-size: 16px;
+      color: var(--muted);
+    }
+    .dock[open] summary::after {
+      content: "－";
+    }
+    .dock[open] summary {
+      border-bottom: 1px solid rgba(203, 187, 163, 0.45);
+      background: linear-gradient(180deg, #fffcf6, #faf4ea);
+    }
+    .dock-body {
+      padding: 14px 16px 16px;
+      background: #fffdfa;
+    }
+    .dock-label {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .dock-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.55;
+    }
+    .section-block + .section-block {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(203, 187, 163, 0.65);
+    }
+    .section-block h4 {
+      margin: 10px 0 6px;
+      font-size: 12px;
       color: var(--muted);
     }
     .kv {
       display: grid;
-      grid-template-columns: 120px 1fr;
-      row-gap: 8px;
-      column-gap: 10px;
+      grid-template-columns: 116px 1fr;
+      row-gap: 10px;
+      column-gap: 12px;
       font-size: 13px;
     }
     .kv .k { color: var(--muted); }
-    .pill {
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 999px;
+    .pill-line {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .pill.soft {
+      background: #efe5d1;
+      color: #624d26;
+      border: 1px solid rgba(170, 144, 104, 0.24);
+    }
+    .section-copy {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text);
+      white-space: pre-wrap;
+    }
+    .section-copy.empty {
+      color: var(--muted);
+      font-style: italic;
+    }
+    .record-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 320px;
+      overflow: auto;
+    }
+    .record-row {
+      border: 1px solid rgba(203, 187, 163, 0.58);
+      border-radius: 14px;
+      background: #fffdfa;
+      padding: 12px;
+      cursor: pointer;
+      transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+    }
+    .record-row:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(63, 46, 27, 0.08);
+    }
+    .record-row.active {
+      border-color: #c49343;
+      box-shadow: 0 0 0 3px rgba(196, 147, 67, 0.12);
+    }
+    .record-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .record-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .record-meta {
       font-size: 12px;
-      color: #fff;
+      color: var(--muted);
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .record-mini {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .mini-stat {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: var(--panel-soft);
+      border: 1px solid rgba(203, 187, 163, 0.4);
+    }
+    .mini-stat .label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+    .mini-stat .value {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    @media (max-width: 1100px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+      #chart {
+        height: 64vh;
+        min-height: 520px;
+      }
+    }
+    @media (max-width: 900px) {
+      .control-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .toggle-wrap {
+        justify-content: flex-start;
+        padding-top: 8px;
+      }
+    }
+    @media (max-width: 640px) {
+      .shell {
+        padding: 10px;
+      }
+      .controls-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .control-grid {
+        grid-template-columns: 1fr;
+      }
+      .kv {
+        grid-template-columns: 96px 1fr;
+      }
+      .mini-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      #chart {
+        min-height: 440px;
+      }
     }
     .muted {
       color: var(--muted);
@@ -144,7 +376,12 @@
   <div class="shell">
     <section class="panel">
       <div class="controls">
-        <h1>长期持有审美四象限面板</h1>
+        <div class="controls-head">
+          <div>
+            <h1>长期持有研究面板</h1>
+            <p>先看象限，再读研究信息，最后按需展开事实字段。</p>
+          </div>
+        </div>
         <div class="control-grid">
           <div class="field">
             <label for="searchInput">搜索代码 / 公司名</label>
@@ -166,6 +403,10 @@
               <option value="notCurrent">仅当前不在仓</option>
             </select>
           </div>
+          <div class="field">
+            <label for="tagSelect">研究标签</label>
+            <select id="tagSelect"></select>
+          </div>
           <div class="toggle-wrap">
             <label><input id="showObservation" type="checkbox" checked> 显示观察区</label>
             <label><input id="labelExtremes" type="checkbox"> 标注极端样本</label>
@@ -180,39 +421,71 @@
     </section>
 
     <aside class="panel detail">
-      <div>
+      <div class="detail-hero">
         <h2 id="detailTitle">点击任一点查看详情</h2>
-        <div id="detailSub" class="sub">面板按启动时的当前分类总表动态取数</div>
+        <div id="detailSub" class="sub">面板展示当前分类与研究判断预览</div>
+        <div id="detailMeta" class="hero-meta"></div>
       </div>
 
-      <div class="card">
-        <h3>当前样本</h3>
-        <div id="detailSummary" class="muted">左侧散点图支持 hover 和 click；click 后这里会显示个股详情。</div>
-      </div>
+      <details class="dock" open>
+        <summary>研究信息</summary>
+        <div class="dock-body">
+          <div id="detailSummary" class="muted">左侧散点图支持 hover 和 click；click 后这里会显示个股详情。</div>
+          <div id="detailJudgement"></div>
+        </div>
+      </details>
 
-      <div class="card">
-        <h3>研究字段</h3>
-        <div id="detailFields" class="kv"></div>
-      </div>
+      <details class="dock">
+        <summary>持仓与经营摘要</summary>
+        <div class="dock-body">
+          <div id="detailMiniGrid" class="mini-grid"></div>
+          <div id="detailSummaryFields" class="kv" style="margin-top: 14px;"></div>
+        </div>
+      </details>
 
-      <div class="card">
-        <h3>说明</h3>
-        <div class="muted">
+      <details class="dock">
+        <summary>核心指标</summary>
+        <div class="dock-body">
+          <div id="detailFields" class="kv"></div>
+        </div>
+      </details>
+
+      <details class="dock">
+        <summary>证据与来源</summary>
+        <div class="dock-body">
+          <div id="detailEvidence" class="section-copy empty">暂无证据引用。</div>
+          <div id="detailEvidenceMeta" class="kv" style="margin-top: 14px;"></div>
+        </div>
+      </details>
+
+      <details class="dock">
+        <summary>当前筛选</summary>
+        <div class="dock-body">
+          <div id="recordList" class="record-list"></div>
+        </div>
+      </details>
+
+      <details class="dock">
+        <summary>面板说明</summary>
+        <div class="dock-body">
+          <div class="muted">
           横轴是 <strong>持有持续性分位</strong>，纵轴是 <strong>经营持续性分位</strong>。<br>
           四类和观察区来自当前分类总表，不在图里重新计算。<br>
-          如果你刷新了分类总表，重新启动面板即可读取新数据。
+          当前页面用于研究导航，优先展示研究信息，再按需展开支撑字段。<br>
+          页面不在这里重算分类，也不在这里修改底层研究结论。
+          </div>
         </div>
-      </div>
+      </details>
     </aside>
   </div>
 
   <script>
     const categoryColors = {
-      "长期赢家": "#2b7a0b",
-      "审美失效/退化案例": "#c55a11",
-      "经营优秀但未被长期拿住": "#1f78b4",
-      "弱质/陷阱样本": "#9e2a2b",
-      "观察区": "#a38b00"
+      "长期赢家": "#4c8f2f",
+      "审美失效/退化案例": "#cf7b36",
+      "经营优秀但未被长期拿住": "#4c8fbd",
+      "弱质/陷阱样本": "#a54b4b",
+      "观察区": "#c8b55e"
     };
 
     let allRecords = [];
@@ -222,6 +495,7 @@
     const fmtScore = v => (v == null || Number.isNaN(v)) ? "—" : Number(v).toFixed(1);
     const fmtNum = v => (v == null || Number.isNaN(v)) ? "—" : Number(v).toLocaleString("zh-CN");
     const fmtDate = v => v || "—";
+    const fmtConfidence = v => (v == null || Number.isNaN(v)) ? "—" : `${Math.round(Number(v) * 100)}%`;
 
     function buildOptions(select, values, allLabel) {
       select.innerHTML = "";
@@ -237,6 +511,19 @@
       });
     }
 
+    function judgment(item) {
+      return item?.judgement || {
+        reviewStatus: "暂无判断",
+        caseSource: "empty",
+        allTags: []
+      };
+    }
+
+    function renderTagPills(tags, colorClass = "soft") {
+      if (!tags || !tags.length) return `<div class="section-copy empty">暂无标签</div>`;
+      return `<div class="pill-line">${tags.map(tag => `<span class="pill ${colorClass}">${tag}</span>`).join("")}</div>`;
+    }
+
     function setMeta(data, visibleCount) {
       document.getElementById("metaLeft").textContent = `当前显示 ${visibleCount} / ${data.records.length} 个样本`;
       document.getElementById("metaRight").textContent = `数据时间：${data.generatedAt}`;
@@ -247,16 +534,19 @@
       const category = document.getElementById("categorySelect").value;
       const market = document.getElementById("marketSelect").value;
       const current = document.getElementById("currentSelect").value;
+      const tag = document.getElementById("tagSelect").value;
       const showObservation = document.getElementById("showObservation").checked;
 
       return allRecords.filter(item => {
+        const j = judgment(item);
         if (!showObservation && item.category === "观察区") return false;
         if (category !== "all" && item.category !== category) return false;
         if (market !== "all" && item.market !== market) return false;
         if (current === "current" && !item.isCurrent) return false;
         if (current === "notCurrent" && item.isCurrent) return false;
+        if (tag !== "all" && !j.allTags.includes(tag)) return false;
         if (query) {
-          const hay = `${item.ticker} ${item.name || ""} ${item.englishName || ""}`.toLowerCase();
+          const hay = `${item.ticker} ${item.name || ""} ${item.englishName || ""} ${j.allTags.join(" ")}`.toLowerCase();
           if (!hay.includes(query)) return false;
         }
         return true;
@@ -266,28 +556,57 @@
     function updateDetail(item) {
       if (!item) return;
       selected = item;
+      const j = judgment(item);
       document.getElementById("detailTitle").textContent = `${item.ticker} · ${item.name || item.englishName || ""}`;
-      document.getElementById("detailSub").innerHTML =
-        `<span class="pill" style="background:${categoryColors[item.category] || '#666'}">${item.category}</span>` +
-        `　${item.market || "未知市场"}　${item.currentStatus || "状态未知"}`;
+      document.getElementById("detailSub").textContent =
+        `${item.market || "未知市场"} · ${item.currentStatus || "状态未知"}`;
+      document.getElementById("detailMeta").innerHTML = [
+        `<span class="pill category" style="background:${categoryColors[item.category] || '#666'}">${item.category}</span>`,
+        `<span class="pill market">${item.market || "未知市场"}</span>`,
+        `<span class="pill market">${item.currentStatus || "状态未知"}</span>`
+      ].join("");
       document.getElementById("detailSummary").textContent =
-        item.observationReason || "该样本当前没有额外观察原因。";
+        j.holdSummary || j.entrySummary || item.observationReason || "该样本当前没有额外研究摘要。";
 
-      const fields = [
+      const summaryStats = [
+        ["持有分位", fmtPct(item.holdingPercentile)],
+        ["经营分位", fmtPct(item.operatingPercentile)],
+        ["覆盖机构", fmtNum(item.coverageInstitutions)],
+        ["出现季度", fmtNum(item.quartersHeld)]
+      ];
+      document.getElementById("detailMiniGrid").innerHTML = summaryStats.map(([label, value]) => `
+        <div class="mini-stat">
+          <div class="label">${label}</div>
+          <div class="value">${value}</div>
+        </div>
+      `).join("");
+
+      const summaryFields = [
         ["当前持有机构", item.currentHolder || "—"],
         ["持有持续性分数", fmtScore(item.holdingScore)],
         ["经营持续性分数", fmtScore(item.operatingScore)],
-        ["持有持续性分位", fmtPct(item.holdingPercentile)],
-        ["经营持续性分位", fmtPct(item.operatingPercentile)],
-        ["覆盖机构数", fmtNum(item.coverageInstitutions)],
-        ["出现季度数", fmtNum(item.quartersHeld)],
-        ["覆盖年份数", fmtNum(item.yearsHeld)],
         ["当前持有机构数", fmtNum(item.currentHolderCount)],
+        ["覆盖年份数", fmtNum(item.yearsHeld)],
         ["平均持仓权重", fmtPct(item.avgWeight)],
         ["峰值持仓权重", fmtPct(item.peakWeight)],
-        ["有效财年行数", fmtNum(item.validYears)],
+        ["有效财年行数", fmtNum(item.validYears)]
+      ];
+      const summaryContainer = document.getElementById("detailSummaryFields");
+      summaryContainer.innerHTML = "";
+      summaryFields.forEach(([k, v]) => {
+        const kEl = document.createElement("div");
+        kEl.className = "k";
+        kEl.textContent = k;
+        const vEl = document.createElement("div");
+        vEl.textContent = v;
+        summaryContainer.appendChild(kEl);
+        summaryContainer.appendChild(vEl);
+      });
+
+      const fields = [
         ["核心完整财年行数", fmtNum(item.completeYears)],
         ["最新财报期", fmtDate(item.latestReport)],
+        ["当前持有机构", item.currentHolder || "—"],
         ["5年平均ROE", fmtPct(item.roe5y)],
         ["5年平均ROA", fmtPct(item.roa5y)],
         ["5年平均毛利率", fmtPct(item.grossMargin5y)],
@@ -306,12 +625,50 @@
         container.appendChild(kEl);
         container.appendChild(vEl);
       });
+
+      const detailJudgement = document.getElementById("detailJudgement");
+      const sections = [
+        ["买入判断", j.entrySummary, j.entryTags, j.entryConfidence],
+        ["持有判断", j.holdSummary, j.holdTags, j.holdConfidence],
+        ["退出判断", j.exitSummary, j.exitTags, j.exitConfidence],
+        ["退化判断", j.degradationSummary, j.degradationTags, j.degradationConfidence]
+      ];
+      detailJudgement.innerHTML = sections.map(([title, summary, tags, confidence]) => `
+        <div class="section-block">
+          <h4>${title}</h4>
+          ${renderTagPills(tags)}
+          <div class="dock-note">参考置信度：${fmtConfidence(confidence)}</div>
+          <div class="section-copy ${summary ? "" : "empty"}">${summary || "该部分暂无判断。"}</div>
+        </div>
+      `).join("");
+
+      document.getElementById("detailEvidence").className = `section-copy ${j.evidenceRefs ? "" : "empty"}`;
+      document.getElementById("detailEvidence").textContent = j.evidenceRefs || "暂无证据引用。";
+      const evidenceFields = [
+        ["管理人口径", j.managerScope || "—"],
+        ["案例来源", j.caseSource === "manual" ? "手工案例" : j.caseSource === "auto" ? "自动补全" : "暂无判断"],
+        ["判断版本", j.version || "—"],
+        ["参考最低置信度", fmtConfidence(j.confidenceMin)],
+        ["最近复核", fmtDate(j.lastReviewedAt)]
+      ];
+      const evidenceContainer = document.getElementById("detailEvidenceMeta");
+      evidenceContainer.innerHTML = "";
+      evidenceFields.forEach(([k, v]) => {
+        const kEl = document.createElement("div");
+        kEl.className = "k";
+        kEl.textContent = k;
+        const vEl = document.createElement("div");
+        vEl.textContent = v;
+        evidenceContainer.appendChild(kEl);
+        evidenceContainer.appendChild(vEl);
+      });
     }
 
     function buildTraces(records, labelExtremes) {
       const categories = ["长期赢家", "审美失效/退化案例", "经营优秀但未被长期拿住", "弱质/陷阱样本", "观察区"];
       return categories.map(category => {
         const subset = records.filter(x => x.category === category);
+        const isObservation = category === "观察区";
         return {
           type: "scatter",
           mode: labelExtremes ? "markers+text" : "markers",
@@ -326,14 +683,18 @@
           textposition: "top center",
           customdata: subset,
           marker: {
-            size: subset.map(x => Math.max(10, Math.min(28, (x.coverageInstitutions || 1) * 4 + (x.isCurrent ? 2 : 0)))),
+            size: subset.map(x => Math.max(isObservation ? 7 : 10, Math.min(isObservation ? 20 : 30, ((x.peakWeight || 0) * 200) + (isObservation ? 7 : 11)))),
             color: categoryColors[category],
-            opacity: category === "观察区" ? 0.55 : 0.85,
+            opacity: isObservation ? 0.42 : 0.92,
             line: {
-              width: subset.map(x => x.isCurrent ? 2 : 0.5),
-              color: subset.map(x => x.isCurrent ? "#0f172a" : "#ffffff")
+              width: subset.map(x => x.isCurrent ? (isObservation ? 1.6 : 2.1) : (isObservation ? 0.4 : 0)),
+              color: subset.map(x => x.isCurrent ? "rgba(44, 52, 64, 0.78)" : "rgba(0,0,0,0)")
             },
-            symbol: subset.map(x => x.isObservation ? "diamond" : "circle")
+            symbol: isObservation ? "diamond" :
+              category === "长期赢家" ? "circle" :
+              category === "审美失效/退化案例" ? "square" :
+              category === "经营优秀但未被长期拿住" ? "circle" :
+              "square"
           },
           hovertemplate:
             "<b>%{customdata.ticker}</b> · %{customdata.name}<br>" +
@@ -351,43 +712,95 @@
       const labelExtremes = document.getElementById("labelExtremes").checked;
       const traces = buildTraces(records, labelExtremes);
       const layout = {
-        margin: { l: 60, r: 20, t: 24, b: 56 },
-        paper_bgcolor: "#ffffff",
-        plot_bgcolor: "#fbfdff",
+        margin: { l: 64, r: 24, t: 38, b: 64 },
+        paper_bgcolor: "#fffdf8",
+        plot_bgcolor: "#fffaf2",
         hovermode: "closest",
         xaxis: {
           title: "持有持续性分位",
           range: [0, 100],
           ticksuffix: "%",
-          gridcolor: "#e6edf5",
+          tickfont: { color: "#6b7280", size: 11 },
+          titlefont: { color: "#425466", size: 12 },
+          gridcolor: "rgba(176, 160, 132, 0.18)",
+          linecolor: "rgba(176, 160, 132, 0.38)",
+          mirror: false,
           zeroline: false
         },
         yaxis: {
           title: "经营持续性分位",
           range: [0, 100],
           ticksuffix: "%",
-          gridcolor: "#e6edf5",
+          tickfont: { color: "#6b7280", size: 11 },
+          titlefont: { color: "#425466", size: 12 },
+          gridcolor: "rgba(176, 160, 132, 0.18)",
+          linecolor: "rgba(176, 160, 132, 0.38)",
           zeroline: false
         },
-        legend: { orientation: "h", y: 1.1 },
+        legend: {
+          orientation: "h",
+          y: 1.12,
+          x: 0,
+          font: { size: 12, color: "#435264" },
+          bgcolor: "rgba(255,255,255,0)"
+        },
         shapes: [
-          { type: "line", x0: 35, x1: 35, y0: 0, y1: 100, line: { color: "#c9d4e2", dash: "dot" } },
-          { type: "line", x0: 65, x1: 65, y0: 0, y1: 100, line: { color: "#c9d4e2", dash: "dot" } },
-          { type: "line", x0: 0, x1: 100, y0: 35, y1: 35, line: { color: "#c9d4e2", dash: "dot" } },
-          { type: "line", x0: 0, x1: 100, y0: 65, y1: 65, line: { color: "#c9d4e2", dash: "dot" } }
+          { type: "line", x0: 35, x1: 35, y0: 0, y1: 100, line: { color: "rgba(171, 150, 114, 0.45)", dash: "dot", width: 1.2 } },
+          { type: "line", x0: 65, x1: 65, y0: 0, y1: 100, line: { color: "rgba(171, 150, 114, 0.45)", dash: "dot", width: 1.2 } },
+          { type: "line", x0: 0, x1: 100, y0: 35, y1: 35, line: { color: "rgba(171, 150, 114, 0.45)", dash: "dot", width: 1.2 } },
+          { type: "line", x0: 0, x1: 100, y0: 65, y1: 65, line: { color: "rgba(171, 150, 114, 0.45)", dash: "dot", width: 1.2 } }
         ],
         annotations: [
-          { x: 82, y: 88, text: "长期赢家", showarrow: false, font: { color: "#2b7a0b", size: 14 } },
-          { x: 18, y: 88, text: "经营优秀但未被长期拿住", showarrow: false, font: { color: "#1f78b4", size: 12 } },
-          { x: 82, y: 12, text: "审美失效/退化案例", showarrow: false, font: { color: "#c55a11", size: 12 } },
-          { x: 18, y: 12, text: "弱质/陷阱样本", showarrow: false, font: { color: "#9e2a2b", size: 12 } }
+          { x: 87, y: 92, text: "长期赢家", showarrow: false, xanchor: "center", yanchor: "middle", font: { color: "#4c8f2f", size: 15 }, bgcolor: "rgba(255,252,246,0.88)", bordercolor: "rgba(76,143,47,0.16)", borderpad: 6 },
+          { x: 16, y: 91, text: "经营优秀但未被长期拿住", showarrow: false, xanchor: "left", yanchor: "middle", font: { color: "#4c8fbd", size: 12 }, bgcolor: "rgba(255,252,246,0.82)", bordercolor: "rgba(76,143,189,0.16)", borderpad: 6 },
+          { x: 86, y: 10, text: "审美失效/退化案例", showarrow: false, xanchor: "center", yanchor: "middle", font: { color: "#cf7b36", size: 12 }, bgcolor: "rgba(255,252,246,0.82)", bordercolor: "rgba(207,123,54,0.16)", borderpad: 6 },
+          { x: 15, y: 10, text: "弱质 / 陷阱样本", showarrow: false, xanchor: "left", yanchor: "middle", font: { color: "#a54b4b", size: 12 }, bgcolor: "rgba(255,252,246,0.82)", bordercolor: "rgba(165,75,75,0.16)", borderpad: 6 }
         ]
       };
-      Plotly.newPlot("chart", traces, layout, { responsive: true, displaylogo: false });
+      Plotly.newPlot("chart", traces, layout, {
+        responsive: true,
+        displaylogo: false,
+        modeBarButtonsToRemove: ["select2d", "lasso2d", "zoomIn2d", "zoomOut2d", "autoScale2d", "toggleSpikelines"],
+        displayModeBar: "hover"
+      });
       const chart = document.getElementById("chart");
       chart.on("plotly_click", event => {
         const item = event.points?.[0]?.customdata;
         if (item) updateDetail(item);
+      });
+    }
+
+    function renderRecordList(records) {
+      const container = document.getElementById("recordList");
+      container.innerHTML = "";
+      const sorted = [...records].sort((a, b) =>
+        (b.holdingPercentile || 0) - (a.holdingPercentile || 0) ||
+        (b.operatingPercentile || 0) - (a.operatingPercentile || 0)
+      );
+      if (!sorted.length) {
+        container.innerHTML = `<div class="section-copy empty">当前筛选下没有样本。</div>`;
+        return;
+      }
+      sorted.forEach(item => {
+        const row = document.createElement("div");
+        row.className = `record-row${selected && selected.ticker === item.ticker ? " active" : ""}`;
+        row.innerHTML = `
+          <div class="record-head">
+            <div class="record-name">${item.ticker} · ${item.name || item.englishName || ""}</div>
+            <span class="pill market">${item.market || "未知市场"}</span>
+          </div>
+          <div class="record-meta">
+            <span>${item.category}</span>
+            <span>${item.market || "未知市场"}</span>
+            <span>${item.currentStatus || "状态未知"}</span>
+          </div>
+          <div class="record-mini">持有分位 ${fmtPct(item.holdingPercentile)} · 经营分位 ${fmtPct(item.operatingPercentile)}</div>
+        `;
+        row.addEventListener("click", () => {
+          updateDetail(item);
+          renderRecordList(records);
+        });
+        container.appendChild(row);
       });
     }
 
@@ -397,6 +810,7 @@
       allRecords = data.records;
       buildOptions(document.getElementById("categorySelect"), data.categories, "全部分类");
       buildOptions(document.getElementById("marketSelect"), data.markets, "全部市场");
+      buildOptions(document.getElementById("tagSelect"), (data.tagOptions || []).map(x => x.name), "全部标签");
       setMeta(data, data.records.length);
       const first = data.records.find(x => x.category !== "观察区") || data.records[0];
       if (first) updateDetail(first);
@@ -407,15 +821,18 @@
       const filtered = applyFilters();
       setMeta(data, filtered.length);
       renderChart(filtered);
-      if (selected) {
-        const matched = filtered.find(x => x.ticker === selected.ticker);
-        if (matched) updateDetail(matched);
+      const matched = selected ? filtered.find(x => x.ticker === selected.ticker) : null;
+      if (matched) {
+        updateDetail(matched);
+      } else if (filtered[0]) {
+        updateDetail(filtered[0]);
       }
+      renderRecordList(filtered);
     }
 
     async function init() {
       const data = await loadData();
-      const controls = ["searchInput", "categorySelect", "marketSelect", "currentSelect", "showObservation", "labelExtremes"];
+      const controls = ["searchInput", "categorySelect", "marketSelect", "currentSelect", "tagSelect", "showObservation", "labelExtremes"];
       controls.forEach(id => {
         document.getElementById(id).addEventListener("input", () => rerender(data));
         document.getElementById(id).addEventListener("change", () => rerender(data));
