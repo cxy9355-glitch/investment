@@ -1,0 +1,4032 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- begin spin_special_output(head_start) -->
+<script type="text/javascript" wd_script_id="view_printable_script" nonce="N2VkY2U3MzhjODE4OThiZWE2ZWU0ZmVhMTYyYWFjYzA0MjdmNDM1Mg==">
+	function view_printable() {
+		var loc = window.location;
+		var sep = (loc.search == "") ? "?" : "&";
+		var url = loc.protocol+"//"+loc.host+loc.pathname+loc.search+sep+"printable"+loc.hash;
+		window.open(url, "_blank", "");
+	}
+</script>
+<link href="thirdparty/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" wd_script_id="font-awesome.min.css">
+<style type="text/css" wd_script_id="toolbar_style" nonce="N2VkY2U3MzhjODE4OThiZWE2ZWU0ZmVhMTYyYWFjYzA0MjdmNDM1Mg==">
+			div.wd_toolbar {
+				border-top: 1px solid #cccccc;
+				border-bottom: 1px solid #cccccc;
+				margin: 15px 0px 15px 0px;
+				padding: 5px;
+				line-height: 1;
+			}
+			div.wd_toolbar-page {
+				clear: both;
+			}
+			div.wd_toolbar ul.wd_tools {
+				display: inline-block;
+				width: 100%;
+				margin: 0;
+				padding: 5px 0;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool {
+				display: block;
+				list-style-type: none;
+				margin-right: 5px;
+				padding: 0;
+				float: right;
+			}
+			span.wd_tool_icon > a:link,
+			span.wd_tool_icon > a:visited {
+				border-radius: 2px;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 7px;
+				font-size: 16px;
+				line-height: 1;
+				text-align: center;
+				color: #ffffff;
+				background-color: #767676;
+			} 
+			span.wd_tool_icon > a:hover {
+				color: #ffffff;
+				background-color: #666666;
+				text-decoration: none;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool-addthis {
+				float: left;
+			}
+		</style>
+<script type="text/javascript" src="js/jquery-webdriver.js" wd_script_id="jquery-webdriver.js" nonce="N2VkY2U3MzhjODE4OThiZWE2ZWU0ZmVhMTYyYWFjYzA0MjdmNDM1Mg=="></script>
+<script type="text/javascript" src="js/webdriver.js" wd_script_id="webdriver.js" nonce="N2VkY2U3MzhjODE4OThiZWE2ZWU0ZmVhMTYyYWFjYzA0MjdmNDM1Mg=="></script>
+<script type="text/javascript" src="js/wd_resize.js" wd_script_id="wd_resize.js" nonce="N2VkY2U3MzhjODE4OThiZWE2ZWU0ZmVhMTYyYWFjYzA0MjdmNDM1Mg=="></script>
+<script type="text/javascript" wd_script_id="format_news_script" nonce="N2VkY2U3MzhjODE4OThiZWE2ZWU0ZmVhMTYyYWFjYzA0MjdmNDM1Mg==">
+(function($) {
+	webDriver.formatNews = function() {
+		var $news = $(this);
+		var print_url = $news.attr("wd_print_url");
+		$news.find("table").each(function() {
+			var $table = $(this);
+			var $parent = $table.parent();
+			if ($parent.innerWidth() < $table.outerWidth()) {
+				if ($parent.hasClass("wd_news_table")) {
+					$parent.find(".fullscreen-button").show();
+				} else {
+					var $btn = $("<button>View News Release Full Screen</button>")
+						.addClass("fullscreen-button")
+						.on("click", function() {
+							if (print_url)
+								window.open(print_url, "_blank", "");
+							else
+								view_printable();
+						})
+					;
+
+					var $div = $("<div></div>)")
+						.addClass("wd_news_table")
+						.css("overflow-x", "auto")
+						.append($btn)
+					;
+
+					$table.replaceWith($div);
+					$div.append($table);
+				}
+			} else {
+				if ($parent.hasClass("wd_news_table"))
+					$parent.find(".fullscreen-button").hide();
+			}
+		});
+	}
+})(webDriver.jQuery);
+</script>
+<style type="text/css" wd_script_id="template detail:newsfeed_releases:system style" nonce="N2VkY2U3MzhjODE4OThiZWE2ZWU0ZmVhMTYyYWFjYzA0MjdmNDM1Mg==">
+.wd_title {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.wd_subtitle {
+	font-weight: bold;
+}
+table.wd_extimagetable {
+	border-style: none; 
+	border-spacing:0px;
+	clear: right; 
+	float: right; 
+}
+td.wd_extimagecell {
+	text-align: right; 
+	margin: 0px 0px 5px 5px;
+	padding:0px;
+}
+td.wd_extimagecell img {
+	padding-left:10px;
+	padding-bottom:10px;
+	border-style: none; 
+}
+blockquote.wd_pullquote {
+	font-style: italic;
+	width:200px;
+	margin:0 0 20px 20px;
+	line-height: 1.8em;
+	float: right;
+	clear: right;
+}
+blockquote.wd_pullquote:before {
+	content: "“ ";
+	font-size: xx-large;
+}
+blockquote.wd_pullquote:after {
+	content: " ”";
+	font-size: xx-large;
+	float: right;
+}
+.fullscreen-button {
+	border: 1px solid #d1d1d1;
+	background: #e3e3e3 url(images/webdriver/view_full_screen_button_background.png) no-repeat;
+	padding: 3px 3px 3px 30px;
+	margin: 5px 0px 5px 0px;
+	color: #727272;
+	width: 220px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.wd_contact {
+	margin: 1em 0;
+}
+.wd_release_data {
+	margin: 1em 0;
+}
+.wd_caption {
+	text-align: center;
+	font-size: 0.72em;
+	font-style: italic;
+	margin: 1em 0 0 0;
+}
+</style>
+
+<!-- end spin_special_output(head_start) -->
+
+	<meta charset="utf-8">
+	
+ <meta name="keywords" content="tencent music ir, Tencent Music Announcement, Tencent Music Upcoming Events, Tencent press release, Tencent webcast events, Tencentmusic ir , tencent music investor relation, Tencent Music Entertainment Group, TME, TME ir, " />
+ <meta name="description" content="Tencent Music Entertainment Group announced its unaudited financial results for the fourth quarter and full year ended December 31, 2018." />
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:title" content="Tencent Music Entertainment Group Announces Fourth Quarter and Full Year 2018 Unaudited Financial Results" />
+ <meta name="twitter:description" content="Tencent Music Entertainment Group (&quot;Tencent Music&quot;, &quot;TME&quot;, or the &quot;Company&quot;) (NYSE: TME), the leading online music entertainment platform in China, today announced its unaudited financial results..." />
+ <meta property="og:site_name" content="Tencent Music" />
+ <meta property="og:url" content="https://ir.tencentmusic.com/2019-03-19-Tencent-Music-Entertainment-Group-Announces-Fourth-Quarter-and-Full-Year-2018-Unaudited-Financial-Results" />
+ <meta property="og:title" content="Tencent Music Entertainment Group Announces Fourth Quarter and Full Year 2018 Unaudited Financial Results" />
+ <meta property="og:description" content="Tencent Music Entertainment Group (&quot;Tencent Music&quot;, &quot;TME&quot;, or the &quot;Company&quot;) (NYSE: TME), the leading online music entertainment platform in China, today announced its unaudited financial results..." />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tencent Music Entertainment Group Announces Fourth Quarter and Full Year 2018 Unaudited Financial Results | Tencent Music IR</title>
+	<link rel="stylesheet" href="./css/investor.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/wdcontent.css">
+
+<!-- begin spin_special_output(head_end) -->
+<link rel="canonical" href="https://ir.tencentmusic.com/2019-03-19-Tencent-Music-Entertainment-Group-Announces-Fourth-Quarter-and-Full-Year-2018-Unaudited-Financial-Results" />
+<!-- end spin_special_output(head_end) -->
+</head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136113385-2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-136113385-2'); 
+</script>
+<!-- END Global site tag (gtag.js) - Google Analytics -->
+
+<body class="wd_pageid_43 wd_item_page wd_item_21">
+<div class="row">
+	<div class="wd_home_hero" style="background-image: url(/image/IR_Banner_0821_Cropped.jpg);">
+		<div class="wd_navbar-wrapper">
+			<div class="container">
+				<a href="https://www.tencentmusic.com/" class="navbar-brand d-flex w-25 navbar-logo"><img src="images/logo_en.png" /></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<nav class="navbar navbar-expand-md bg-faded">
+					<div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+						<ul class="nav navbar-nav">
+								<ul class="navbar-nav mr-auto justify-content-between">
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="https://ir.tencentmusic.com/Overview" target="_self" id="dropdown45" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">About Us</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown45">	<a class="dropdown-item" href="Overview" target="_self">Company Overview</a>
+</div>		</li>
+		<li class="nav-item  active">
+			<a class="nav-link" href="https://ir.tencentmusic.com/Press-Releases" target="_self">Press Releases</a>
+					</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="Financial-results" target="_self" id="dropdown171" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Financial Information</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown171">	<a class="dropdown-item" href="https://ir.tencentmusic.com/Financial-results" target="_self">Quarterly Results</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/sec-filings" target="_self">SEC Filings</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/HKEX-FILINGS" target="_self">HKEX Filings</a>
+</div>		</li>
+		<li class="nav-item ">
+			<a class="nav-link" href="https://ir.tencentmusic.com/stock" target="_top">Stock Information</a>
+					</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="ESG-Reports" target="_self" id="dropdown67" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">ESG</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown67">	<a class="dropdown-item" href="https://ir.tencentmusic.com/management-team" target="_self">Management Team</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/Leadership" target="_self">Corporate Governance</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/ESG-Reports" target="_self">ESG Reports</a>
+</div>		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="https://ir.tencentmusic.com/index.php?s=172" target="_self" id="dropdown172" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Resources</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown172">	<a class="dropdown-item" href="https://ir.tencentmusic.com/FAQs" target="_self">FAQs</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/Contact-Us" target="_self">Contact Us</a>
+</div>		</li>
+	</ul>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div> 
+		<div class="container">
+			<div class="wd_header_content">
+			<h2></h2><h4></h4>			</div>
+		</div><!-- END CONTAINER -->
+	</div><!-- END HOME HERO -->
+</div><!-- END ROW -->
+
+
+<div class="wd_pageheader"><div class="container"><h1>Press Releases</h1></div></div>
+
+<main role="main" class="container">
+		<div class="row">
+				<div class="col-md-12 wd_content">
+			<div id="wd_printable_content" class="fr-view">
+<div class="wd_newsfeed_releases-detail">
+<div class="wd_title wd_language_left">Tencent Music Entertainment Group Announces Fourth Quarter and Full Year 2018 Unaudited Financial Results</div>
+
+<div class="wd_toolbar wd_toolbar-detail"><ul class="wd_tools"><li class="wd_tool wd_tool-print"><span class="wd_tool_icon"><a onclick="view_printable(); return false;" rel="nofollow" href="#print" title="print"><span class="fa fa-print"></span></a></span></li><li class="wd_tool wd_tool-socialshare_facebook"><span class="wd_tool_icon">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fir.tencentmusic.com%2Findex.php%3Fs%3D43%26item%3D21" target="_blank" title="Facebook Share" style="background-color:#4267B2;">
+                    <span class="fa fa-facebook"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_linkedin"><span class="wd_tool_icon">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fir.tencentmusic.com%2Findex.php%3Fs%3D43%26item%3D21" target="_blank" title="Linkedin Share" style="background-color:#0077B5;">
+                    <span class="fa fa-linkedin"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_twitter"><span class="wd_tool_icon">
+                    <a href="https://twitter.com/share?url=https%3A%2F%2Fir.tencentmusic.com%2Findex.php%3Fs%3D43%26item%3D21" target="_blank" title="Twitter Share" style="background-color:#000;">
+                    <span class="fa fa-twitter"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-email"><span class="wd_tool_icon"><a onclick="window.location.href = 'mailto:?subject=Tencent%20Music%20Entertainment%20Group%20Announces%20Fourth%20Quarter%20and%20Full%20Year%202018%20Unaudited%20Financial%20Results%20%7C%20Tencent%20Music%20IR&amp;body='+encodeURIComponent(window.location.href);return false;" href="#email" title="email"><span class="fa fa-envelope"></span></a></span></li><li class="wd_tool wd_tool-rss"><span class="wd_tool_icon"><a href="https://ir.tencentmusic.com/index.php?s=95&amp;rsspage=43" title="rss"><span class="fa fa-rss"></span></a></span></li><li class="wd_tool wd_tool-pdf"><span class="wd_tool_icon"><a href="https://ir.tencentmusic.com/2019-03-19-Tencent-Music-Entertainment-Group-Announces-Fourth-Quarter-and-Full-Year-2018-Unaudited-Financial-Results?asPDF=1" rel="nofollow" title="pdf"><span class="fa fa-file-pdf-o"></span></a></span></li></ul></div>
+
+
+
+			
+		
+
+			
+		
+
+<style type="text/css">
+
+
+/* Style Definitions */
+span.prnews_span
+{
+font-size:8pt;
+font-family:"Arial";
+color:black;
+}
+a.prnews_a
+{
+color:blue;
+}
+li.prnews_li
+{
+font-size:8pt;
+font-family:"Arial";
+color:black;
+}
+p.prnews_p
+{
+font-size:0.62em;
+font-family:"Arial";
+color:black;
+margin:0in;
+}
+.prngen26{
+BORDER-TOP:black 1pt solid; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen5{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen13{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen27{
+BORDER-TOP:black; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 2pt double; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen16{
+BORDER-TOP:black 1pt solid; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 2pt double; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen12{
+BORDER-TOP:black 1pt solid; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen11{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: CENTER; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen14{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen21{
+BORDER-TOP:black; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen2{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:1.17em
+}
+.prngen18{
+BORDER-TOP:black; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: CENTER; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen19{
+BORDER-TOP:black 1pt solid; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: CENTER; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen22{
+BORDER-TOP:black 1pt solid; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen3{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: LEFT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen10{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: CENTER; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen8{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen4{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: LEFT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:1.17em
+}
+.prngen20{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: LEFT; PADDING-LEFT:0.84em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen7{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen23{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 2pt double; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen17{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen25{
+BORDER-TOP:black; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen15{
+BORDER-TOP:black 1pt solid; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 2pt double; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen9{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: CENTER; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prntblns{
+BORDER-TOP: 1pt; BORDER-RIGHT: 1pt; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: 1pt; BORDER-LEFT: 1pt
+}
+.prnsbb1{
+BORDER-BOTTOM:1pt
+}
+.prnsbr1{
+BORDER-RIGHT:1pt
+}
+.prnvab{
+VERTICAL-ALIGN: BOTTOM
+}
+.prntar{
+TEXT-ALIGN: RIGHT
+}
+.prnpl6{
+PADDING-LEFT:0.50em
+}
+.prnsbt1{
+BORDER-TOP:1pt
+}
+.prnpl10{
+PADDING-LEFT:0.84em
+}
+.prnpr6{
+PADDING-RIGHT:0.50em
+}
+.prnpr4{
+PADDING-RIGHT:0.33em
+}
+.prnsbl1{
+BORDER-LEFT:1pt
+}
+
+					span.prnews_span{
+						font-size:inherit;
+						font-family:inherit;
+					}
+					li.prnews_li{
+						font-size: inherit;
+						font-family: inherit;           
+					}
+					p.prnews_p{
+						font-size: inherit;
+						font-family: inherit;           
+					}
+				
+					div.PRN_ImbeddedAssetReference{
+						display: none;
+					}
+					div[id^="prni_dvprne"]{
+						display: none;
+					}
+				</style>
+
+<div class="wd_body wd_news_body fr-view" wd_resize="formatNews" wd_print_url="https://ir.tencentmusic.com/2019-03-19-Tencent-Music-Entertainment-Group-Announces-Fourth-Quarter-and-Full-Year-2018-Unaudited-Financial-Results?printable=1"><p><span class="xn-location">SHENZHEN, China</span>, March <span id="spanHghltb0d4">19</span>, 2019 /<a href="http://www.prnewswire.com/" target="_blank">PRNewswire</a>/ -- <span class="xn-money">Tencent</span> Music Entertainment&nbsp;Group&nbsp;(&quot;<span class="xn-money">Tencent</span> Music&quot;, &quot;TME&quot;, or the &quot;Company&quot;) (NYSE: TME), the leading online music entertainment platform in <span class="xn-location">China</span>, today announced its unaudited financial results for the fourth quarter and full year ended <span class="xn-chron">December 31, 2018</span>.</p>
+
+<p><b>Financial Highlights</b></p>
+
+<p><b><u>In the three months ended <span class="xn-chron">December 31, 2018</span></u>:</b></p>
+
+<ul type="disc">
+	<li><b>Total </b><b>revenues</b>&nbsp;increased by&nbsp;50.5%&nbsp;year over year to <span class="xn-money">RMB5.40 billion</span> (<span class="xn-money">US$785 million</span>).</li>
+	<li><b>Net loss attributable to equity holders of the Company </b>was <span class="xn-money">RMB876 million</span> (<span class="xn-money">US$127 million</span>), mostly due to a one-off <span class="xn-money">RMB1.52 billion</span> (<span class="xn-money">US$221 million</span>) share-based accounting charge related to the Company&#39;s equity issuance to Warner Music Group and Sony Music Entertainment (&quot;music label partners&quot;).</li>
+	<li><b>Non-IFRS net profit</b> <b>attributable to equity holders of the Company </b>(excluding the share-based charge in respect of the issuance of ordinary shares to music label partners, amortization of intangible assets and other assets arising from business combinations, share-based compensation expenses, net losses from investments, and fair value change on puttable shares) <span id="spanHghlta179">increased to <span class="xn-money">RMB916 million</span> </span>(<span class="xn-money">US$133 million</span>).&nbsp;</li>
+</ul>
+
+<p><b><u>In the full year ended <span class="xn-chron">December 31, 2018</span></u>:</b></p>
+
+<ul type="disc">
+	<li><b>Total revenues</b>&nbsp;increased by 72.9% to <span class="xn-money">RMB18.99 billion</span> (<span class="xn-money">US$2.76 billion</span>).</li>
+	<li><b>Net profit attributable to equity holders of the Company </b>was <span class="xn-money">RMB1.83 billion</span> (<span class="xn-money">US$267 million</span>), after the one-off <span class="xn-money">RMB1.52 billion</span> (<span class="xn-money">US$221 million</span>)&nbsp;share-based accounting charge related to the Company&#39;s equity issuance to music label partners.</li>
+	<li><b>N</b><b>on-IFRS net profit attributable to equity holders of the Company </b>(excluding the share-based charge in respect of issuance of ordinary shares to music label partners, amortization of intangible assets and other assets arising from business combinations, share-based compensation expenses, net losses from investments, and fair value change on puttable shares)&nbsp;<span id="spanHghlt4c4b">increased to RMB </span>4.18 billion (<span class="xn-money">US$607 million</span>).</li>
+</ul>
+
+<p>&quot;Our initial public offering in <span class="xn-chron">December 2018</span> has launched us onto the international stage, elevated the global recognition towards our brand, and endorsed our successful track record,&quot; stated Mr. Cussion Kar Shun Pang, Chief Executive Officer of <span class="xn-money">Tencent</span> Music. &quot;During the fourth quarter of 2018, we recorded strong growth across our business lines, including both online music and social entertainment services, and solidified our market leadership. To fuel our growth for the years to come, we are firmly committed to continue investing in premium content offering, innovative products and proprietary technology. Going into 2019, we will continue executing relentlessly our mission to&nbsp;use&nbsp;technology to elevate the role of music in people&#39;s lives.&nbsp; We are confident that our capability in product innovation, investment in technology advancement, and commitment to developing and promoting high quality content should not only augment our market leadership, but also foster the growth and development of the overall music industry.&quot;</p>
+
+<p>Mr. <span class="xn-person">Cheuk Tung Tony Yip</span>, Chief Strategy Officer of <span class="xn-money">Tencent</span> Music, remarked, &quot;We are pleased to report that both online music and social entertainment services have continued their healthy growth across the board during the fourth quarter of 2018. Through content enrichment, product innovation, and technology development, we have been able to attract and retain our vast user base and construct a self-reinforcing virtuous ecosystem. In content, we expanded our strategic partnerships with well-known domestic and international music labels as well as produced more proprietary content such as music-centric variety shows. In product and technology, we further enhanced personalization which resulted in increased music consumption driven by recommendations, and also offered more features that enable users to engage with music-related short videos. Our market-leading user base, engaging artist-fans interactivity, and unrivaled content promotion capabilities have formed a unique set of value propositions for content partners to reach an unparalleled audience base within our ecosystem.&quot;</p>
+
+<p>&quot;We delivered strong revenue growth during the fourth quarter of 2018 driven by the increase in paying users across our online music and social entertainment services as well as the increase in user spending in social entertainment,&quot; commented Ms. <span class="xn-person">Shirley Min Hu</span>, Chief Financial Officer of <span class="xn-money">Tencent</span> Music. &quot;We achieved strong operating cash flow throughout the year. We continued to invest in our content offering, including through partnering with more domestic and international music labels and producing more proprietary in-house content to meet user demands for diverse forms of music entertainment. &nbsp;We believe that such investments over time will not only improve our user engagement and monetization but also strengthen our competitive advantages.&quot;</p>
+
+<p><b>Company and business Highlights</b></p>
+
+<ul type="disc">
+	<li>TME&#39;s key operating metrics continue to grow across both its online music and social entertainment services segments.</li>
+</ul>
+
+<div>
+<table border="0" cellpadding="0" cellspacing="0" class="prntblns">
+	<tbody>
+		<tr>
+			<td class="prngen2">&nbsp;</td>
+			<td class="prngen2" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen3" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">4Q18</span></p>
+			</td>
+			<td class="prngen3" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">4Q17</span></p>
+			</td>
+			<td class="prngen3" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">YoY %</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen4">&nbsp;</td>
+			<td class="prngen3" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Mobile MAU - online music<sup>[1]</sup> (million)</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">644</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">603</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">6.8%</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen4">&nbsp;</td>
+			<td class="prngen3" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Mobile MAU - social entertainment<sup>[2]</sup> (million)</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">228</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">209</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">9.1%</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen4">&nbsp;</td>
+			<td class="prngen3" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Paying users - online music<sup>[3]</sup> (million)</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">27.0</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">19.4</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">39.2%</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen4">&nbsp;</td>
+			<td class="prngen3" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Paying users - social entertainment<sup>[4]</sup> (million)</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">10.2</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">8.3</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">22.9%</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen4">&nbsp;</td>
+			<td class="prngen3" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Monthly ARPPU - online music<sup>[5]</sup> (RMB)</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">8.6</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">8.7</span></p>
+			</td>
+			<td class="prngen2 prnpr4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1.1%)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen4">&nbsp;</td>
+			<td class="prngen3" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Monthly ARPPU - social entertainment<sup>[6]</sup> (RMB)</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">126.7</span></p>
+			</td>
+			<td class="prngen2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">101.9</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">24.3%</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<ul type="disc">
+	<li>The Company continued to strengthen its content leadership in the fourth quarter of 2018. As of <span class="xn-chron">December 31, 2018</span>, the Company&#39;s music library included over 30 million tracks from domestic and international music labels.&nbsp;</li>
+	<li>During 2018, the Company continued to enrich its content offering by: (i) expanding the Company&#39;s music library through new partnerships with labels; (ii) producing more content in-house, including producing music chart countdown shows<i>&nbsp;</i>and co-producing the music-centric variety show <i>Produce 101</i><i>,</i>&nbsp;as well as launching live streamed video talk shows; (iii) launching more long-form audio content such as radio shows; and (iv) empowering independent artists through the <span class="xn-money">Tencent</span> Musician platform to distribute high-quality original music content.</li>
+	<li>The Company continued to innovate and enhance its products and technology in the following ways to integrate music into users&#39; daily lives: (i) introducing new multilateral interaction features, such as multi-mic singing room, into <i>WeSing</i>; (ii) adding more proprietary audio settings&nbsp;to the existing library to further enhance user experiences; (iii) launching additional technology-driven and innovative short video product features; and (iv) leveraging data analytics to improve personalized recommendations.</li>
+</ul>
+
+<div>
+<table border="0" cellpadding="0" cellspacing="0" class="prntblns">
+	<tbody>
+		<tr>
+			<td class="prngen7">
+			<p class="prnews_p"><span class="prnews_span"><sup>[1]</sup>&nbsp;&quot;Online music mobile MAUs&quot; for a given month refers to the sum of mobile MAUs of the Company&#39;s music services, namely <i>QQ Music</i>, <i>Kugou Music</i>, and <i>Kuwo Music</i>, for that month; duplicate access of different services by the same device is not eliminated from the calculation. &quot;Mobile MAUs&quot; for a given month (i) with respect to each of the Company&#39;s products (except <i>WeSing</i>) is measured as the number of unique mobile devices, as the case may be, through which such product is accessed at least once in that month; and (ii) with respect to <i>WeSing</i>, is measured as the number of user accounts through which <i>WeSing</i> is accessed at least once in that month; &quot;mobile MAUs&quot; for a given quarter refers to the average of the monthly number of mobile MAUs for the three months in that quarter.</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7">
+			<p class="prnews_p"><span class="prnews_span"><sup>[2]</sup>&nbsp;&quot;Social entertainment mobile MAUs&quot; for a given month refers to the sum of mobile MAUs that have accessed the social entertainment services offered by (i)&nbsp;<i>WeSing</i>; (ii)&nbsp;<i>Kugou&#39;s live streaming services</i>; and (iii)&nbsp;<i>Kuwo&#39; live streaming services; </i>duplicate access of different services by the same user account or device is not eliminated from the calculation<i>. </i></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7">
+			<p class="prnews_p"><span class="prnews_span"><sup>[3]</sup>&nbsp;&quot;Paying users&quot; for online music services for any given quarter refers to the average of the number of users whose subscription packages remain active as of the last day of each month of that quarter. The number of paying users of online music services for any given period excludes the number of users who only purchase digital music singles and albums during such period because these purchasing patterns tend to reflect specific hit releases, which fluctuate from period to period. </span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7">
+			<p class="prnews_p"><span class="prnews_span"><sup>[4]</sup>&nbsp;&quot;Paying users&quot; for social entertainment services for any given quarter refers to the average of the number of paying users for each month in that quarter. The number of paying users of social entertainment services for a given month refers to the number of users who have paid at least once for social entertainment services (primarily through purchases of virtual gifts or premium memberships) during that month. </span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7">
+			<p class="prnews_p"><span class="prnews_span"><sup>[5]</sup>&nbsp;&quot;Monthly ARPPU&quot; for online music services for any given quarter refers to one-third of (i) the quarterly online music services subscription revenues divided by (ii) the number of paying user of the online music services for that quarter. The revenues from subscriptions for the quarters indicated were RMB695 million, and RMB505 million, respectively. </span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7">
+			<p class="prnews_p"><span class="prnews_span"><sup>[6]</sup> &quot;Monthly ARPPU&quot; for social entertainment services for any given quarter refers to one-third of (i) the quarterly social entertainment and others revenues divided by (ii) the number of paying user of the social entertainment services for that quarter. </span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<p><b>Fourth Quarter 2018 Financial Results</b></p>
+
+<p><b><u>Revenues</u></b></p>
+
+<p>Total revenues for the fourth quarter of 2018 increased by <span class="xn-money">RMB1.81 billion</span>, or 50.5%, to <span class="xn-money">RMB5.40 billion</span> (<span class="xn-money">US$785 million</span>) from <span class="xn-money">RMB3.59 billion</span> in the same period of 2017.</p>
+
+<ul type="disc">
+	<li>Revenues from online music services for the fourth quarter of 2018 increased by 45.0% to <span class="xn-money">RMB1.52 billion</span> (<span class="xn-money">US$221 million</span>) from <span class="xn-money">RMB1.05 billion</span> in the same period of 2017, which was mainly driven by increased revenues from (i) user subscriptions; (ii) sublicensing music content to third-party platforms; and (iii) sales of digital music albums to users.&nbsp;Revenue from paid music through the sales of subscription packages was <span class="xn-money">RMB695 million</span> (<span class="xn-money">US$101 million</span>), up from <span class="xn-money">RMB505 million</span> in the fourth quarter of 2017.</li>
+	<li>Revenues from social entertainment services and others for the fourth quarter of 2018 increased by 52.8% to <span class="xn-money">RMB3.88 billion</span> (<span class="xn-money">US$564 million</span>) from <span class="xn-money">RMB2.54 billion</span> in the same period of 2017, primarily driven by the revenue growth in both the Company&#39;s online karaoke and live streaming services. The Company expanded its paying user base and increased user spending in the fourth quarter of 2018 compared to the same period of 2017.&nbsp;</li>
+</ul>
+
+<p><b><b><u>Cost of Revenues</u></b></b></p>
+
+<p>Cost of revenues for the fourth quarter of 2018 increased by 62.5% to <span class="xn-money">RMB3.56 billion</span> (<span class="xn-money">US$518 million</span>) from <span class="xn-money">RMB2.19 billion</span> in the same period of 2017, primarily due to the increase in content fees and revenue sharing fees. The increase in content fees was mainly attributable to higher in-house production costs as the Company increased investments in the production of high-quality original music content such as music-centric variety shows, as well as increased market price and amount of music content licensed from music labels and other content partners. The increase in revenue sharing fees reflected the increased sales of virtual gifts driven by the growth in the Company&#39;s online karaoke and live streaming services. &nbsp;</p>
+
+<p><b><b><u>Gross Profit</u></b></b></p>
+
+<p>Gross profit for the fourth quarter of 2018 increased by 31.7% to <span class="xn-money">RMB1.84 billion</span> (<span class="xn-money">US$267 million</span>) from <span class="xn-money">RMB1.39 billion</span> in the same period of 2017. Gross margin was 34.0% for the fourth quarter of 2018.</p>
+
+<p><b><b><u>Operating Expenses for the Period</u></b></b></p>
+
+<p>Total operating expenses for the fourth quarter of 2018 increased by <span class="xn-money">RMB497 million</span>, or 58.1%, to <span class="xn-money">RMB1.35 billion</span> (<span class="xn-money">US$197 million</span>) from <span class="xn-money">RMB855 million</span> in the same period of 2017.</p>
+
+<ul type="disc">
+	<li>Selling and marketing expenses for the fourth quarter of 2018 were <span class="xn-money">RMB542 million</span> (<span class="xn-money">US$79 million</span>), an increase of 51.4% year over year from <span class="xn-money">RMB358 million</span> in the same period of 2017. The increase was primarily due to increased spending to promote the Company&#39;s brands, products, and content offering.</li>
+	<li>General and administrative expenses for the fourth quarter of 2018 were <span class="xn-money">RMB810 million</span> (<span class="xn-money">US$118 million</span>), an increase of 63.0% year over year from <span class="xn-money">RMB497 million</span> in the same period of 2017. The increase was mainly attributable to (i) higher employee benefit expenses in connection with the increase of the Company&#39;s personnel and employee incentives; and (ii) the professional fees incurred from the Company&#39;s initial public offering completed in <span class="xn-chron">December 2018</span>.</li>
+</ul>
+
+<p><b><u>Share-based payments in respect of issuance of ordinary shares to music label partners</u></b></p>
+
+<p>The Company recorded a one-off share-based accounting charge of <span class="xn-money">RMB1.52 billion</span> (<span class="xn-money">US$221 million</span>) in respect of the issuance of ordinary shares to music label partners in the fourth quarter of 2018, which represent the excess of the then fair value of these ordinary shares in <span class="xn-chron">October 2018</span> over the aggregate consideration the Company received.</p>
+
+<p><b><u>Operating loss for the Period</u></b></p>
+
+<p>Operating loss was <span class="xn-money">RMB970 million</span> (<span class="xn-money">US$141 million</span>) for the fourth quarter of 2018 mostly due to the one-off <span class="xn-money">RMB1.52 billion</span> (<span class="xn-money">US$221 million</span>) share-based accounting charge, compared to an operating profit of <span class="xn-money">RMB650 million</span> in the same period of 2017.</p>
+
+<p><b><b><u>Net Loss and Non-IFRS Net profit for the Period </u></b></b></p>
+
+<p>Net loss attributable to equity holders of the Company for the fourth quarter of 2018 was <span class="xn-money">RMB876 million</span> (<span class="xn-money">US$127 million</span>) compared to a profit of <span class="xn-money">RMB536 million</span> in the same period of 2017, which included the one-off <span class="xn-money">RMB1.52 billion</span> (<span class="xn-money">US$221 million</span>) share-based accounting charge. Non-IFRS net profit attributable to equity holders of the Company was <span class="xn-money">RMB916 million</span> (<span class="xn-money">US$133 million</span>) for the fourth quarter of <span id="spanHghlt377f">2018, compared to RMB667 </span>million in the same <span id="spanHghlt1718">period of 2017. Please refer to </span>the section titled &quot;Non-IFRS Financial Measure&quot; for details.</p>
+
+<p><b><b><u>Loss per ADS </u></b></b></p>
+
+<p>Basic and diluted loss per American Depositary Shares (&quot;ADS&quot;) was <span class="xn-money">RMB0.56</span> <span class="xn-money">(US$0.08)</span> and <span class="xn-money">RMB0.56</span> <span class="xn-money">(US$0.08)</span>, respectively, for the fourth quarter of 2018. Excluding the share-based accounting charge in respect of issuance of ordinary shares to music label partners, amortization of intangible assets and other assets arising from business combinations, share-based compensation expenses, net losses from investments, and fair value change on puttable shares, non-IFRS basic and diluted earnings per ADS were <span class="xn-money">RMB0.59</span> (<span class="xn-money">US$0.09</span>)&nbsp;and <span class="xn-money">RMB0.57</span> <span class="xn-money">(US$0.08)</span>, respectively, for the fourth quarter of 2018. During the fourth quarter of 2018, the Company had weighted averages of 1,563.5 million basic and 1,610.2 million diluted ADSs outstanding, respectively. Each ADS represents two of the Company&#39;s Class A ordinary shares.</p>
+
+<p><b><b><u>Cash Flow</u></b></b></p>
+
+<p>Net cash provided by operating activities for the fourth quarter of 2018 was <span class="xn-money">RMB1.93 billion</span> (<span class="xn-money">US$281 million</span>),&nbsp;compared to&nbsp;RMB253 million of cash used in operating activities during the same period of 2017.</p>
+
+<p><b><b><u>Cash and Cash equivalents</u></b></b></p>
+
+<p>As of <span class="xn-chron">December 31, 2018</span>, the Company had combined cash and cash equivalents of <span class="xn-money">RMB17.36 billion</span> (<span class="xn-money">US$2.52 billion</span>),&nbsp;compared to&nbsp;RMB5.17 billion as of <span class="xn-chron">December 31, 2017</span>. The increase in cash and cash equivalents was primarily due to cash flow generated from operations of <span class="xn-money">RMB5.63 billion</span> (<span class="xn-money">US$819 million</span>) and proceeds from the Company&#39;s issuance of ordinary shares, including those issued under its initial public offering, of <span class="xn-money">RMB3.50 billion</span> (<span class="xn-money">US$509 million</span>) and puttable shares of <span class="xn-money">RMB422 million</span> (<span class="xn-money">US$61 million</span>) in 2018, partly offset by cash used in investing activities.</p>
+
+<p><b>Full Year 2018 Financial Results</b></p>
+
+<p><b><u>Revenues</u></b></p>
+
+<p>Total revenues for the full year of 2018 increased by <span class="xn-money">RMB8.00 billion</span>, or 72.9%, to <span class="xn-money">RMB18.99 billion</span> (<span class="xn-money">US$2.76 billion</span>) from <span class="xn-money">RMB10.98 billion</span> in the same period of 2017.</p>
+
+<ul type="disc">
+	<li>Revenues from online music services for the full year of 2018 increased by 75.8% year over year to <span class="xn-money">RMB5.54 billion</span> (<span class="xn-money">US$805 million</span>) from <span class="xn-money">RMB3.15 billion</span> in the same period of 2017. This growth was primarily driven by increased revenues from (i) user subscriptions; (ii) sublicensing music content to third-party platforms; and (iii) sales of digital music singles and albums to users. Revenue from paid music through the sales of subscription packages was <span class="xn-money">RMB2.50 billion</span> (<span class="xn-money">US$364 million</span>), up from <span class="xn-money">RMB1.84 billion</span> in 2017.</li>
+	<li>Revenues from social entertainment services and others for the full year of 2018 increased by 71.7% year over year to <span class="xn-money">RMB13.45 billion</span> (<span class="xn-money">US$1.96 billion</span>) from <span class="xn-money">RMB7.83 billion</span> in 2017, primarily driven by the revenue growth in both the Company&#39;s live streaming services and online karaoke service. The Company&#39;s paying user base and user spending continued to grow in 2018 as compared to 2017.</li>
+</ul>
+
+<p><b><b><u>Gross Profit</u></b></b></p>
+
+<p>Gross profit for the full year of 2018 increased by 91.0% year over year to <span class="xn-money">RMB7.28 billion</span> (<span class="xn-money">US$1.06 billion</span>) from <span class="xn-money">RMB3.81 billion</span> in the same period of 2017. Gross margin for the full year of 2018 was 38.3%.</p>
+
+<p><b><b><u>Operating Expenses and Operating Profit</u></b></b></p>
+
+<p>Total operating expenses for the full year of 2018 increased by 63.2% year over year to <span class="xn-money">RMB3.97 billion</span> (<span class="xn-money">US$578 million</span>) from <span class="xn-money">RMB2.43 billion</span> in the same period of 2017.</p>
+
+<ul type="disc">
+	<li>Selling and marketing expenses for the full year of 2018&nbsp;increased by 87.7% year over year to <span class="xn-money">RMB1.71 billion</span> (<span class="xn-money">US$249 million</span>) from <span class="xn-money">RMB913 million</span> in the same period of 2017. The increase was primarily due to increased spending to promote the Company&#39;s brands, products, and content offering.</li>
+	<li>General and administrative expenses for the full year of 2018 increased by 48.5% year over year to <span class="xn-money">RMB2.26 billion</span> (<span class="xn-money">US$328 million</span>) from <span class="xn-money">RMB1.52 billion</span> in the same period of 2017. The increase was mainly attributable to (i) higher employee benefit expenses in connection with the increase of the Company&#39;s personnel and employee incentives; and (ii) the professional fees incurred from the Company&#39;s initial public offering completed in <span class="xn-chron">December 2018</span>.</li>
+</ul>
+
+<p><b><u>Share-based payments in respect of issuance of ordinary shares to music label partners</u></b></p>
+
+<p>The Company recorded a one-off share-based accounting charge of <span class="xn-money">RMB1.52 billion</span> (<span class="xn-money">US$221 million</span>) in respect of the issuance of ordinary shares to music label partners in the fourth quarter of 2018, which represent the excess of the then fair value of these ordinary shares in <span class="xn-chron">October 2018</span> over the aggregate consideration the Company received.</p>
+
+<p><b><u>Operating Profit for the Year</u></b></p>
+
+<p>As a result of the foregoing, operating profit increased by 28.0% to <span class="xn-money">RMB2.04 billion</span> (<span class="xn-money">US$297 million</span>) for the full year of 2018 from <span class="xn-money">RMB1.59 billion</span> in 2017. Operating margin decreased to 10.7% for the full year of 2018 from 14.5% in 2017 mostly due to the one-off <span class="xn-money">RMB1.52 billion</span> (<span class="xn-money">US$221 million</span>) share-based accounting charge recorded in the fourth quarter of 2018.</p>
+
+<p><b><u>Net Profit and Non-IFRS Net Profit for the Year</u></b></p>
+
+<p>Net profit attributable to equity holders of the Company for the full year of 2018 increased to <span class="xn-money">RMB1.83 billion</span> (<span class="xn-money">US$267 million</span>) from <span class="xn-money">RMB1.33 billion</span> in 2017, after the one-off <span class="xn-money">RMB1.52 billion</span> (<span class="xn-money">US$221 million</span>) in share-based accounting charge. &nbsp;Non-IFRS net profit attributable to equity holders of the Company for the full year of 2018 <span id="spanHghlt1d7b">increased to <span class="xn-money">RMB4</span>.</span>18 billion (<span class="xn-money">US$607 million</span>) from <span class="xn-money">RMB1.91 billion</span> in the same period <span id="spanHghlt9eae">of 2017. Please refer </span>to the section titled &quot;Non-IFRS Financial Measure&quot; for details.&nbsp;</p>
+
+<p><b><b><u>Earnings per ADS </u></b></b></p>
+
+<p>Basic and diluted earnings per ADS were <span class="xn-money">RMB1.19</span> (<span class="xn-money">US$0.17</span>)&nbsp;and <span class="xn-money">RMB1.16</span> <span class="xn-money">(US$0.17)</span>, respectively, for the full year of 2018. Excluding the share-based accounting charge in respect of issuance of ordinary shares to music label partners, amortization of intangible assets and other assets arising from business combinations, share-based compensation expenses, net losses from investments, and fair value change on puttable shares, non-IFRS basic and diluted earnings per ADS were <span class="xn-money">RMB2.71</span> <span class="xn-money">(US$0.39)</span> and <span class="xn-money">RMB2.64</span> <span class="xn-money">(US$0.38)</span>, respectively for the full year of 2018. During the full year 2018, the Company had weighted averages of 1,538.2 million basic and 1,579.6 million diluted ADSs outstanding, respectively.</p>
+
+<p><b><b>Conference Call Information</b></b></p>
+
+<p><span class="xn-money">Tencent</span> Music&#39;s management will hold a conference call on <span class="xn-chron">Tuesday, March 19, 2019</span> at <span class="xn-chron">8:00 P.M. Eastern Time</span> or <span class="xn-chron">8:00 A.M.</span> Beijing Time on <span class="xn-chron">Wednesday, March 20, 2019</span> to discuss the financial results. Listeners may access the call by dialing the following numbers:</p>
+
+<div>
+<table border="0" cellpadding="0" cellspacing="0" class="prntblns">
+	<tbody>
+		<tr>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">United States Toll Free:</span></p>
+			</td>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">+1-888-317-6003</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">International:&nbsp;</span></p>
+			</td>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">+1-412-317-6061</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">China Toll Free:</span></p>
+			</td>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">400-120-6115</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">Hong Kong Toll Free:&nbsp;</span></p>
+			</td>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">800-963-976</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">Access Code:</span></p>
+			</td>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">7592581</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<p>The replay will be accessible through <span class="xn-chron">March 26, 2019</span> by dialing the following numbers:</p>
+
+<div>
+<table border="0" cellpadding="0" cellspacing="0" class="prntblns">
+	<tbody>
+		<tr>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">United States Toll Free:&nbsp;</span></p>
+			</td>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">+1-877-344-7529</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">International:</span></p>
+			</td>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">+1-412-317-0088</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">Access Code:</span></p>
+			</td>
+			<td class="prngen3">
+			<p class="prnews_p"><span class="prnews_span">10128354</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<p>A live and archived webcast of the conference call will also be available at the Company&#39;s investor relations website at <a href="https://ir.tencentmusic.com/" rel="nofollow" target="_blank">https://ir.tencentmusic.com/</a>.</p>
+
+<p><b><b>Exchange Rate</b></b></p>
+
+<p>This announcement contains translations of certain RMB amounts into U.S. dollars (&quot;USD&quot;) at specified rates solely for the convenience of the reader. Unless otherwise stated, all translations from RMB to USD were made at the rate of <span class="xn-money">RMB6.8755</span> to <span class="xn-money">US$1.00</span>, the noon buying rate in effect on <span class="xn-chron">December 31, 2018</span> in the H.10 statistical release of the Federal Reserve Board. The Company makes no representation that the RMB or USD amounts referred could be converted into USD or RMB, as the case may be, at any particular rate or at all. For analytical presentation, all percentages are calculated using the numbers presented in the financial statements contained in this earnings release.</p>
+
+<p><b><b>Non-</b><b>IFRS</b><b>&nbsp;Financial </b><b>Measure</b></b></p>
+
+<p>The Company use non-IFRS net profit for the year/period, which is a non-IFRS financial measure, in evaluating its operating results and for financial and operational decision-making purposes. <span class="xn-money">Tencent</span> Music believes that non-IFRS net profit helps identify underlying trends in the Company&#39;s business that could otherwise be distorted by the effect of certain expenses that the Company includes in its profit for the year/period. <span class="xn-money">Tencent</span> Music believe that non-IFRS net profit for the year/period provides useful information about its results of operations, enhances the overall understanding of its past performance and future prospects and allows for greater visibility with respect to key metrics used by its management in its financial and operational decision-making.</p>
+
+<p>Non-IFRS net profit for the year/period should not be considered in isolation or construed as an alternative to operating profit, net profit/loss for the year/period or any other measure of performance or as an indicator of its operating performance. Investors are encouraged to review non-IFRS net profit for the year/period and the reconciliation to its most directly comparable IFRS measure. Non-IFRS net profit for the year/period presented here may not be comparable to similarly titled measures presented by other companies. Other companies may calculate similarly titled measures differently, limiting their usefulness as comparative measures to the Company&#39;s data. <span class="xn-money">Tencent</span> Music encourages investors and others to review its financial information in its entirety and not rely on a single financial measure.</p>
+
+<p>Non-IFRS net profit for the year/period represents profit for the year excluding a share-based accounting charge in respect of the issuance of ordinary shares to music label partners, share-based compensation expenses, net loss from investments, amortization of intangible and other assets resulting from the business combinations, and fair value change on liabilities of puttable shares.</p>
+
+<p>Please see the &quot;Unaudited Non-IFRS Financial Measure&quot; included in this press release for a full reconciliation of Non-IFRS net profit for the year/period to its net profit/loss for the year/period.</p>
+
+<p><b><b>About <span class="xn-money">Tencent</span> Music Entertainment</b></b></p>
+
+<p><span class="xn-money">Tencent</span> Music Entertainment Group (NYSE: TME) is the leading online music entertainment platform in <span class="xn-location">China</span>, operating the country&#39;s highly popular and innovative music apps: <i>QQ Music</i>, <i>Kugou Music</i>, <i>Kuwo Music</i> and <i>WeSing</i>. <span class="xn-money">Tencent</span> Music&#39;s mission is to use technology to elevate the role of music in people&#39;s lives by enabling them to create, enjoy, share and interact with music. <span class="xn-money">Tencent</span> Music&#39;s platform comprises online music, online karaoke and music-centric live streaming services, enabling music fans to discover, listen, sing, watch, perform and socialize around music. For more information, please visit ir.tencentmusic.com.</p>
+
+<p><b><b>Safe Harbor Statement</b></b></p>
+
+<p>This press release contains forward-looking statements. These statements are made under the &quot;safe harbor&quot; provisions of the U.S. Private Securities Litigation Reform Act of 1995. Statements that are not historical facts, including statements about the Company&#39;s beliefs and expectations, are forward-looking statements. Forward-looking statements involve inherent risks and uncertainties, and a number of factors could cause actual results to differ materially from those contained in any forward-looking statement. In some cases, forward-looking statements can be identified by words or phrases such as &quot;may&quot;, &quot;will,&quot; &quot;expect,&quot; &quot;anticipate,&quot; &quot;target,&quot; &quot;aim,&quot; &quot;estimate,&quot; &quot;intend,&quot; &quot;plan,&quot; &quot;believe,&quot; &quot;potential,&quot; &quot;continue,&quot; &quot;is/are likely to&quot; or other similar expressions. Further information regarding these and other risks, uncertainties or factors is included in the Company&#39;s filings with the SEC. All information provided in this press release is as of the date of this press release, and the Company does not undertake any duty to update such information, except as required under applicable law.</p>
+
+<p><b><b>Investor Relations Contact</b></b><br />
+<a href="mailto:ir@tencentmusic.com" rel="nofollow" target="_blank">ir@tencentmusic.com</a><br />
++1 (646) 308-1736</p>
+
+<p><b><b>Media Relations Contact</b></b><br />
+<a href="mailto:TME.PR@icrinc.com" rel="nofollow" target="_blank">TME.PR@icrinc.com</a><br />
++1 (646) 992-2986</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<div>
+<table border="0" cellpadding="0" cellspacing="0" class="prntblns">
+	<tbody>
+		<tr>
+			<td class="prngen7" colspan="13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" colspan="13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>CONSOLIDATED INCOME STATEMENT</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen2 prnpr8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Three Months ended December 31,</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Year ended December 31,</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2017</b></span></p>
+			</td>
+			<td class="prngen10" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" colspan="2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2018</b></span></p>
+			</td>
+			<td class="prngen10" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2017</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" colspan="2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2018</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;US$&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;US$&nbsp;</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Audited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>(in millions, except per share data)</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>(in millions, except per share data)</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Revenues</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Online music services</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,048</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,520</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">221</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,149</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5,536</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">805</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Social entertainment services and others</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,538</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,877</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">564</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">7,832</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">13,449</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,956</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen12" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,586</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen12" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5,397</span></p>
+			</td>
+			<td class="prngen12" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">785</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen12" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">10,981</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen12" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">18,985</span></p>
+			</td>
+			<td class="prngen12" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,761</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Cost of revenues</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(2,192)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(3,561)</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(518)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(7,171)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(11,708)</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1,703)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Gross profit</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,394</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,836</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">267</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,810</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">7,277</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,058</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Selling and marketing expenses</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(358)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(542)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(79)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(913)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1,714)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(249)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">General and administrative expenses</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(497)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(810)</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(118)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1,521)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(2,258)</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(328)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Total operating expenses</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(855)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1,352)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(197)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(2,434)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(3,972)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(578)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Interest income&nbsp;</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">24</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">100</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">15</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">93</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">282</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">41</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Other gains/ (losses), net</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">87</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(35)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(5)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">124</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(29)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(4)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><span class="prnews_span" id="spanHghlte233">Share-based payments in respect of<br />
+			issuance of ordinary shares to music<br />
+			label partners</span></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen14" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1,519)</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(221)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen14" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1,519)</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(221)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Operating profit/ (loss)</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">650</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(970)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(141)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,593</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,039</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">297</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Share of (loss)/ profit of investments<br />
+			accounted for using equity method</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(3)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">10</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">4</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Fair value change on puttable shares&nbsp;</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(9)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(35)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(5)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Profit/ (loss) before income tax</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">647</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(969)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(141)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,597</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,003</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">291</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Income tax expense</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(113)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">94</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">14</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(278)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(171)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(25)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Profit/ (loss) for the period/year</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">534</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen16" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(875)</span></p>
+			</td>
+			<td class="prngen16" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(127)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,319</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,832</span></p>
+			</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">266</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Attributable to:</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Equity holders of the Company</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">536</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(876)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(127)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,326</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,833</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">267</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Non-controlling interests</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(2)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(7)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Earnings/ (loss) per share for<br />
+			Class A and Class B ordinary shares</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Basic</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.20</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(0.28)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(0.04)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.51</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.60</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.09</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.20</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(0.28)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(0.04)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.50</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.58</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.08</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>(Loss)/ earnings per ADS (2 </b></span></p>
+
+			<p class="prnews_p"><span class="prnews_span"><b>Class A shares equal to 1 ADS)</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Basic</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(0.56)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(0.08)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1.19</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.17</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(0.56)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(0.08)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1.16</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.17</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Shares used in earnings/ (loss)<br />
+			per Class A and Class B ordinary<br />
+			share computation:</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Basic</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,673,703,287</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,126,915,062</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,126,915,062</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,593,157,207</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,076,314,670</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,076,314,670</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,722,564,466</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,126,915,062</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,126,915,062</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,639,466,412</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,159,220,888</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,159,220,888</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>ADS used in (loss)/ earnings per<br />
+			ADS computation</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Basic</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,563,457,531</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,563,457,531</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,538,157,335</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,538,157,335</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,563,457,531</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,563,457,531</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,579,610,444</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,579,610,444</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<div>
+<table border="0" cellpadding="0" cellspacing="0" class="prntblns">
+	<tbody>
+		<tr>
+			<td class="prngen7" colspan="13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+			</td>
+			<td class="prngen17">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" colspan="13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>UNAUDITED NON-IFRS FINANCIAL MEASURE</b></span></p>
+			</td>
+			<td class="prngen17">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Three Months ended December 31,</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Year ended December 31,</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2017</b></span></p>
+			</td>
+			<td class="prngen10" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" colspan="2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2018</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2017</b></span></p>
+			</td>
+			<td class="prngen10" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" colspan="2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2018</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;US$&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;US$&nbsp;</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>(in millions, except per share data)</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>(in millions, except per share data)</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Profit/ (loss) for the period/year</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">534</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(875)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(127)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,319</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,832</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">266</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Adjustments:</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Amortization of intangible and other assets<br />
+			arising from business combinations*</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">59</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">70</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">10</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">271</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">249</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">36</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Share-based compensation</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">144</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">142</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">21</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">384</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">487</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">71</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Share-based payments in respect of<br />
+			issuance of ordinary shares to music label<br />
+			partners**</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,519</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">221</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,519</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">221</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(Gains)/ losses from investments</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(72)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">52</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">8</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(70)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">52</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">8</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Fair value change on puttable shares ***</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">9</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">35</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Non-IFRS Net Profit</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">665</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">917</span></p>
+			</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">133</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,904</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">4,174</span></p>
+			</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">607</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Attributable to:</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Non-IFRS Equity holders of the Company</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">667</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">916</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">133</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,911</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">4,175</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">607</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Non-controlling interests</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(2)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(7)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Earnings per share for Class A and<br />
+			Class B ordinary shares</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Basic</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.25</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.29</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.04</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.74</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1.36</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.20</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.24</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.28</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.04</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.72</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1.32</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.19</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Earnings per ADS (2 Class A shares<br />
+			equal to 1 ADS)</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Basic</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.59</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.09</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2.71</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.39</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.57</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.08</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2.64</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">0.38</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Shares used in earnings per Class<br />
+			A and Class B ordinary share<br />
+			computation:</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Basic</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,673,703,287</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,126,915,062</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,126,915,062</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,593,157,207</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,076,314,670</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,076,314,670</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,722,564,466</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,220,376,823</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,220,376,823</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,639,466,412</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,159,220,888</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,159,220,888</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>ADS used in earnings per ADS<br />
+			computation</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Basic</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,563,457,531</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,563,457,531</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,538,157,335</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,538,157,335</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,610,188,411</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,610,188,411</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,579,610,444</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,579,610,444</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" colspan="13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">* Represents the amortization of identifiable assets, including intangible assets and prepayments for music content, resulting from Tencent&#39;s<br />
+			acquisition of CMC in 2016, our acquisition of Ultimate Music in 2017, and our acquisition of certain subsidiaries in 2018, net of related deferred taxes.</span></p>
+			</td>
+			<td class="prngen17">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" colspan="13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">** Represents the excess of the then fair value of the ordinary shares we issued to Warner Music Group and Sony Music Entertainment over the<br />
+			aggregate consideration the Company received in October 2018.&nbsp;</span></p>
+			</td>
+			<td class="prngen17">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" colspan="13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">*** Represents the fair value changes on the put liability of certain shares issued in 2018</span></p>
+			</td>
+			<td class="prngen17">&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<div>
+<table border="0" cellpadding="0" cellspacing="0" class="prntblns">
+	<tbody>
+		<tr>
+			<td class="prngen7" colspan="9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" colspan="9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>CONSOLIDATED BALANCE SHEET</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>As of December 31,</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen18" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2017</b></span></p>
+			</td>
+			<td class="prngen11" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen19" colspan="2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2018</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;US$&nbsp;</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Audited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>(in millions)</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>ASSETS</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Non-current assets</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Property, plant and equipment</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">127</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">168</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">24</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Intangible assets</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,717</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,763</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">256</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Goodwill</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">16,262</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">17,088</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,485</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" colspan="2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Investments accounted for using equity method&nbsp;</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">378</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">236</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">34</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" colspan="2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Financial assets at fair value through other comprehensive<br />
+			income&nbsp;</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,740</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,331</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">484</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Other investments</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">217</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">32</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Prepayments and deposits&nbsp;</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">204</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">901</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">131</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Deferred tax assets</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">105</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">123</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">18</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen21" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">22,533</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen22" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">23,827</span></p>
+			</td>
+			<td class="prngen22" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,465</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Current assets</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Inventories</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">30</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">35</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Accounts receivable</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,161</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,483</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">216</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" colspan="2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Prepayments, deposits and other assets</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,102</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,823</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">265</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Other investments</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">39</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">6</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Short-term investments</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">42</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">6</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Cash and cash equivalents</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5,174</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">17,356</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,524</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen21" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">7,467</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen22" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">20,778</span></p>
+			</td>
+			<td class="prngen22" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,022</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Total assets</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen23" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">30,000</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen23" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">44,605</span></p>
+			</td>
+			<td class="prngen23" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">6,488</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" colspan="9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" colspan="9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>CONSOLIDATED BALANCE SHEET</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>As of December 31,</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen18" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2017</b></span></p>
+			</td>
+			<td class="prngen11" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen19" colspan="2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2018</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;US$&nbsp;</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Audited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>(in millions)</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>EQUITY</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Equity attributable to<br />
+			equity holders of the Company</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Share capital</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Share premium</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">23,915</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">33,776</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">4,913</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Other reserves</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">997</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">903</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">131</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Retained earnings</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,227</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,040</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">442</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prnsbt1 prnsbr1 prnvab prnsbb1 prntar prnpl10 prnsbl1 prnpr6" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">26,141</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">37,721</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5,486</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Non-controlling interests</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">7</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">51</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">7</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Total equity</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">26,148</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">37,772</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5,494</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>LIABILITIES</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Non-current liabilities</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Other payables</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">21</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">241</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">35</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Deferred income tax liabilities</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">304</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">354</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">51</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">325</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">595</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">87</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Current liabilities</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Accounts payable&nbsp;</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,045</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,830</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">266</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Other payables and accruals</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,312</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,742</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">399</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Current tax liabilities</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">192</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">235</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">34</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen20" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Deferred revenue</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">978</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,431</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">208</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,527</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">6,238</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">907</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>TOTAL LIABILITIES</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,852</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">6,833</span></p>
+			</td>
+			<td class="prngen13" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">994</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Total equity and liabilities</b></span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen23" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">30,000</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen23" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">44,605</span></p>
+			</td>
+			<td class="prngen23" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">6,488</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<div>
+<table border="0" cellpadding="0" cellspacing="0" class="prntblns">
+	<tbody>
+		<tr>
+			<td class="prngen7" colspan="10" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" colspan="10" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Three Months ended December 31,</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>Year ended December 31,</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2017</b></span></p>
+			</td>
+			<td class="prngen10" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" colspan="2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2018</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2017</b></span></p>
+			</td>
+			<td class="prngen10" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen10" colspan="2" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>2018</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;US$&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;RMB&nbsp;</b></span></p>
+			</td>
+			<td class="prngen9" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;US$&nbsp;</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Audited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+			<td class="prngen11" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>&nbsp;Unaudited&nbsp;</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>(in millions)</b></span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen11" colspan="4" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span"><b>(in millions)</b></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Net cash (used in)/ provided by operating activities&nbsp;</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(253)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,932</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">281</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,500</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5,632</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">819</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Net cash provided by/ (used in) investing activities&nbsp;</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">248</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(950)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(138)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(483)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1,190)</span></p>
+			</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(173)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Net cash provided by financing activities</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen14" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">4,886</span></p>
+			</td>
+			<td class="prngen14" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">711</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen14" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">99</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen14" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">7,741</span></p>
+			</td>
+			<td class="prngen14" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,126</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Net (decrease)/ increase in cash and cash equivalents&nbsp;</span></p>
+			</td>
+			<td class="prngen22" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(4)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5,868</span></p>
+			</td>
+			<td class="prngen25" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">853</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,116</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen25" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">12,183</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,772</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Cash and cash equivalents at beginning of the&nbsp;period/ year</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5,184</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen26" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">11,529</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">1,677</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen26" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">3,071</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen25" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5,174</span></p>
+			</td>
+			<td class="prngen12" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">753</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Exchange losses on cash and cash equivalents</span></p>
+			</td>
+			<td class="prngen22" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(6)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(41)</span></p>
+			</td>
+			<td class="prngen22" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(6)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(13)</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen5" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">(1)</span></p>
+			</td>
+			<td class="prngen12" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">-</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="prngen7" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">Cash and cash equivalents at end of the&nbsp;period/ year</span></p>
+			</td>
+			<td class="prngen27" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5,174</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">17,356</span></p>
+			</td>
+			<td class="prngen27" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,524</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">5,174</span></p>
+			</td>
+			<td class="prngen8" nowrap="nowrap">&nbsp;</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">17,356</span></p>
+			</td>
+			<td class="prngen15" nowrap="nowrap">
+			<p class="prnews_p"><span class="prnews_span">2,524</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>SOURCE <span class="xn-money">Tencent</span> Music Entertainment Group</p>
+
+<p><img alt="" src="https://rt.prnewswire.com/rt.gif?NewsItemId=CN88003&amp;Transmission_Id=201903191630PR_NEWS_USPR_____CN88003&amp;DateId=20190319" style="border:0px; width:1px; height:1px;" /></p>
+</div>
+
+
+
+
+ 
+				
+			
+
+<!-- ITEMDATE: 2019-03-19 16:30:00 EDT -->
+
+</div>
+</div>		</div><!-- END CONTENT -->  
+			</div><!-- END ROW -->
+</main>
+<div class="mod_footer" role="footer">
+	<div class="section_inner">
+	  <div class="footer__link">
+		<p class="footer_links">Copyright &copy; 2016 - 2024 Tencent Music Entertainment Group. All Rights Reserved.</p>
+	  </div>
+	  </p>
+	</div>
+  </div>
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$('.dropdown').on('show.bs.dropdown', function() {
+	$(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+});
+$('.dropdown').on('hide.bs.dropdown', function() {
+	$(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+});
+$('.single_slider_carousel_caption').addClass('container');
+	
+
+$(document).ready(function(){
+	$('.wd_newsfeed_releases .wd_layout-simple .wd_item').each(function(){
+
+		var _url = $(this).find('a').attr('href');
+		$(this).append('<a class="wd_more_btn" href="'+_url+'"><i class="fa fa-newspaper-o" aria-hidden="true"></i> View</a>');
+	})
+
+	//Move language toggle to top right of page content
+	$('#wd_printable_content .wd_button_dropdown').wrap('<div class="language-toggle-container"></div>');
+	$('.language-toggle-container').prepend('<div class="current-language">English<span></span></div>');
+	//Move language toggle to top right of page body
+	$('body').prepend($('.language-toggle-container'));
+	//Toggle language button
+	$('.current-language').click(function() {
+		$('.language-toggle-container').toggleClass('language-list-show');
+		$('.language-toggle-container .current-language span').toggleClass('arrow-flip');
+	});
+	$('ul.wd_button_dropdown').mouseleave(function() {
+		$('.language-toggle-container').removeClass('language-list-show');
+		$('.language-toggle-container .current-language span').removeClass('arrow-flip');
+	});
+
+	if (document.querySelector('.wd_pageid_64') != null) {
+		var iframe = document.querySelector('.wd_pageid_64 iframe');
+		iframe.onload = function() {
+			iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+			alert(iframe.contentWindow.document.body.scrollHeight);
+		}
+	}
+
+	//Contact Us text addition
+	// $('.wd_pageid_147 .wd_pageheader .container').append('<div>To subscribe to TME HKEX Filings alerts, please click <a target="_blank" href="https://asia.tools.euroland.com/tools/SubscriptionCentre2/?companycode=ky-tme&lang=en-GB">here</a>.');
+
+	$('.wd_pageid_174 .wd_category .item').each(function(){
+		var itemImg = $(this).find('.wd_imagetable img');
+		var imgAlign = $(this).find('.wd_imagetable').attr('align');
+		var imgMargin = $(this).find('.wd_imagetable').attr('style');
+		$(itemImg).insertAfter($(this).find('.item_name'));
+		$(itemImg).css('float',imgAlign);
+		$(itemImg).attr('style', itemImg.attr('style') + '; ' + imgMargin);
+		$(this).find('.wd_imagetable').remove();
+		if(itemImg.length > 0) {
+			$(this).find('p').css('margin-left','155px');
+		}
+
+		$('>*:not(.item_name)', this).wrapAll('<div class="item_popup_overlay"><div class="item_popup_container"><div class="item_popup_content" /></div></div>');
+		$('.item_popup_container', this).prepend('<span class="close_popup">X</span>')
+	});
+	$('.wd_pageid_174 .wd_category .item .item_name').click(function(e) {
+		if( e.target !== this ) {
+			return;
+		}
+		$(this).addClass('active');
+	});
+	$('.wd_pageid_174 .wd_category .item .close_popup').click(function(e){
+		if( e.target !== this ) {
+			return;
+		}
+		$(this).parents('.item_popup_overlay').siblings('.item_name').removeClass('active');
+	});
+
+	$('.wd_pageid_186 .wd_category_items .item').each(function () {
+		$('.item_name', this).wrap(`<a target="_blank" href="${ $('.wd_imagetable a', this).attr('href') }"></a>`);
+	});
+
+});
+</script>
+
+<!-- begin spin_special_output(body_end) -->
+<script wd_script_id="piwik_tracking_code"></script>
+<!-- Piwik Tracking Code -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+
+  _paq.push(["setCustomVariable", 4, "News Release Feed ID", "201903191630PR_NEWS_USPR_____CN88003", "page"]);
+
+  _paq.push(["setCustomVariable", 1, "Content Type", "News Releases Feed", "page"]);
+
+  _paq.push(["setCustomVariable", 3, "Navigation Page", "Press Releases", "page"]);
+
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+  (function() {
+    var u="//stats.drivetheweb.com/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", 4964]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>
+	<img src="https://stats.drivetheweb.com/piwik.php?idsite=4964&rec=1" style="border:0" alt="" />
+</noscript>
+<!-- End Piwik Tracking Code -->
+		
+<!-- end spin_special_output(body_end) -->
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f4471e34bd0a13e',t:'MTc3NzUzMDA3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

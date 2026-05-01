@@ -1,0 +1,1170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- begin spin_special_output(head_start) -->
+<script type="text/javascript" wd_script_id="view_printable_script" nonce="YTIxMjMxNzliMTM1YzVkYTgwMGZkY2FhMDQ3ZTU2ZWFjZGYxYTFkNw==">
+	function view_printable() {
+		var loc = window.location;
+		var sep = (loc.search == "") ? "?" : "&";
+		var url = loc.protocol+"//"+loc.host+loc.pathname+loc.search+sep+"printable"+loc.hash;
+		window.open(url, "_blank", "");
+	}
+</script>
+<link href="thirdparty/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" wd_script_id="font-awesome.min.css">
+<style type="text/css" wd_script_id="toolbar_style" nonce="YTIxMjMxNzliMTM1YzVkYTgwMGZkY2FhMDQ3ZTU2ZWFjZGYxYTFkNw==">
+			div.wd_toolbar {
+				border-top: 1px solid #cccccc;
+				border-bottom: 1px solid #cccccc;
+				margin: 15px 0px 15px 0px;
+				padding: 5px;
+				line-height: 1;
+			}
+			div.wd_toolbar-page {
+				clear: both;
+			}
+			div.wd_toolbar ul.wd_tools {
+				display: inline-block;
+				width: 100%;
+				margin: 0;
+				padding: 5px 0;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool {
+				display: block;
+				list-style-type: none;
+				margin-right: 5px;
+				padding: 0;
+				float: right;
+			}
+			span.wd_tool_icon > a:link,
+			span.wd_tool_icon > a:visited {
+				border-radius: 2px;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 7px;
+				font-size: 16px;
+				line-height: 1;
+				text-align: center;
+				color: #ffffff;
+				background-color: #767676;
+			} 
+			span.wd_tool_icon > a:hover {
+				color: #ffffff;
+				background-color: #666666;
+				text-decoration: none;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool-addthis {
+				float: left;
+			}
+		</style>
+<script type="text/javascript" src="js/jquery-webdriver.js" wd_script_id="jquery-webdriver.js" nonce="YTIxMjMxNzliMTM1YzVkYTgwMGZkY2FhMDQ3ZTU2ZWFjZGYxYTFkNw=="></script>
+<script type="text/javascript" src="js/webdriver.js" wd_script_id="webdriver.js" nonce="YTIxMjMxNzliMTM1YzVkYTgwMGZkY2FhMDQ3ZTU2ZWFjZGYxYTFkNw=="></script>
+<script type="text/javascript" src="js/wd_resize.js" wd_script_id="wd_resize.js" nonce="YTIxMjMxNzliMTM1YzVkYTgwMGZkY2FhMDQ3ZTU2ZWFjZGYxYTFkNw=="></script>
+<script type="text/javascript" wd_script_id="format_news_script" nonce="YTIxMjMxNzliMTM1YzVkYTgwMGZkY2FhMDQ3ZTU2ZWFjZGYxYTFkNw==">
+(function($) {
+	webDriver.formatNews = function() {
+		var $news = $(this);
+		var print_url = $news.attr("wd_print_url");
+		$news.find("table").each(function() {
+			var $table = $(this);
+			var $parent = $table.parent();
+			if ($parent.innerWidth() < $table.outerWidth()) {
+				if ($parent.hasClass("wd_news_table")) {
+					$parent.find(".fullscreen-button").show();
+				} else {
+					var $btn = $("<button>View News Release Full Screen</button>")
+						.addClass("fullscreen-button")
+						.on("click", function() {
+							if (print_url)
+								window.open(print_url, "_blank", "");
+							else
+								view_printable();
+						})
+					;
+
+					var $div = $("<div></div>)")
+						.addClass("wd_news_table")
+						.css("overflow-x", "auto")
+						.append($btn)
+					;
+
+					$table.replaceWith($div);
+					$div.append($table);
+				}
+			} else {
+				if ($parent.hasClass("wd_news_table"))
+					$parent.find(".fullscreen-button").hide();
+			}
+		});
+	}
+})(webDriver.jQuery);
+</script>
+<style type="text/css" wd_script_id="template detail:newsfeed_releases:system style" nonce="YTIxMjMxNzliMTM1YzVkYTgwMGZkY2FhMDQ3ZTU2ZWFjZGYxYTFkNw==">
+.wd_title {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.wd_subtitle {
+	font-weight: bold;
+}
+table.wd_extimagetable {
+	border-style: none; 
+	border-spacing:0px;
+	clear: right; 
+	float: right; 
+}
+td.wd_extimagecell {
+	text-align: right; 
+	margin: 0px 0px 5px 5px;
+	padding:0px;
+}
+td.wd_extimagecell img {
+	padding-left:10px;
+	padding-bottom:10px;
+	border-style: none; 
+}
+blockquote.wd_pullquote {
+	font-style: italic;
+	width:200px;
+	margin:0 0 20px 20px;
+	line-height: 1.8em;
+	float: right;
+	clear: right;
+}
+blockquote.wd_pullquote:before {
+	content: "“ ";
+	font-size: xx-large;
+}
+blockquote.wd_pullquote:after {
+	content: " ”";
+	font-size: xx-large;
+	float: right;
+}
+.fullscreen-button {
+	border: 1px solid #d1d1d1;
+	background: #e3e3e3 url(images/webdriver/view_full_screen_button_background.png) no-repeat;
+	padding: 3px 3px 3px 30px;
+	margin: 5px 0px 5px 0px;
+	color: #727272;
+	width: 220px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.wd_contact {
+	margin: 1em 0;
+}
+.wd_release_data {
+	margin: 1em 0;
+}
+.wd_caption {
+	text-align: center;
+	font-size: 0.72em;
+	font-style: italic;
+	margin: 1em 0 0 0;
+}
+</style>
+
+<!-- end spin_special_output(head_start) -->
+
+	<meta charset="utf-8">
+	
+ <meta name="keywords" content="tencent music ir, Tencent Music Announcement, Tencent Music Upcoming Events, Tencent press release, Tencent webcast events, Tencentmusic ir , tencent music investor relation, Tencent Music Entertainment Group, TME, TME ir, " />
+ <meta name="description" content="We provide you with the main press releases, upcoming events, webcast events, the announcement of Tencent Music IR." />
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:title" content="Tencent Music Entertainment Group Announces First Quarter 2019 Unaudited Financial Results" />
+ <meta name="twitter:description" content="Tencent Music Entertainment Group (&quot;Tencent Music&quot;, &quot;TME&quot;, or the &quot;Company&quot;) (NYSE: TME), the leading online music entertainment platform in China, today announced its unaudited financial results..." />
+ <meta property="og:site_name" content="Tencent Music" />
+ <meta property="og:url" content="https://ir.tencentmusic.com/2019-05-13-Tencent-Music-Entertainment-Group-Announces-First-Quarter-2019-Unaudited-Financial-Results" />
+ <meta property="og:title" content="Tencent Music Entertainment Group Announces First Quarter 2019 Unaudited Financial Results" />
+ <meta property="og:description" content="Tencent Music Entertainment Group (&quot;Tencent Music&quot;, &quot;TME&quot;, or the &quot;Company&quot;) (NYSE: TME), the leading online music entertainment platform in China, today announced its unaudited financial results..." />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tencent Music Entertainment Group Announces First Quarter 2019 Unaudited Financial Results - May 13, 2019</title>
+	<link rel="stylesheet" href="./css/investor.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/wdcontent.css">
+
+<!-- begin spin_special_output(head_end) -->
+<link rel="canonical" href="https://ir.tencentmusic.com/2019-05-13-Tencent-Music-Entertainment-Group-Announces-First-Quarter-2019-Unaudited-Financial-Results" />
+<!-- end spin_special_output(head_end) -->
+</head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136113385-2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-136113385-2'); 
+</script>
+<!-- END Global site tag (gtag.js) - Google Analytics -->
+
+<body class="wd_pageid_43 wd_item_page wd_item_24">
+<div class="row">
+	<div class="wd_home_hero" style="background-image: url(/image/IR_Banner_0821_Cropped.jpg);">
+		<div class="wd_navbar-wrapper">
+			<div class="container">
+				<a href="https://www.tencentmusic.com/" class="navbar-brand d-flex w-25 navbar-logo"><img src="images/logo_en.png" /></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<nav class="navbar navbar-expand-md bg-faded">
+					<div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+						<ul class="nav navbar-nav">
+								<ul class="navbar-nav mr-auto justify-content-between">
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="https://ir.tencentmusic.com/Overview" target="_self" id="dropdown45" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">About Us</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown45">	<a class="dropdown-item" href="Overview" target="_self">Company Overview</a>
+</div>		</li>
+		<li class="nav-item  active">
+			<a class="nav-link" href="https://ir.tencentmusic.com/Press-Releases" target="_self">Press Releases</a>
+					</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="Financial-results" target="_self" id="dropdown171" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Financial Information</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown171">	<a class="dropdown-item" href="https://ir.tencentmusic.com/Financial-results" target="_self">Quarterly Results</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/sec-filings" target="_self">SEC Filings</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/HKEX-FILINGS" target="_self">HKEX Filings</a>
+</div>		</li>
+		<li class="nav-item ">
+			<a class="nav-link" href="https://ir.tencentmusic.com/stock" target="_top">Stock Information</a>
+					</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="ESG-Reports" target="_self" id="dropdown67" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">ESG</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown67">	<a class="dropdown-item" href="https://ir.tencentmusic.com/management-team" target="_self">Management Team</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/Leadership" target="_self">Corporate Governance</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/ESG-Reports" target="_self">ESG Reports</a>
+</div>		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="https://ir.tencentmusic.com/index.php?s=172" target="_self" id="dropdown172" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Resources</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown172">	<a class="dropdown-item" href="https://ir.tencentmusic.com/FAQs" target="_self">FAQs</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/Contact-Us" target="_self">Contact Us</a>
+</div>		</li>
+	</ul>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div> 
+		<div class="container">
+			<div class="wd_header_content">
+			<h2></h2><h4></h4>			</div>
+		</div><!-- END CONTAINER -->
+	</div><!-- END HOME HERO -->
+</div><!-- END ROW -->
+
+
+<div class="wd_pageheader"><div class="container"><h1>Press Releases</h1></div></div>
+
+<main role="main" class="container">
+		<div class="row">
+				<div class="col-md-12 wd_content">
+			<div id="wd_printable_content" class="fr-view">
+<div class="wd_newsfeed_releases-detail">
+<div class="wd_title wd_language_left">Tencent Music Entertainment Group Announces First Quarter 2019 Unaudited Financial Results</div>
+
+<div class="wd_toolbar wd_toolbar-detail"><ul class="wd_tools"><li class="wd_tool wd_tool-print"><span class="wd_tool_icon"><a onclick="view_printable(); return false;" rel="nofollow" href="#print" title="print"><span class="fa fa-print"></span></a></span></li><li class="wd_tool wd_tool-socialshare_facebook"><span class="wd_tool_icon">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fir.tencentmusic.com%2Findex.php%3Fs%3D43%26item%3D24" target="_blank" title="Facebook Share" style="background-color:#4267B2;">
+                    <span class="fa fa-facebook"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_linkedin"><span class="wd_tool_icon">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fir.tencentmusic.com%2Findex.php%3Fs%3D43%26item%3D24" target="_blank" title="Linkedin Share" style="background-color:#0077B5;">
+                    <span class="fa fa-linkedin"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_twitter"><span class="wd_tool_icon">
+                    <a href="https://twitter.com/share?url=https%3A%2F%2Fir.tencentmusic.com%2Findex.php%3Fs%3D43%26item%3D24" target="_blank" title="Twitter Share" style="background-color:#000;">
+                    <span class="fa fa-twitter"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-email"><span class="wd_tool_icon"><a onclick="window.location.href = 'mailto:?subject=Tencent%20Music%20Entertainment%20Group%20Announces%20First%20Quarter%202019%20Unaudited%20Financial%20Results%20-%20May%2013%2C%202019&amp;body='+encodeURIComponent(window.location.href);return false;" href="#email" title="email"><span class="fa fa-envelope"></span></a></span></li><li class="wd_tool wd_tool-rss"><span class="wd_tool_icon"><a href="https://ir.tencentmusic.com/index.php?s=95&amp;rsspage=43" title="rss"><span class="fa fa-rss"></span></a></span></li><li class="wd_tool wd_tool-pdf"><span class="wd_tool_icon"><a href="https://ir.tencentmusic.com/2019-05-13-Tencent-Music-Entertainment-Group-Announces-First-Quarter-2019-Unaudited-Financial-Results?asPDF=1" rel="nofollow" title="pdf"><span class="fa fa-file-pdf-o"></span></a></span></li></ul></div>
+
+
+
+			
+		
+
+			
+		
+
+<style type="text/css">
+
+
+/* Style Definitions */
+span.prnews_span
+{
+font-size:8pt;
+font-family:"Arial";
+color:black;
+}
+a.prnews_a
+{
+color:blue;
+}
+li.prnews_li
+{
+font-size:8pt;
+font-family:"Arial";
+color:black;
+}
+p.prnews_p
+{
+font-size:0.62em;
+font-family:"Arial";
+color:black;
+margin:0in;
+}
+.prngen22{
+BORDER-TOP:black 1pt solid; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen6{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen15{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen26{
+BORDER-TOP:black; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 2pt double; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen14{
+BORDER-TOP:black 1pt solid; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen4{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: CENTER; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen13{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen3{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:1.17em
+}
+.prngen18{
+BORDER-TOP:black; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: CENTER; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen25{
+BORDER-TOP:black 1pt solid; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen9{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: CENTER; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen12{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen19{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: LEFT; PADDING-LEFT:0.84em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen5{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen11{
+BORDER-TOP:black 1pt solid; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:1pt; TEXT-ALIGN: CENTER; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen20{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 2pt double; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prngen16{
+BORDER-TOP:black 1pt solid; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 2pt double; TEXT-ALIGN: RIGHT; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.67em
+}
+.prngen10{
+BORDER-TOP:1pt; BORDER-RIGHT:1pt; VERTICAL-ALIGN: BOTTOM; BORDER-BOTTOM:black 1pt solid; TEXT-ALIGN: CENTER; PADDING-LEFT:0.50em; BORDER-LEFT:1pt; PADDING-RIGHT:0.50em
+}
+.prnsbb0{
+BORDER-BOTTOM:0pt
+}
+.prnsbt1{
+BORDER-TOP:1pt
+}
+.prnsbb1{
+BORDER-BOTTOM:1pt
+}
+.prnpr6{
+PADDING-RIGHT:0.50em
+}
+.prnsbr0{
+BORDER-RIGHT:0pt
+}
+.prnpr8{
+PADDING-RIGHT:0.67em
+}
+.prnvab{
+VERTICAL-ALIGN: BOTTOM
+}
+.prntar{
+TEXT-ALIGN: RIGHT
+}
+.prnsbtbl{
+BORDER-TOP:black
+}
+.prnsbt0{
+BORDER-TOP:0pt
+}
+.prnsbbd{
+BORDER-BOTTOM:black 2pt double
+}
+.prnsbts{
+BORDER-TOP:black 1pt solid
+}
+.prnsblb0{
+BORDER-LEFT:black 0pt
+}
+.prnrbrb0{
+BORDER-RIGHT:black 0pt
+}
+.prnsbr1{
+BORDER-RIGHT:1pt
+}
+.prnpl10{
+PADDING-LEFT:0.84em
+}
+.prnpr4{
+PADDING-RIGHT:0.33em
+}
+.prnsbtb0{
+BORDER-TOP:black 0pt
+}
+.prntblns{
+BORDER-TOP: 1pt; BORDER-RIGHT: 1pt; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: 1pt; BORDER-LEFT: 1pt
+}
+.prnsbl0{
+BORDER-LEFT:0pt
+}
+.prnbcc{
+BORDER-COLLAPSE: COLLAPSE
+}
+.prnsbl1{
+BORDER-LEFT:1pt
+}
+.prnsbbs{
+BORDER-BOTTOM:black 1pt solid
+}
+.prnpl6{
+PADDING-LEFT:0.50em
+}
+
+					span.prnews_span{
+						font-size:inherit;
+						font-family:inherit;
+					}
+					li.prnews_li{
+						font-size: inherit;
+						font-family: inherit;           
+					}
+					p.prnews_p{
+						font-size: inherit;
+						font-family: inherit;           
+					}
+				
+					div.PRN_ImbeddedAssetReference{
+						display: none;
+					}
+					div[id^="prni_dvprne"]{
+						display: none;
+					}
+				</style>
+
+<div class="wd_body wd_news_body fr-view" wd_resize="formatNews" wd_print_url="https://ir.tencentmusic.com/2019-05-13-Tencent-Music-Entertainment-Group-Announces-First-Quarter-2019-Unaudited-Financial-Results?printable=1">
+<p><span class="xn-location">SHENZHEN, China</span>, <span class="xn-chron">May 13, 2019</span> /<a href="http://www.prnewswire.com/" target="_blank">PRNewswire</a>/ -- <span class="xn-money">Tencent</span> Music Entertainment Group (&quot;<span class="xn-money">Tencent</span> Music&quot;, &quot;TME&quot;, or the &quot;Company&quot;) (NYSE: TME), the leading online music entertainment platform in <span class="xn-location">China</span>, today announced its unaudited financial results for the first quarter ended <span class="xn-chron">March 31, 2019</span>.</p>
+<p><b>Financial Highlights</b></p>
+<p><b><u>In the three months ended <span class="xn-chron">March 31, 2019</span></u>:</b></p>
+<ul type="disc"><li><b>R</b><b>evenues</b> were <span class="xn-money">RMB5.74 billion</span> (<span class="xn-money">US$855 million</span>), an increase of 39.4% year-over-year. </li><li><b>Operating profit </b>was <span class="xn-money">RMB1.15 billion</span> (<span class="xn-money">US$171 million</span>), an increase of 22.9% year-over-year. </li><li><b>Net profit attributable to equity holders of the Company</b> increased by 17.4% year over year to <span class="xn-money">RMB987 million</span> (<span class="xn-money">US$147 million</span>). </li><li><b>Non-IFRS net profit</b> <b>attributable to equity holders of the Company </b>(excluding amortization of intangible assets and other assets arising from business combinations, share-based compensation expenses, net gains or losses from investments, and fair value change on puttable shares) <b>increased by 14.9% year over year</b> to <span class="xn-money">RMB1.20 billion</span> (<span class="xn-money">US$179 million</span>). </li></ul><p>&quot;We started 2019 with solid first quarter results and strong growth,&quot; stated Mr. Cussion Pang, Chief Executive Officer of <span class="xn-money">Tencent</span> Music. &quot;Our businesses recorded healthy growth rates driven by product innovation, content diversification, and technological advancement. During the past few quarters, we constantly expanded our online music subscriber base while steadily increasing our subscriber retention rate. As our users increasingly consume music content through streaming services, we are riding on this trend to gradually transition into a pay-for-streaming model over the coming years.  We also strengthened our market leadership in music-centric social entertainment by focusing on product innovation and enhancing user experience through data analytics. We remain committed to investing in the provision of premium content as well as innovative product features. We believe that these investments will significantly enhance the level of user engagement for our services and sustain our long-term growth going forward.&quot;</p>
+<p>Mr. <span class="xn-person">Tony Yip</span>, Chief Strategy Officer of <span class="xn-money">Tencent</span> Music, remarked, &quot;In the first quarter of 2019, both online music and social entertainment services maintained a healthy growth trajectory. Regarding content development, we not only forged additional partnerships with industry-leading music labels but also strengthened cooperation with other labels to promote and distribute original soundtrack music for popular movies and TV shows. We added additional video and long-form audio formats to our content offering. For product development, we continued to launch social media initiatives and additional lite versions of our apps to attract a broader group of users. We also developed innovative ways for users to enjoy personalization by consistently improving our music content tagging process and analyzing our platform's data repository to better fulfill users' music tastes and preferences. All of these initiatives are strategic, long-term investments that will improve our user experience, attract more customers, and increase monetization capabilities going forward.&quot;</p>
+<p>&quot;We delivered solid financial results in the first quarter with revenues growing 39.4% year over year to <span class="xn-money">RMB5.74 billion</span>, while non-IFRS net profit attributable to equity holders of the Company reached <span class="xn-money">RMB1.2 billion</span>,&quot; commented Ms. <span class="xn-person">Shirley Hu</span>, Chief Financial Officer of <span class="xn-money">Tencent</span> Music. &quot;We generated <span class="xn-money">RMB926 million</span> in operating cash flow in the quarter and as of <span class="xn-chron">March 31, 2019</span>, the combined balance of the Company's cash and cash equivalents and term deposits amounted to <span class="xn-money">RMB18.1 billion</span>. Our strong profitability and cash flow enable us to continue investing in our products and content offering. These investments will help to expand our user base and improve user engagement, both of which are vital to our sustainable growth.  We are confident that such efforts will create long-term shareholder value as well as increase return on capital for investors.&quot;</p>
+<p><b>Company and business Highlights</b></p>
+<ul type="disc"><li>TME's key operating metrics<sup>[*]</sup> continue to grow across both online music and social entertainment services segments.</li></ul><p> </p>
+<div><table cellspacing="0" cellpadding="0" border="0" class="prntblns"><tr><td nowrap="nowrap" class="prngen3"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span">1Q19</span></p>
+</td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span">1Q18</span></p>
+</td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span">YoY %</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Mobile MAU - online music (million)</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">654</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">625</span></p>
+</td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">4.6%</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Mobile MAU - social entertainment (million)</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">225</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">224</span></p>
+</td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">0.4%</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Paying users - online music (million)</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">28.4</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">22.3</span></p>
+</td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">27.4%</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Paying users - social entertainment (million)</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">10.8</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">9.6</span></p>
+</td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">12.5%</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Monthly ARPPU - online music (RMB)</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">8.3</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">8.4</span></p>
+</td><td nowrap="nowrap" class="prngen3 prnpr4"><p class="prnews_p"><span class="prnews_span">(1.2%)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Monthly ARPPU - social entertainment (RMB)</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">127.5</span></p>
+</td><td nowrap="nowrap" class="prngen3"><p class="prnews_p"><span class="prnews_span">99.5</span></p>
+</td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">28.1%</span></p>
+</td></tr></table></div><p> </p>
+<ul type="disc"><li>The Company continued to expand its industry-leading music library. As of <span class="xn-chron">March 31, 2019</span>, the Company's music library included over 35 million tracks from domestic and international music labels. </li><li>In the first quarter of 2019, the Company further solidified its leadership in content offering through the following initiatives: (i) establishing a strategic partnership with SM Entertainment Group, a premier music label in <span class="xn-location">Asia</span> that owns one of the largest music repositories in Korea; (ii) forging partnerships with other music labels to promote the original soundtrack music of popular movies and TV shows; (iii) collaborating with the Company's music label joint venture partner to release a highly popular song, which was streamed several hundred million times ; and (iv) diversifying content offering through the addition of video content as well as long and short form audio content, including talk shows, audiobooks, comedy sketches, and movie review shows. </li><li>The Company continued to drive product innovation and technological advancement to further expand its monetization capabilities in the following ways: (i) launching the <i>Grab the Mic</i> feature to further improve user engagement on the WeSing app; (ii) utilizing more singing contest features to help emerging live streaming performers achieve better user-to-follower conversion rates; (iii) adding more audio settings including ones that mimic virtual surroundings; and (iv) enhancing music content tagging capabilities to increase the accuracy of recommendation algorithms.</li></ul><p> </p>
+<div><table id="convertedTable5f52" cellspacing="0" cellpadding="0" border="0" class="prnsbt0 prnsbr0 prnbcc prnsbb0 prnsbl0"><tr><td class="prnsbtb0 prnrbrb0 prnvab prnsbtb0 prnpl6 prnsblb0 prnpr6"><p class="prnews_p"><span class="prnews_span"><sup>[*]</sup> For the definitions of the above operating metrics, please refer to the introduction section in the Company's 20F filed on April 19, 2019.</span></p>
+</td></tr></table></div><p><b>First quarter 2019 Financial Results</b></p>
+<p><b><b><u>Revenues</u></b></b></p>
+<p>Total revenues for the first quarter of 2019 increased by <span class="xn-money">RMB1.62 billion</span>, or 39.4%, to <span class="xn-money">RMB5.74 billion</span> (<span class="xn-money">US$855 million</span>) from <span class="xn-money">RMB4.12 billion</span> in the same period of 2018. </p>
+<ul type="disc"><li>Revenues from online music services for the first quarter of 2019 increased by 28.0% to <span class="xn-money">RMB1.61 billion</span> (<span class="xn-money">US$239 million</span>) from <span class="xn-money">RMB1.25 billion</span> in the same period of 2018, which was mainly driven by increased revenues from (i) user subscriptions; (ii) sublicensing music content to other companies, including third-party music platforms and <span class="xn-money">Tencent</span> Group; and (iii) sales of digital music albums. Revenue from paid music through sales of subscription packages was <span class="xn-money">RMB710 million</span> (<span class="xn-money">US$106 million</span>), up from <span class="xn-money">RMB565 million</span> in the first quarter of 2018. </li><li>Revenues from social entertainment services and others for the first quarter of 2019 increased by 44.3% to <span class="xn-money">RMB4.13billion</span> (<span class="xn-money">US$616 million</span>) from <span class="xn-money">RMB2.86 billion</span> in the same period of 2018, primarily driven by revenue growth in both online karaoke and live streaming services. The Company expanded its paying user base by 12.5% and increased ARPPU by 28.1% in the first quarter of 2019, compared to the same period of 2018. </li></ul><p><b><b><u>Cost of Revenues</u></b></b></p>
+<p>Cost of revenues for the first quarter of 2019 increased by 52.2% to <span class="xn-money">RMB3.70 billion</span> (<span class="xn-money">US$552 million</span>) from <span class="xn-money">RMB2.43 billion</span> in the same period of 2018, primarily due to the increase in content fees and revenue sharing fees. The increase in content fees was mainly attributable to the increase in both market price and amount of music content licensed from music labels and other content partners, as well as increased investments in the production of high-quality original music content. The increase in revenue sharing fees reflected the growth in the Company's social entertainment services and the higher percentage of revenue contribution from professionally generated content providers.  </p>
+<p><b><b><u>Gross Profit</u></b></b></p>
+<p>Gross profit for the first quarter of 2019 increased by 20.8% to <span class="xn-money">RMB2.03 billion</span> (<span class="xn-money">US$303 million</span>) from <span class="xn-money">RMB1.68 billion</span> in the same period of 2018. Gross margin was 35.4% for the first quarter of 2019. </p>
+<p><b><b><u>Operating Expenses for the Period</u></b></b></p>
+<p>Total operating expenses for the first quarter of 2019 increased by <span class="xn-money">RMB229 million</span>, or 28.3%, to <span class="xn-money">RMB1.04 billion</span> (<span class="xn-money">US$155 million</span>) from <span class="xn-money">RMB810 million</span> in the same period of 2018. The ratio of operating expenses over revenue improved to 18.1% in the first quarter from 19.7% in the first quarter of 2018.</p>
+<ul type="disc"><li>Selling and marketing expenses for the first quarter of 2019 were <span class="xn-money">RMB437 million</span> (<span class="xn-money">US$65 million</span>), representing an increase of 20.1% year-over-year from <span class="xn-money">RMB364 million</span> in the same period of 2018. The increase was primarily due to increased spending to promote the Company's brands, products, and content offering. </li><li>General and administrative expenses for the first quarter of 2019 were <span class="xn-money">RMB602 million</span> (<span class="xn-money">US$90 million</span>), representing an increase of 35.0% year-over-year from <span class="xn-money">RMB446 million</span> in the same period of 2018. The increase was mainly attributable to higher employee benefit expenses, resulting from the increase in the scale and salary level of the Company's personnel.</li></ul><p><b><u>Operating profit for the Period</u></b></p>
+<p>Operating profit increased by 22.9% to <span class="xn-money">RMB1.15 billion</span> (<span class="xn-money">US$171 million</span>) in the first quarter of 2019 from <span class="xn-money">RMB933 million</span> in the same period of 2018. </p>
+<p><b><b><u>Net Profit and Non-IFRS Net profit for the Period </u></b></b></p>
+<p>Net profit attributable to equity holders of the Company for the first quarter of 2019 was <span class="xn-money">RMB987 million</span> (<span class="xn-money">US$147 million</span>), compared to <span class="xn-money">RMB841 million</span> in the same period of 2018. Non-IFRS net profit attributable to equity holders of the Company was <span class="xn-money">RMB1.20 billion</span> (<span class="xn-money">US$179 million</span>) for the first quarter of 2019, compared to <span class="xn-money">RMB1.05 billion</span> in the same period of 2018. Please refer to the section titled &quot;Non-IFRS Financial Measure&quot; for details.</p>
+<p><b><b><u>Earnings per ADS </u></b></b></p>
+<p>Basic and diluted earnings per American Depositary Shares (&quot;ADS&quot;) were <span class="xn-money">RMB0.61</span> <span class="xn-money">(US$0.09)</span> and <span class="xn-money">RMB0.59</span> <span class="xn-money">(US$0.09)</span>, respectively, for the first quarter of 2019. <span id="spanHghlt6750">Excluding amortization</span> of intangible assets and other assets arising from business combinations, share-based compensation expenses, net losses from investments, and fair value change on puttable shares, non-IFRS basic and diluted earnings per ADS were <span class="xn-money">RMB0.74</span> (<span class="xn-money">US$0.11</span>) and <span class="xn-money">RMB0.72</span> <span class="xn-money">(US$0.11)</span>, respectively, for the first quarter of 2019. During the first quarter of 2019, the Company had weighted averages of 1.62 billion basic and 1.67 billion diluted ADSs outstanding, respectively. Each ADS represents two of the Company's Class A ordinary shares.</p>
+<p><b><b><u>Cash Flow</u></b></b></p>
+<p>Net cash provided by operating activities for the first quarter of 2019 was <span class="xn-money">RMB926 million</span> (<span class="xn-money">US$138 million</span>), compared to RMB74 million of cash provided by operating activities during the same period of 2018.   Net cash used in investing activities for the first quarter of 2019 was <span class="xn-money">RMB3.41 billion</span> (<span class="xn-money">US$508 million</span>), compared to RMB322 million during the same period of 2018.  The Company invested <span class="xn-money">RMB3.4 billion</span> (<span class="xn-money">US$507 million</span>) in term deposits during the first quarter of 2019. </p>
+<p><b><b><u>Cash and Cash Equivalents</u></b></b></p>
+<p>As of <span class="xn-chron">March 31, 2019</span>, the combined balance of the Company's cash and cash equivalents and term deposits amounted to <span class="xn-money">RMB18.10 billion</span> (<span class="xn-money">US$2.70 billion</span>), compared to RMB17.36 billion as of <span class="xn-chron">December 31, 2018</span>. The increase in cash and cash equivalents was primarily due to cash flow generated from operations of <span class="xn-money">RMB926 million</span> (<span class="xn-money">US$138 million</span>). The Company's cash and cash equivalents balance was also affected by the change in the exchange rate of RMB to USD at different balance sheet dates. The exchange rate was 6.7112 to 1 on <span class="xn-chron">March 29, 2019</span>, and 6.8755 to 1 on <span class="xn-chron">December 31, 2018</span>.</p>
+<p><b><b>Conference Call Information</b></b></p>
+<p><span class="xn-money">Tencent</span> Music's management will hold a conference call on <span class="xn-chron">Monday, May 13, 2019</span>, at <span class="xn-chron">8:00 P.M. Eastern Time</span> or <span class="xn-chron">8:00 A.M.</span> Beijing Time on <span class="xn-chron">Tuesday, May 14, 2019</span>, to discuss the financial results. Listeners may access the call by dialing the following numbers:</p>
+<div><table cellspacing="0" cellpadding="0" border="0" class="prntblns"><tr><td class="prngen5"><p class="prnews_p"><span class="prnews_span">United States Toll Free:  </span></p>
+</td><td class="prngen5"><p class="prnews_p"><span class="prnews_span">+1-888-317-6003</span></p>
+</td></tr><tr><td class="prngen5"><p class="prnews_p"><span class="prnews_span">International: </span></p>
+</td><td class="prngen5"><p class="prnews_p"><span class="prnews_span">+1-412-317-6061</span></p>
+</td></tr><tr><td class="prngen5"><p class="prnews_p"><span class="prnews_span">China Toll Free:  </span></p>
+</td><td class="prngen5"><p class="prnews_p"><span class="prnews_span">400-120-6115</span></p>
+</td></tr><tr><td class="prngen5"><p class="prnews_p"><span class="prnews_span">Hong Kong Toll Free: </span></p>
+</td><td class="prngen5"><p class="prnews_p"><span class="prnews_span">800-963-976</span></p>
+</td></tr><tr><td class="prngen5"><p class="prnews_p"><span class="prnews_span">Access Code:  </span></p>
+</td><td class="prngen5"><p class="prnews_p"><span class="prnews_span">1950032</span></p>
+</td></tr></table></div><p>The replay will be accessible through <span class="xn-chron">May 20, 2019</span>, by dialing the following numbers:</p>
+<div><table cellspacing="0" cellpadding="0" border="0" class="prntblns"><tr><td class="prngen5"><p class="prnews_p"><span class="prnews_span">United States Toll Free: </span></p>
+</td><td class="prngen5"><p class="prnews_p"><span class="prnews_span">+1-877-344-7529</span></p>
+</td></tr><tr><td class="prngen5"><p class="prnews_p"><span class="prnews_span">International: </span></p>
+</td><td class="prngen5"><p class="prnews_p"><span class="prnews_span">+1-412-317-0088</span></p>
+</td></tr><tr><td class="prngen5"><p class="prnews_p"><span class="prnews_span">Access Code: </span></p>
+</td><td class="prngen5"><p class="prnews_p"><span class="prnews_span">10130638</span></p>
+</td></tr></table></div><p>A live and archived webcast of the conference call will also be available at the Company's investor relations website at <a target="_blank" href="https://ir.tencentmusic.com/" rel="nofollow">https://ir.tencentmusic.com/</a>.</p>
+<p><b><b>Exchange Rate</b></b></p>
+<p>This announcement contains translations of certain RMB amounts into U.S. dollars (&quot;USD&quot;) at specified rates solely for the convenience of the reader. Unless otherwise stated, all translations from RMB to USD were made at the rate of <span class="xn-money">RMB6.7112</span> to <span class="xn-money">US$1.00</span>, the noon buying rate in effect on <span class="xn-chron">March 29, 2019</span>, in the H.10 statistical release of the Federal Reserve Board. The Company makes no representation that the RMB or USD amounts referred could be converted into USD or RMB, as the case may be, at any particular rate or at all. For analytical presentation, all percentages are calculated using the numbers presented in the financial statements contained in this earnings release.</p>
+<p><b><b>Non-</b><b>IFRS</b><b> Financial </b><b>Measure</b></b></p>
+<p>The Company use non-IFRS net profit for the year/period, which is a non-IFRS financial measure, in evaluating its operating results and for financial and operational decision-making purposes. <span class="xn-money">Tencent</span> Music believes that non-IFRS net profit helps identify underlying trends in the Company's business that could otherwise be distorted by the effect of certain expenses that the Company includes in its profit for the year/period. <span class="xn-money">Tencent</span> Music believe that non-IFRS net profit for the year/period provides useful information about its results of operations, enhances the overall understanding of its past performance and future prospects and allows for greater visibility with respect to key metrics used by its management in its financial and operational decision-making.</p>
+<p>Non-IFRS net profit for the year/period should not be considered in isolation or construed as an alternative to operating profit, net profit/loss for the year/period or any other measure of performance or as an indicator of its operating performance. Investors are encouraged to review non-IFRS net profit for the year/period and the reconciliation to its most directly comparable IFRS measure. Non-IFRS net profit for the year/period presented here may not be comparable to similarly titled measures presented by other companies. Other companies may calculate similarly titled measures differently, limiting their usefulness as comparative measures to the Company's data. <span class="xn-money">Tencent</span> Music encourages investors and others to review its financial information in its entirety and not rely on a single financial measure.  </p>
+<p>Non-IFRS net profit for the year/period represents profit for the year excluding a share-based accounting charge in respect of the issuance of ordinary shares to music label partners, share-based compensation expenses, net loss from investments, amortization of intangible and other assets resulting from the business combinations, and fair value change on liabilities of puttable shares. </p>
+<p>Please see the &quot;Unaudited Non-IFRS Financial Measure&quot; included in this press release for a full reconciliation of Non-IFRS net profit for the year/period to its net profit/loss for the year/period.</p>
+<p><b><b>About <span class="xn-money">Tencent</span> Music Entertainment</b></b></p>
+<p><span class="xn-money">Tencent</span> Music Entertainment Group (NYSE: TME) is the leading online music entertainment platform in <span class="xn-location">China</span>, operating the country's highly popular and innovative music apps: <i>QQ Music</i>, <i>Kugou Music</i>, <i>Kuwo Music</i> and <i>WeSing</i>. <span class="xn-money">Tencent</span> Music's mission is to use technology to elevate the role of music in people's lives by enabling them to create, enjoy, share and interact with music. <span class="xn-money">Tencent</span> Music's platform comprises online music, online karaoke and music-centric live streaming services, enabling music fans to discover, listen, sing, watch, perform and socialize around music. For more information, please visit ir.tencentmusic.com.</p>
+<p><b><b>Safe Harbor Statement</b></b></p>
+<p>This press release contains forward-looking statements. These statements are made under the &quot;safe harbor&quot; provisions of the U.S. Private Securities Litigation Reform Act of 1995. Statements that are not historical facts, including statements about the Company's beliefs and expectations, are forward-looking statements. Forward-looking statements involve inherent risks and uncertainties, and a number of factors could cause actual results to differ materially from those contained in any forward-looking statement. In some cases, forward-looking statements can be identified by words or phrases such as &quot;may&quot;, &quot;will,&quot; &quot;expect,&quot; &quot;anticipate,&quot; &quot;target,&quot; &quot;aim,&quot; &quot;estimate,&quot; &quot;intend,&quot; &quot;plan,&quot; &quot;believe,&quot; &quot;potential,&quot; &quot;continue,&quot; &quot;is/are likely to&quot; or other similar expressions. Further information regarding these and other risks, uncertainties or factors is included in the Company's filings with the SEC. All information provided in this press release is as of the date of this press release, and the Company does not undertake any duty to update such information, except as required under applicable law.</p>
+<p><b><b>Investor Relations Contact <br/></b></b><a target="_blank" href="mailto:ir@tencentmusic.com" rel="nofollow">ir@tencentmusic.com</a> <br/>+1 (646) 308-1736</p>
+<p><b><b>Media Relations Contact <br/></b></b><a target="_blank" href="mailto:TME.PR@icrinc.com" rel="nofollow">TME.PR@icrinc.com</a> <br/>+1 (646) 992-2986</p>
+<p> </p>
+<div><table cellspacing="0" cellpadding="0" border="0" class="prntblns"><tr><td colspan="10" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+</td></tr><tr><td colspan="10" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>CONSOLIDATED INCOME STATEMENT</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td colspan="7" nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b>Three Months Ended </b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>March 31, 2018</b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>December 31, 2018</b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td colspan="3" nowrap="nowrap" class="prngen11"><p class="prnews_p"><span class="prnews_span"><b>March 31, 2019</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> US$ </b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td colspan="7" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>(in millions, except per share data)</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Revenues</b></span></p>
+</td><td nowrap="nowrap" class="prngen3 prnpr8"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Online music services</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,254</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,520</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,605</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">239</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Social entertainment services and others</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">2,862</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,877</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">4,131</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen13"><p class="prnews_p"><span class="prnews_span">616</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen14"><p class="prnews_p"><span class="prnews_span">4,116</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen14"><p class="prnews_p"><span class="prnews_span">5,397</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen14"><p class="prnews_p"><span class="prnews_span">5,736</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">855</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Cost of revenues</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">(2,433)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">(3,561)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">(3,703)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">(552)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Gross profit</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,683</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,836</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">2,033</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">303</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Selling and marketing expenses</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(364)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(542)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(437)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(65)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">General and administrative expenses</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">(446)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">(810)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">(602)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">(90)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Total operating expenses</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(810)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(1,352)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(1,039)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(155)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Interest income </span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">37</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">100</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">144</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">21</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Other gains/ (losses), net</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">23</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(35)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">9</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Share-based payments in respect of issuance of <br/>ordinary shares to music label partners</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen13"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">(1,519)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen13"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen13"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Operating profit/ (loss)</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">933</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(970)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,147</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">171</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Share of profit/(loss) of investments <br/>accounted for using equity method</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">10</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(5)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(1)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Finance Cost </span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(8)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(9)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(17)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(3)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Profit/ (loss) before income tax</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">925</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(969)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,125</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">168</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Income tax expense</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(85)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">94</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(139)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(21)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Profit/ (loss) for the period</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen16"><p class="prnews_p"><span class="prnews_span">840</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prnsbts prnsbr1 prnvab prnsbbd prntar prnpl6 prnsbl1 prnpr6"><p class="prnews_p"><span class="prnews_span">(875)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen16"><p class="prnews_p"><span class="prnews_span">986</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen16"><p class="prnews_p"><span class="prnews_span">147</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Attributable to:</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Equity holders of the Company</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">841</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(876)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">987</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">147</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Non-controlling interests</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(1)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(1)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(0)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Earnings/ (loss) per share for Class A and <br/>Class B ordinary shares</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Basic</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.28</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(0.28)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.30</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.05</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.27</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(0.28)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.29</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.04</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>(Loss)/ earnings per ADS (2 Class A shares <br/>equal to 1 ADS)</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Basic</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(0.56)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.61</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.09</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(0.56)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.59</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.09</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Shares used in earnings/ (loss) per Class <br/>A and Class B ordinary share computation:</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Basic</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,024,899,512</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,126,915,062</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,246,992,158</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,246,992,158</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,107,233,621</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,126,915,062</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,346,787,749</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,346,787,749</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>ADS used in (loss)/ earnings per ADS <br/>computation</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Basic</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,563,457,531</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,623,496,079</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,623,496,079</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,563,457,531</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,673,393,874</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,673,393,874</span></p>
+</td></tr></table></div><p> </p>
+<p> </p>
+<div><table cellspacing="0" cellpadding="0" border="0" class="prntblns"><tr><td colspan="10" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+</td></tr><tr><td colspan="10" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>UNAUDITED NON-IFRS FINANCIAL MEASURE</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td colspan="7" nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b>Three Months Ended </b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>March 31, 2018</b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>December 31, 2018</b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td colspan="3" nowrap="nowrap" class="prngen11"><p class="prnews_p"><span class="prnews_span"><b>March 31, 2019</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> US$ </b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td colspan="7" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>(in millions, except per share data)</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Profit/ (loss) for the period</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">840</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(875)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">986</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">147</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Adjustments:</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Amortization of intangible and other assets <br/>arising from business combinations*</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">59</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">70</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">72</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">11</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Share-based compensation</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">132</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">142</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">134</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">20</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Share-based payments in respect of issuance of <br/>ordinary shares to music label partners**</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,519</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Losses/(gains) from investments</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">5</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">52</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(1)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Fair value change on puttable shares ***</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">8</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">9</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">9</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Non-IFRS Net Profit</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen16"><p class="prnews_p"><span class="prnews_span">1,044</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen16"><p class="prnews_p"><span class="prnews_span">917</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen16"><p class="prnews_p"><span class="prnews_span">1,200</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen16"><p class="prnews_p"><span class="prnews_span">179</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Attributable to:</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Equity holders of the Company</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,045</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">916</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,201</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">179</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Non-controlling interests</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(1)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(1)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(0)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Earnings per share for Class A and Class B <br/>ordinary shares</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Basic</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.35</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.29</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.37</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.06</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.34</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.28</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.36</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.05</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Earnings per ADS (2 Class A shares equal <br/>to 1 ADS)</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Basic</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.59</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.74</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.11</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.57</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.72</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">0.11</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Shares used in earnings per Class A and <br/>Class B ordinary share computation:</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Basic</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,024,899,512</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,126,915,062</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,246,992,158</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,246,992,158</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,107,233,621</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,220,376,823</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,346,787,749</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">3,346,787,749</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>ADS used in earnings per ADS computation</b></span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Basic</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,563,457,531</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,623,496,079</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,623,496,079</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Diluted</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,610,188,411</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,673,393,874</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,673,393,874</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td colspan="10" nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">* Represents the amortization of identifiable assets, including intangible assets and prepayments for music content, resulting from Tencent's <br/>acquisition of CMC in 2016, our acquisition of Ultimate Music in 2017, and our acquisition of certain subsidiaries in 2018, net of related <br/>deferred taxes.</span></p>
+</td></tr><tr><td colspan="10" nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">** Represents the excess of the then fair value of the ordinary shares we issued to Warner Music Group and Sony Music Entertainment over <br/>the aggregate consideration the Company received in October 2018. </span></p>
+</td></tr><tr><td colspan="10" nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">*** Represents the fair value changes on the put liability of certain shares issued in 2018</span></p>
+</td></tr></table></div><p> </p>
+<p> </p>
+<div><table cellspacing="0" cellpadding="0" border="0" class="prntblns"><tr><td colspan="7" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+</td></tr><tr><td colspan="7" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>CONSOLIDATED BALANCE SHEET</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><br/></td></tr><tr><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b>As at December 31, 2018</b></span></p>
+</td><td nowrap="nowrap" class="prngen4"><br/></td><td colspan="3" nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b>As at March 31, 2019</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen18"><p class="prnews_p"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen18"><p class="prnews_p"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen18"><p class="prnews_p"><span class="prnews_span"><b> US$ </b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b> Audited </b></span></p>
+</td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen4"><br/></td><td nowrap="nowrap" class="prngen4"><br/></td><td colspan="5" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>(in millions)</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>ASSETS</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Non-current assets</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Property, plant and equipment</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">168</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">159</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">24</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Intangible assets</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">1,763</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">1,684</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">251</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Right-of-use assets</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">92</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">14</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Goodwill</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">17,088</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">17,088</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">2,546</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Investments accounted for using equity method </span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">236</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">167</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">25</span></p>
+</td></tr><tr><td colspan="2" nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Financial assets at fair value through other comprehensive <br/>income </span></p>
+</td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">3,331</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">3,997</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">596</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Other investments</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">217</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">217</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">32</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Prepayments and deposits </span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">901</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">825</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">123</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Deferred tax assets</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">123</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">127</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">19</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">23,827</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">24,356</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">3,629</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Current assets</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Inventories</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">35</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">20</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">3</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Accounts receivable</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">1,483</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">1,841</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">274</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Prepayments, deposits and other assets</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">1,823</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">2,150</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">320</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Other investments</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">39</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">37</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">6</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Short-term investments</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">42</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">22</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">3</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Term deposits</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">3,400</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">507</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Cash and cash equivalents</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">17,356</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">14,704</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">2,191</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">20,778</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">22,174</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">3,304</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Total assets</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen20"><p class="prnews_p"><span class="prnews_span">44,605</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen20"><p class="prnews_p"><span class="prnews_span">46,530</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen20"><p class="prnews_p"><span class="prnews_span">6,933</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>EQUITY</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Equity attributable to equity holders of the <br/>Company</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Share capital</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">2</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">2</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">0</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Additional paid-in capital</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">33,776</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">33,795</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">5,036</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Other reserves</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">903</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">1,481</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">221</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Retained earnings</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">3,040</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">4,027</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">600</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prnsbt1 prnsbr1 prnvab prnsbb1 prntar prnpl10 prnsbl1 prnpr6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">37,721</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">39,305</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">5,857</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Non-controlling interests</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">51</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">48</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">7</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Total equity</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">37,772</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">39,353</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">5,864</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>LIABILITIES</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Non-current liabilities</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Other payables and other liabilities</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">241</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">343</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">51</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Deferred tax liabilities</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">354</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">340</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">51</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Lease liability </span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">59</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">9</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">595</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">742</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">111</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Current liabilities</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Accounts payable </span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">1,830</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">2,124</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">316</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Other payables and other liabilities</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">2,742</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">2,555</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">381</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Current tax liabilities</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">235</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">323</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">48</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Lease liability </span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">-</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">34</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">5</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen19"><p class="prnews_p"><span class="prnews_span">Deferred revenue</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">1,431</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">1,399</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">208</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">6,238</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">6,435</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">959</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>TOTAL LIABILITIES</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">6,833</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">7,177</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">1,069</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen6"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span"><b>Total equity and liabilities</b></span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen20"><p class="prnews_p"><span class="prnews_span">44,605</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen20"><p class="prnews_p"><span class="prnews_span">46,530</span></p>
+</td><td nowrap="nowrap" class="prngen6"><br/></td><td nowrap="nowrap" class="prngen20"><p class="prnews_p"><span class="prnews_span">6,933</span></p>
+</td></tr></table></div><p> </p>
+<p> </p>
+<div><table cellspacing="0" cellpadding="0" border="0" class="prntblns"><tr><td colspan="9" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+</td></tr><tr><td colspan="9" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td colspan="7" nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b>Three Months Ended </b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>March 31, 2018</b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>December 31, 2018</b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td colspan="3" nowrap="nowrap" class="prngen11"><p class="prnews_p"><span class="prnews_span"><b>March 31, 2019</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen10"><p class="prnews_p"><span class="prnews_span"><b> US$ </b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen9"><br/></td><td nowrap="nowrap" class="prngen9"><br/></td><td colspan="7" nowrap="nowrap" class="prngen4"><p class="prnews_p"><span class="prnews_span"><b>(in millions)</b></span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><br/></td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Net cash provided by operating activities </span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">74</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">1,932</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">926</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">138</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Net cash used in investing activities </span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(322)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(950)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(3,409)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(508)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Net cash provided by financing activities</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">2,855</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">4,886</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen13"><p class="prnews_p"><span class="prnews_span">16</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen13"><p class="prnews_p"><span class="prnews_span">2</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Net increase/(decrease) in cash and cash equivalents </span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen22"><p class="prnews_p"><span class="prnews_span">2,607</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen22"><p class="prnews_p"><span class="prnews_span">5,868</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(2,467)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prnsbtbl prnsbr1 prnvab prnsbbs prntar prnpl6 prnsbl1 prnpr6"><p class="prnews_p"><span class="prnews_span">(368)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Cash and cash equivalents at beginning of the period</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">5,174</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen12"><p class="prnews_p"><span class="prnews_span">11,529</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen22"><p class="prnews_p"><span class="prnews_span">17,356</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prnsbtbl prnsbr1 prnvab prnsbbs prntar prnpl6 prnsbl1 prnpr8"><p class="prnews_p"><span class="prnews_span">2,586</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Exchange losses on cash and cash equivalents</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen25"><p class="prnews_p"><span class="prnews_span">(21)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen25"><p class="prnews_p"><span class="prnews_span">(41)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen6"><p class="prnews_p"><span class="prnews_span">(185)</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen15"><p class="prnews_p"><span class="prnews_span">(28)</span></p>
+</td></tr><tr><td nowrap="nowrap" class="prngen5"><p class="prnews_p"><span class="prnews_span">Cash and cash equivalents at end of the period</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen26"><p class="prnews_p"><span class="prnews_span">7,760</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen26"><p class="prnews_p"><span class="prnews_span">17,356</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen16"><p class="prnews_p"><span class="prnews_span">14,704</span></p>
+</td><td nowrap="nowrap" class="prngen12"><br/></td><td nowrap="nowrap" class="prngen26"><p class="prnews_p"><span class="prnews_span">2,191</span></p>
+</td></tr></table></div><p> </p>
+
+<p>SOURCE  <span class="xn-money">Tencent</span> Music Entertainment Group</p>
+<img alt="" src="https://rt.prnewswire.com/rt.gif?NewsItemId=CN49234&amp;Transmission_Id=201905131630PR_NEWS_USPR_____CN49234&amp;DateId=20190513" style="border:0px; width:1px; height:1px;"/></div>
+
+
+
+
+ 
+				
+			
+
+<!-- ITEMDATE: 2019-05-13 16:30:00 EDT -->
+
+</div>
+</div>		</div><!-- END CONTENT -->  
+			</div><!-- END ROW -->
+</main>
+<div class="mod_footer" role="footer">
+	<div class="section_inner">
+	  <div class="footer__link">
+		<p class="footer_links">Copyright &copy; 2016 - 2024 Tencent Music Entertainment Group. All Rights Reserved.</p>
+	  </div>
+	  </p>
+	</div>
+  </div>
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$('.dropdown').on('show.bs.dropdown', function() {
+	$(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+});
+$('.dropdown').on('hide.bs.dropdown', function() {
+	$(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+});
+$('.single_slider_carousel_caption').addClass('container');
+	
+
+$(document).ready(function(){
+	$('.wd_newsfeed_releases .wd_layout-simple .wd_item').each(function(){
+
+		var _url = $(this).find('a').attr('href');
+		$(this).append('<a class="wd_more_btn" href="'+_url+'"><i class="fa fa-newspaper-o" aria-hidden="true"></i> View</a>');
+	})
+
+	//Move language toggle to top right of page content
+	$('#wd_printable_content .wd_button_dropdown').wrap('<div class="language-toggle-container"></div>');
+	$('.language-toggle-container').prepend('<div class="current-language">English<span></span></div>');
+	//Move language toggle to top right of page body
+	$('body').prepend($('.language-toggle-container'));
+	//Toggle language button
+	$('.current-language').click(function() {
+		$('.language-toggle-container').toggleClass('language-list-show');
+		$('.language-toggle-container .current-language span').toggleClass('arrow-flip');
+	});
+	$('ul.wd_button_dropdown').mouseleave(function() {
+		$('.language-toggle-container').removeClass('language-list-show');
+		$('.language-toggle-container .current-language span').removeClass('arrow-flip');
+	});
+
+	if (document.querySelector('.wd_pageid_64') != null) {
+		var iframe = document.querySelector('.wd_pageid_64 iframe');
+		iframe.onload = function() {
+			iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+			alert(iframe.contentWindow.document.body.scrollHeight);
+		}
+	}
+
+	//Contact Us text addition
+	// $('.wd_pageid_147 .wd_pageheader .container').append('<div>To subscribe to TME HKEX Filings alerts, please click <a target="_blank" href="https://asia.tools.euroland.com/tools/SubscriptionCentre2/?companycode=ky-tme&lang=en-GB">here</a>.');
+
+	$('.wd_pageid_174 .wd_category .item').each(function(){
+		var itemImg = $(this).find('.wd_imagetable img');
+		var imgAlign = $(this).find('.wd_imagetable').attr('align');
+		var imgMargin = $(this).find('.wd_imagetable').attr('style');
+		$(itemImg).insertAfter($(this).find('.item_name'));
+		$(itemImg).css('float',imgAlign);
+		$(itemImg).attr('style', itemImg.attr('style') + '; ' + imgMargin);
+		$(this).find('.wd_imagetable').remove();
+		if(itemImg.length > 0) {
+			$(this).find('p').css('margin-left','155px');
+		}
+
+		$('>*:not(.item_name)', this).wrapAll('<div class="item_popup_overlay"><div class="item_popup_container"><div class="item_popup_content" /></div></div>');
+		$('.item_popup_container', this).prepend('<span class="close_popup">X</span>')
+	});
+	$('.wd_pageid_174 .wd_category .item .item_name').click(function(e) {
+		if( e.target !== this ) {
+			return;
+		}
+		$(this).addClass('active');
+	});
+	$('.wd_pageid_174 .wd_category .item .close_popup').click(function(e){
+		if( e.target !== this ) {
+			return;
+		}
+		$(this).parents('.item_popup_overlay').siblings('.item_name').removeClass('active');
+	});
+
+	$('.wd_pageid_186 .wd_category_items .item').each(function () {
+		$('.item_name', this).wrap(`<a target="_blank" href="${ $('.wd_imagetable a', this).attr('href') }"></a>`);
+	});
+
+});
+</script>
+
+<!-- begin spin_special_output(body_end) -->
+<script wd_script_id="piwik_tracking_code"></script>
+<!-- Piwik Tracking Code -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+
+  _paq.push(["setCustomVariable", 4, "News Release Feed ID", "201905131630PR_NEWS_USPR_____CN49234", "page"]);
+
+  _paq.push(["setCustomVariable", 1, "Content Type", "News Releases Feed", "page"]);
+
+  _paq.push(["setCustomVariable", 3, "Navigation Page", "Press Releases", "page"]);
+
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+  (function() {
+    var u="//stats.drivetheweb.com/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", 4964]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>
+	<img src="https://stats.drivetheweb.com/piwik.php?idsite=4964&rec=1" style="border:0" alt="" />
+</noscript>
+<!-- End Piwik Tracking Code -->
+		
+<!-- end spin_special_output(body_end) -->
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f4471dd4b2da13e',t:'MTc3NzUzMDA3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

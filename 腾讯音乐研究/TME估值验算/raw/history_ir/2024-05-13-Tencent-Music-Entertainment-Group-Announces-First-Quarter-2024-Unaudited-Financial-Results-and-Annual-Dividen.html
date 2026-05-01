@@ -1,0 +1,1100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- begin spin_special_output(head_start) -->
+<script type="text/javascript" wd_script_id="view_printable_script" nonce="Zjc4MTY0NTE2MGJiZTFjMDg3NjRlMzUwYjc2MWJhMjdlYjJiM2IxYQ==">
+	function view_printable() {
+		var loc = window.location;
+		var sep = (loc.search == "") ? "?" : "&";
+		var url = loc.protocol+"//"+loc.host+loc.pathname+loc.search+sep+"printable"+loc.hash;
+		window.open(url, "_blank", "");
+	}
+</script>
+<link href="thirdparty/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" wd_script_id="font-awesome.min.css">
+<style type="text/css" wd_script_id="toolbar_style" nonce="Zjc4MTY0NTE2MGJiZTFjMDg3NjRlMzUwYjc2MWJhMjdlYjJiM2IxYQ==">
+			div.wd_toolbar {
+				border-top: 1px solid #cccccc;
+				border-bottom: 1px solid #cccccc;
+				margin: 15px 0px 15px 0px;
+				padding: 5px;
+				line-height: 1;
+			}
+			div.wd_toolbar-page {
+				clear: both;
+			}
+			div.wd_toolbar ul.wd_tools {
+				display: inline-block;
+				width: 100%;
+				margin: 0;
+				padding: 5px 0;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool {
+				display: block;
+				list-style-type: none;
+				margin-right: 5px;
+				padding: 0;
+				float: right;
+			}
+			span.wd_tool_icon > a:link,
+			span.wd_tool_icon > a:visited {
+				border-radius: 2px;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 7px;
+				font-size: 16px;
+				line-height: 1;
+				text-align: center;
+				color: #ffffff;
+				background-color: #767676;
+			} 
+			span.wd_tool_icon > a:hover {
+				color: #ffffff;
+				background-color: #666666;
+				text-decoration: none;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool-addthis {
+				float: left;
+			}
+		</style>
+<script type="text/javascript" src="js/jquery-webdriver.js" wd_script_id="jquery-webdriver.js" nonce="Zjc4MTY0NTE2MGJiZTFjMDg3NjRlMzUwYjc2MWJhMjdlYjJiM2IxYQ=="></script>
+<script type="text/javascript" src="js/webdriver.js" wd_script_id="webdriver.js" nonce="Zjc4MTY0NTE2MGJiZTFjMDg3NjRlMzUwYjc2MWJhMjdlYjJiM2IxYQ=="></script>
+<script type="text/javascript" src="js/wd_resize.js" wd_script_id="wd_resize.js" nonce="Zjc4MTY0NTE2MGJiZTFjMDg3NjRlMzUwYjc2MWJhMjdlYjJiM2IxYQ=="></script>
+<script type="text/javascript" wd_script_id="format_news_script" nonce="Zjc4MTY0NTE2MGJiZTFjMDg3NjRlMzUwYjc2MWJhMjdlYjJiM2IxYQ==">
+(function($) {
+	webDriver.formatNews = function() {
+		var $news = $(this);
+		var print_url = $news.attr("wd_print_url");
+		$news.find("table").each(function() {
+			var $table = $(this);
+			var $parent = $table.parent();
+			if ($parent.innerWidth() < $table.outerWidth()) {
+				if ($parent.hasClass("wd_news_table")) {
+					$parent.find(".fullscreen-button").show();
+				} else {
+					var $btn = $("<button>View News Release Full Screen</button>")
+						.addClass("fullscreen-button")
+						.on("click", function() {
+							if (print_url)
+								window.open(print_url, "_blank", "");
+							else
+								view_printable();
+						})
+					;
+
+					var $div = $("<div></div>)")
+						.addClass("wd_news_table")
+						.css("overflow-x", "auto")
+						.append($btn)
+					;
+
+					$table.replaceWith($div);
+					$div.append($table);
+				}
+			} else {
+				if ($parent.hasClass("wd_news_table"))
+					$parent.find(".fullscreen-button").hide();
+			}
+		});
+	}
+})(webDriver.jQuery);
+</script>
+<style type="text/css" wd_script_id="template detail:newsfeed_releases:system style" nonce="Zjc4MTY0NTE2MGJiZTFjMDg3NjRlMzUwYjc2MWJhMjdlYjJiM2IxYQ==">
+.wd_title {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.wd_subtitle {
+	font-weight: bold;
+}
+table.wd_extimagetable {
+	border-style: none; 
+	border-spacing:0px;
+	clear: right; 
+	float: right; 
+}
+td.wd_extimagecell {
+	text-align: right; 
+	margin: 0px 0px 5px 5px;
+	padding:0px;
+}
+td.wd_extimagecell img {
+	padding-left:10px;
+	padding-bottom:10px;
+	border-style: none; 
+}
+blockquote.wd_pullquote {
+	font-style: italic;
+	width:200px;
+	margin:0 0 20px 20px;
+	line-height: 1.8em;
+	float: right;
+	clear: right;
+}
+blockquote.wd_pullquote:before {
+	content: "“ ";
+	font-size: xx-large;
+}
+blockquote.wd_pullquote:after {
+	content: " ”";
+	font-size: xx-large;
+	float: right;
+}
+.fullscreen-button {
+	border: 1px solid #d1d1d1;
+	background: #e3e3e3 url(images/webdriver/view_full_screen_button_background.png) no-repeat;
+	padding: 3px 3px 3px 30px;
+	margin: 5px 0px 5px 0px;
+	color: #727272;
+	width: 220px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.wd_contact {
+	margin: 1em 0;
+}
+.wd_release_data {
+	margin: 1em 0;
+}
+.wd_caption {
+	text-align: center;
+	font-size: 0.72em;
+	font-style: italic;
+	margin: 1em 0 0 0;
+}
+</style>
+
+<!-- end spin_special_output(head_start) -->
+
+	<meta charset="utf-8">
+	
+ <meta name="keywords" content="tencent music ir, Tencent Music Announcement, Tencent Music Upcoming Events, Tencent press release, Tencent webcast events, Tencentmusic ir , tencent music investor relation, Tencent Music Entertainment Group, TME, TME ir, " />
+ <meta name="description" content="We provide you with the main press releases, upcoming events, webcast events, the announcement of Tencent Music IR." />
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:title" content="Tencent Music Entertainment Group Announces First Quarter 2024 Unaudited Financial Results and Annual Dividend Plan" />
+ <meta name="twitter:description" content="Tencent Music Entertainment Group (&quot;TME,&quot; or the &quot;Company&quot;) (NYSE: TME and HKEX: 1698), the leading online music and audio entertainment platform in China, today announced its unaudited financial..." />
+ <meta property="og:site_name" content="Tencent Music" />
+ <meta property="og:url" content="https://ir.tencentmusic.com/2024-05-13-Tencent-Music-Entertainment-Group-Announces-First-Quarter-2024-Unaudited-Financial-Results-and-Annual-Dividend-Plan" />
+ <meta property="og:title" content="Tencent Music Entertainment Group Announces First Quarter 2024 Unaudited Financial Results and Annual Dividend Plan" />
+ <meta property="og:description" content="Tencent Music Entertainment Group (&quot;TME,&quot; or the &quot;Company&quot;) (NYSE: TME and HKEX: 1698), the leading online music and audio entertainment platform in China, today announced its unaudited financial..." />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tencent Music Entertainment Group Announces First Quarter 2024 Unaudited Financial Results and Annual Dividend Plan - May 13, 2024</title>
+	<link rel="stylesheet" href="./css/investor.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/wdcontent.css">
+
+<!-- begin spin_special_output(head_end) -->
+<link rel="canonical" href="https://ir.tencentmusic.com/2024-05-13-Tencent-Music-Entertainment-Group-Announces-First-Quarter-2024-Unaudited-Financial-Results-and-Annual-Dividend-Plan" />
+<!-- end spin_special_output(head_end) -->
+</head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136113385-2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-136113385-2'); 
+</script>
+<!-- END Global site tag (gtag.js) - Google Analytics -->
+
+<body class="wd_pageid_43 wd_item_page wd_item_106">
+<div class="row">
+	<div class="wd_home_hero" style="background-image: url(/image/IR_Banner_0821_Cropped.jpg);">
+		<div class="wd_navbar-wrapper">
+			<div class="container">
+				<a href="https://www.tencentmusic.com/" class="navbar-brand d-flex w-25 navbar-logo"><img src="images/logo_en.png" /></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<nav class="navbar navbar-expand-md bg-faded">
+					<div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+						<ul class="nav navbar-nav">
+								<ul class="navbar-nav mr-auto justify-content-between">
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="https://ir.tencentmusic.com/Overview" target="_self" id="dropdown45" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">About Us</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown45">	<a class="dropdown-item" href="Overview" target="_self">Company Overview</a>
+</div>		</li>
+		<li class="nav-item  active">
+			<a class="nav-link" href="https://ir.tencentmusic.com/Press-Releases" target="_self">Press Releases</a>
+					</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="Financial-results" target="_self" id="dropdown171" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Financial Information</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown171">	<a class="dropdown-item" href="https://ir.tencentmusic.com/Financial-results" target="_self">Quarterly Results</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/sec-filings" target="_self">SEC Filings</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/HKEX-FILINGS" target="_self">HKEX Filings</a>
+</div>		</li>
+		<li class="nav-item ">
+			<a class="nav-link" href="https://ir.tencentmusic.com/stock" target="_top">Stock Information</a>
+					</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="ESG-Reports" target="_self" id="dropdown67" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">ESG</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown67">	<a class="dropdown-item" href="https://ir.tencentmusic.com/management-team" target="_self">Management Team</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/Leadership" target="_self">Corporate Governance</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/ESG-Reports" target="_self">ESG Reports</a>
+</div>		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="https://ir.tencentmusic.com/index.php?s=172" target="_self" id="dropdown172" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Resources</a>
+			<div class="dropdown-menu" aria-labelledby="dropdown172">	<a class="dropdown-item" href="https://ir.tencentmusic.com/FAQs" target="_self">FAQs</a>
+	<a class="dropdown-item" href="https://ir.tencentmusic.com/Contact-Us" target="_self">Contact Us</a>
+</div>		</li>
+	</ul>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div> 
+		<div class="container">
+			<div class="wd_header_content">
+			<h2></h2><h4></h4>			</div>
+		</div><!-- END CONTAINER -->
+	</div><!-- END HOME HERO -->
+</div><!-- END ROW -->
+
+
+<div class="wd_pageheader"><div class="container"><h1>Press Releases</h1></div></div>
+
+<main role="main" class="container">
+		<div class="row">
+				<div class="col-md-12 wd_content">
+			<div id="wd_printable_content" class="fr-view">
+<div class="wd_newsfeed_releases-detail">
+<div class="wd_title wd_language_left">Tencent Music Entertainment Group Announces First Quarter 2024 Unaudited Financial Results and Annual Dividend Plan</div>
+
+<div class="wd_toolbar wd_toolbar-detail"><ul class="wd_tools"><li class="wd_tool wd_tool-print"><span class="wd_tool_icon"><a onclick="view_printable(); return false;" rel="nofollow" href="#print" title="print"><span class="fa fa-print"></span></a></span></li><li class="wd_tool wd_tool-socialshare_facebook"><span class="wd_tool_icon">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fir.tencentmusic.com%2Findex.php%3Fs%3D43%26item%3D106" target="_blank" title="Facebook Share" style="background-color:#4267B2;">
+                    <span class="fa fa-facebook"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_linkedin"><span class="wd_tool_icon">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fir.tencentmusic.com%2Findex.php%3Fs%3D43%26item%3D106" target="_blank" title="Linkedin Share" style="background-color:#0077B5;">
+                    <span class="fa fa-linkedin"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_twitter"><span class="wd_tool_icon">
+                    <a href="https://twitter.com/share?url=https%3A%2F%2Fir.tencentmusic.com%2Findex.php%3Fs%3D43%26item%3D106" target="_blank" title="Twitter Share" style="background-color:#000;">
+                    <span class="fa fa-twitter"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-email"><span class="wd_tool_icon"><a onclick="window.location.href = 'mailto:?subject=Tencent%20Music%20Entertainment%20Group%20Announces%20First%20Quarter%202024%20Unaudited%20Financial%20Results%20and%20Annual%20Dividend%20Plan%20-%20May%2013%2C%202024&amp;body='+encodeURIComponent(window.location.href);return false;" href="#email" title="email"><span class="fa fa-envelope"></span></a></span></li><li class="wd_tool wd_tool-rss"><span class="wd_tool_icon"><a href="https://ir.tencentmusic.com/index.php?s=95&amp;rsspage=43" title="rss"><span class="fa fa-rss"></span></a></span></li><li class="wd_tool wd_tool-pdf"><span class="wd_tool_icon"><a href="https://ir.tencentmusic.com/2024-05-13-Tencent-Music-Entertainment-Group-Announces-First-Quarter-2024-Unaudited-Financial-Results-and-Annual-Dividend-Plan?asPDF=1" rel="nofollow" title="pdf"><span class="fa fa-file-pdf-o"></span></a></span></li></ul></div>
+
+
+
+			
+		
+
+			
+		
+
+<style type="text/css">
+
+
+/* Style Definitions */
+span.prnews_span
+{
+font-size:8pt;
+font-family:"Arial";
+color:black;
+}
+a.prnews_a
+{
+color:blue;
+}
+li.prnews_li
+{
+font-size:8pt;
+font-family:"Arial";
+color:black;
+}
+p.prnews_p
+{
+font-size:0.62em;
+font-family:"Arial";
+color:black;
+margin:0in;
+}
+.prngen2{
+PADDING-RIGHT:0.83em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: CENTER; BORDER-TOP:black 0pt; BORDER-RIGHT:black 0pt; BORDER-BOTTOM:black 0pt; BORDER-LEFT:black 0pt
+}
+.prngen18{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.84em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: LEFT; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen17{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: LEFT; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen7{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: CENTER; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen4{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: LEFT; BORDER-TOP:black 0pt; BORDER-RIGHT:black 0pt; BORDER-BOTTOM:black 0pt; BORDER-LEFT:black 0pt
+}
+.prngen9{
+PADDING-RIGHT:0.33em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: CENTER; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen6{
+PADDING-RIGHT:0.33em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: RIGHT; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen14{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: RIGHT; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen3{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: CENTER; BORDER-TOP:black 0pt; BORDER-RIGHT:black 0pt; BORDER-BOTTOM:black 0pt; BORDER-LEFT:black 0pt
+}
+.prngen8{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: CENTER; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 0.5pt solid; BORDER-LEFT:black 1pt
+}
+.prngen12{
+PADDING-RIGHT:0.33em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: RIGHT; BORDER-TOP:black 0.5pt solid; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen10{
+PADDING-RIGHT:0.33em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: CENTER; BORDER-TOP:black 0.5pt solid; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen19{
+PADDING-RIGHT:0.33em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: RIGHT; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 3PT double; BORDER-LEFT:black 1pt
+}
+.prngen13{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: RIGHT; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 0.5pt solid; BORDER-LEFT:black 1pt
+}
+.prngen15{
+PADDING-RIGHT:0.33em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: RIGHT; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 0.5pt solid; BORDER-LEFT:black 1pt
+}
+.prngen16{
+PADDING-RIGHT:0.33em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: RIGHT; BORDER-TOP:black 0.5pt solid; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 3PT double; BORDER-LEFT:black 1pt
+}
+.prngen21{
+PADDING-RIGHT:0.33em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: RIGHT; BORDER-TOP:black 0.5pt solid; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 0.5pt solid; BORDER-LEFT:black 1pt
+}
+.prngen11{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen24{
+TEXT-ALIGN: CENTER; MARGIN-TOP:0em; MARGIN-RIGHT:0em; MARGIN-BOTTOM:0em; MARGIN-LEFT:0.33em !IMPORTANT
+}
+.prnpr4{
+PADDING-RIGHT:0.33em
+}
+.prnrbrb1{
+BORDER-RIGHT:black 1pt
+}
+.prnsblb1{
+BORDER-LEFT:black 1pt
+}
+.prnml4{
+MARGIN-TOP:0em; MARGIN-RIGHT:0em; MARGIN-BOTTOM:0em; MARGIN-LEFT:0.33em !IMPORTANT
+}
+.prnsbbb0{
+BORDER-BOTTOM:black 0pt
+}
+.prnpl2{
+PADDING-LEFT:0.17em
+}
+.prntar{
+TEXT-ALIGN: RIGHT
+}
+.prnsblb0{
+BORDER-LEFT:black 0pt
+}
+.prnsbtb1{
+BORDER-TOP:black 1pt
+}
+.prntaj{
+TEXT-ALIGN: JUSTIFY
+}
+.prnrbrb0{
+BORDER-RIGHT:black 0pt
+}
+.prnpr2{
+PADDING-RIGHT:0.17em
+}
+.prnbcc{
+BORDER-COLLAPSE: COLLAPSE; BORDER-TOP:1pt  black; BORDER-RIGHT:1pt  black; BORDER-BOTTOM:1pt  black; BORDER-LEFT:1pt  black
+}
+.prntal{
+TEXT-ALIGN: LEFT
+}
+.prnvab{
+VERTICAL-ALIGN: BOTTOM
+}
+.prnpl11{
+PADDING-LEFT:0.84em
+}
+.prnsbbb1{
+BORDER-BOTTOM:black 1pt
+}
+.prnsbtb0{
+BORDER-TOP:black 0pt
+}
+
+					span.prnews_span{
+						font-size:inherit;
+						font-family:inherit;
+					}
+					li.prnews_li{
+						font-size: inherit;
+						font-family: inherit;           
+					}
+					p.prnews_p{
+						font-size: inherit;
+						font-family: inherit;           
+					}
+				
+					div.PRN_ImbeddedAssetReference{
+						display: none;
+					}
+					div[id^="prni_dvprne"]{
+						display: none;
+					}
+				</style>
+
+<div class="wd_body wd_news_body fr-view" wd_resize="formatNews" wd_print_url="https://ir.tencentmusic.com/2024-05-13-Tencent-Music-Entertainment-Group-Announces-First-Quarter-2024-Unaudited-Financial-Results-and-Annual-Dividend-Plan?printable=1">
+<p id="temp_ReleaseStart"><span class="legendSpanClass"><span class="xn-location">SHENZHEN, China</span></span>, <span class="legendSpanClass"><span class="xn-chron">May 13, 2024</span></span> /<a href="http://www.prnewswire.com/" target="_blank">PRNewswire</a>/ -- <span class="xn-money">Tencent</span> Music Entertainment Group (&quot;TME,&quot; or the &quot;Company&quot;) (NYSE: TME and HKEX: 1698), the leading online music and audio entertainment platform in <span class="xn-location">China</span>, today announced its unaudited financial results for the first quarter ended <span class="xn-chron">March 31, 2024</span> and declared its annual cash dividend for the year ended <span class="xn-chron">December 31, 2023</span>.</p>
+
+<p class="prntal"><b>First Quarter 2024 Financial Highlights</b></p>
+<ul type="disc"><li><b>Total revenues </b>were <span class="xn-money">RMB6.77 billion</span> (<span class="xn-money">US$937 million</span>), representing a 3.4% year-over-year decrease, mainly due to the decline in revenues from social entertainment services and others, which was partially mitigated by strong year-over-year growth in revenues from online music services.</li><li><b>Revenues from music subscriptions</b> were <span class="xn-money">RMB3.62 billion</span> (<span class="xn-money">US$501 million</span>), representing 39.2% year-over-year growth. The number of paying users increased by 20.2% year-over-year to 113.5 million. On a sequential basis, the number of paying users grew by 6.8 million, the largest quarter-over-quarter net increase to date.</li><li><b>Net profit </b>was <span class="xn-money">RMB1.53 billion</span> (<span class="xn-money">US$212 million</span>), growing 27.5% year-over-year. <b>Net profit attributable to equity holders of the Company </b>was <span class="xn-money">RMB1.42 billion</span> (<span class="xn-money">US$197 million</span>), growing 23.9% year-over-year. <b>Non-IFRS net profit</b><sup><span id="spanHghlt7c6f">[1]</span></sup> was <span class="xn-money">RMB1.81 billion</span> (<span class="xn-money">US$251 million</span>), representing 23.9% year-over-year growth. <b>Non-IFRS net profit attributable to equity holders of the Company</b><sup><span id="spanHghlt7c6f">[1]</span></sup> was <span class="xn-money">RMB1.70 billion</span> (<span class="xn-money">US$236 million</span>), representing 20.8% year-over-year growth.</li><li><b>Diluted earnings per ADS </b>was <span class="xn-money">RMB0.91</span> <span class="xn-money">(US$0.13)</span>, up from <span class="xn-money">RMB0.73</span> in the same period of 2023.</li><li><b>Total</b><b> cash, cash equivalents and term deposits</b> as of <span class="xn-chron">March 31, 2024</span> were <span class="xn-money">RMB34.18 billion</span> (<span class="xn-money">US$4.73 billion</span>).</li><li><b>An annual cash dividend </b>for the year ended <span class="xn-chron">December 31, 2023</span> to be paid to shareholders as of the record date will be approximately <span class="xn-money">US$210 million</span>.</li></ul><p class="prntal">Mr. Cussion Pang, Executive Chairman of TME, commented, &quot;We kicked off 2024 with impressive results. Online music continued to grow robustly, registering record-high net adds of 6.8 million music subscribers with healthy ARPPU for the first quarter. Our focus on high-quality growth also yielded solid net profit margin expansion. By broadening content and introducing more tailored platform offerings that resonate deeply with users, we continue to strengthen our vibrancy and competitiveness in this dynamic industry.&quot;</p>
+<p class="prntal">Mr. <span class="xn-person">Ross Liang</span>, CEO of TME, continued, &quot;Drawing on our extensive industry experience and capitalizing on the Chinese New Year seasonality, our effective marketing campaigns led to higher-than-expected first-quarter music subscriber growth. Meanwhile, we are pleased to see a steady user base recovery thanks to our optimized operations efforts. Through enhanced algorithms, product features and AIGC applications, we are consistently creating more compelling music experiences that deepen users' engagement on our platform.&quot;</p>
+<p class="prntal"><b>First </b><b>Quarter 2024 Operational Highlights</b> </p>
+<ul type="disc"><li><b>Key Operating Metrics</b></li></ul><div><table border="0" cellspacing="0" cellpadding="1" class="prnbcc"><tr><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen3" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><u>1Q24</u></span></p>
+</td><td class="prngen3" colspan="1" rowspan="1" nowrap="nowrap"><p class="prngen24"><span class="prnews_span"><u>1Q23</u></span></p>
+</td><td class="prngen3" colspan="1" rowspan="1" nowrap="nowrap"><p class="prngen24"><span class="prnews_span"><u>YoY %</u></span></p>
+</td></tr><tr><td class="prngen4" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">MAUs – online music (million) </span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">578</span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">592</span></p>
+</td><td class="prngen3" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(2.4 %)</span></p>
+</td></tr><tr><td class="prngen4" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Mobile MAUs – social entertainment (million)</span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">97</span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">136</span></p>
+</td><td class="prngen3" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(28.7 %)</span></p>
+</td></tr><tr><td class="prngen4" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Paying users – online music (million)</span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">113.5</span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">94.4</span></p>
+</td><td class="prngen3" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">20.2 %</span></p>
+</td></tr><tr><td class="prngen4" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Paying users – social entertainment (million)</span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">8.0</span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">7.1</span></p>
+</td><td class="prngen3" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">12.7 %</span></p>
+</td></tr><tr><td class="prngen4" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Monthly ARPPU – online music (RMB)</span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">10.6</span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">9.2</span></p>
+</td><td class="prngen3" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">15.2 %</span></p>
+</td></tr><tr><td class="prngen4" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Monthly ARPPU – social entertainment (RMB)</span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">73.4</span></p>
+</td><td class="prngen2" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">164.5</span></p>
+</td><td class="prngen3" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(55.4 %)</span></p>
+</td></tr></table></div><p class="prntal"><b>Expanded licensed and original content offerings to cater to evolving user preferences, setting new music consumption trends.</b></p>
+<ul type="disc"><li>Reinforced partnerships with record labels to broaden our music library's comprehensiveness and popularity. 1) Renewed cooperation with Time Fengjun Entertainment, featuring 30-day head-start privileges on new songs and adding Dolby Atmos upgrades for popular idol groups such as TFBOYS. 2) Renewed partnership with HIM International Music to bring users iconic C-pop content. We also capitalized on our AI capabilities to bolster audience interaction and sing-alongs, amplifying artists' reach.</li><li>Created an increasing number of blockbuster songs through original content production. 1) Produced high-quality original soundtracks for trending TV dramas <i>The Legend of <span class="xn-person">Shen Li</span></i> and <i>In Blossom</i>, gaining over 150 million streams on our platform. 2) With a keen grasp of popular trends, we partnered with strategic artists and indie musicians to create widely celebrated songs on social media, such as <i><span class="xn-person">RIVER FLOW</span></i> by <span class="xn-person">TIA RAY</span> and <i>What I Anticipate Is Not Snow</i> by Zhang Miaoge.</li></ul><p class="prntal"><b>Innovative features fostered faster personal music asset accumulation on our platform, leading to better user engagement and greater high-potential user discovery.</b></p>
+<ul type="disc"><li>Introduced large audio models to increase music promotion accuracy and a new AI Assistant to make music discovery more fun, engaging and convenient.</li><li>Launched a new rewards program and a series of interactive features including themed song-guessing contests and subscriber badges to invigorate music consumption and increase user stickiness.</li><li>Capitalized on Chinese New Year with targeted multi-channel promotions, attracting a larger-than-expected number of paying users; established a new partnership with Xiaomi SU7 and conducted holiday-themed activities to boost in-car music consumption.</li><li>Hosted QQMUSIC DIANFENG AWARDS, an annual trendsetting online-merge-offline music event catering to the younger demographic, to reinforce our core user base.</li></ul><p class="prntal"><b>First Quarter 2024 Financial Review </b></p>
+<p class="prntal"><b>Total revenues </b>decreased by <span class="xn-money">RMB236 million</span>, or 3.4%, to <span class="xn-money">RMB6.77 billion</span> (<span class="xn-money">US$937 million</span>) from <span class="xn-money">RMB7.00 billion</span> in the same period of 2023.</p>
+<ul type="disc"><li><b>Revenues from online music services</b> delivered a strong year-over-year increase of 43.0% to <span class="xn-money">RMB5.01 billion</span> (<span class="xn-money">US$693 million</span>) from <span class="xn-money">RMB3.50 billion</span> in the same period of 2023. The increase was driven by solid growth in music subscription revenues, supplemented by growth in revenue from advertising services. Revenues from music subscriptions were <span class="xn-money">RMB3.62 billion</span> (<span class="xn-money">US$501 million</span>), representing 39.2% year-over-year growth compared with <span class="xn-money">RMB2.60 billion</span> in the same period of 2023. This rapid growth was driven by further expansion in the online music paying user base and healthy ARPPU. The number of online music paying users increased by 20.2% year-over-year to 113.5 million, with a monthly ARPPU of <span class="xn-money">RMB10.6</span> in the first quarter of 2024. The increase in the number of paying users was primarily due to increased users' willingness to pay for appealing membership privileges, expanded content, and attractive interactive features. We also optimized promotion campaigns during Chinese New Year to attract more paying users. The year-over-year increase in revenues from advertising was primarily due to our more diversified product portfolio and innovative ad formats, which were well-received by advertisers.</li><li><b>Revenues from social entertainment services and others</b> decreased by 49.7% to <span class="xn-money">RMB1.76 billion</span> (<span class="xn-money">US$244 million</span>) from <span class="xn-money">RMB3.50 billion</span> in the same period of 2023. The continued decrease was mainly the result of adjustments to certain live-streaming interactive functions and more stringent compliance procedures we implemented beginning in the second quarter of 2023, as well as increased competition with other platforms. </li></ul><p class="prntal"><b>Cost of revenues</b> decreased by 14.8% year-over-year to <span class="xn-money">RMB4.00 billion</span> (<span class="xn-money">US$554 million</span>), mainly due to decreased revenues from social entertainment services with a lower revenue sharing ratio that led to less revenue sharing fees, partially offset by increased content costs of royalties and payment channel fees.</p>
+<p class="prntal"><b>Gross margin</b> increased to 40.9% from 33.1% in the same period of 2023, primarily due to strong revenue growth from music subscriptions and advertising services, and the ramp-up of our own content.</p>
+<p class="prntal"><b>Total operating expenses </b>decreased by 7.6% year-over-year to <span class="xn-money">RMB1.14 billion</span> (<span class="xn-money">US$157 million</span>). Operating expenses as a percentage of total revenues decrease to 16.8% from 17.5% in the same period of 2023.</p>
+<ul type="disc"><li><span id="spanHghlt5cbf">Selling and marketing expenses were <span class="xn-money">RMB187 million</span> (<span class="xn-money">US$26 million</span>), representing an 11.8% year-over-year decrease, mainly due to overall optimized promotion efforts. </span></li><li>General and administrative expenses were <span class="xn-money">RMB949 million</span> (<span class="xn-money">US$131 million</span>), representing a 6.7% year-over-year decrease. This decrease was primarily due to reduced employee-related expenses.</li></ul><p class="prntal">Driven by improved operating efficiency and effective cost controls, our <b>operating profit </b>grew to <span class="xn-money">RMB1.96 billion</span> (<span class="xn-money">US$271 million</span>) in the first quarter of 2024, representing an increase of 41.9% year-over-year.</p>
+<p class="prntal">The effective tax rate for the first quarter of 2024 was 19.9% compared with 12.2% in the same period of 2023. The increase in the effective tax rate was mainly driven by the accrual of withholding income tax of <span class="xn-money">RMB107 million</span> (<span class="xn-money">US$15 million</span>) in the first quarter of 2024. <span id="spanHghlt6e78">Additionally, changes in preferential tax rates for certain entities also impacted our effective tax rate.</span></p>
+<p class="prntal">For the first quarter of 2024, <b>net profit </b>was <span class="xn-money">RMB1.53 billion</span> (<span class="xn-money">US$212 million</span>) and <b>net profit attributable to equity holders of the Company</b> was <span class="xn-money">RMB1.42 billion</span> (<span class="xn-money">US$197 million</span>). <b>Non-IFRS net profit </b>was <span class="xn-money">RMB1.81 billion</span> (<span class="xn-money">US$251 million</span>) and <b>non-IFRS net profit attributable to equity holders of the Company</b> was <span class="xn-money">RMB1.70 billion</span> (<span class="xn-money">US$236 million</span>). Please refer to the section in this press release titled &quot;Non-IFRS Financial Measure&quot; for details.</p>
+<p class="prntal"><b>Basic and diluted earnings per American Depositary Shares (&quot;ADS&quot;) </b>for the first quarter of 2024 were <span class="xn-money">RMB0.92</span> <span class="xn-money">(US$0.13)</span> and <span class="xn-money">RMB0.91</span> <span class="xn-money">(US$0.13)</span>, respectively;<b> non-IFRS basic and diluted earnings per ADS</b> were <span class="xn-money">RMB1.11</span> <span class="xn-money">(US$0.15)</span> and <span class="xn-money">RMB1.09</span> <span class="xn-money">(US$0.15)</span>, respectively. The Company had weighted averages of 1.54 billion basic and 1.56 billion diluted ADSs outstanding, respectively. Each ADS represents two of the Company's Class A ordinary shares.</p>
+<p class="prntal">As of <span class="xn-chron">March 31, 2024</span>, the combined balance of the Company's <b>cash, cash equivalents and term deposits </b>amounted to <span class="xn-money">RMB34.18 billion</span> (<span class="xn-money">US$4.73 billion</span>), compared with <span class="xn-money">RMB32.22 billion</span> as of <span class="xn-chron">December 31, 2023</span>.</p>
+<p class="prntal"><b>Share Repurchase Program</b></p>
+<p class="prntal">Under the US$500 million Share Repurchase Program announced on March 21, 2023, as of March 31, 2024, we had repurchased 32.2 million ADSs in the open market with cash for a total consideration of <span class="xn-money">US$235.5 million</span>.</p>
+<p class="prntal"><b>Annual Dividend Policy and Declaration of 2023 Dividend</b></p>
+<p class="prntal">On <span class="xn-chron">May 11, 2024</span>, the Company's board of directors adopted an annual cash dividend policy, under which the Company may choose to declare and distribute a cash dividend each year in accordance with the memorandum and articles of association of the Company and applicable laws and regulations. Under the policy, the Company's board of directors determines whether to make dividend distributions and the amount of such distributions in any particular year, depending on the Company's operations and earnings, cash flow, financial condition, and other relevant factors.</p>
+<p class="prntal">Accordingly, on the same day, for the fiscal year of 2023, the Company's board of directors declared a cash dividend of <span class="xn-money">US$0.0685</span> per ordinary share, or <span class="xn-money">US$0.1370</span> per ADS, to holders of record of ordinary shares and ADSs as of the close of business on <span class="xn-chron">May 31, 2024</span>. The aggregate amount of cash dividends to be paid will be approximately <span class="xn-money">US$210 million</span> and is expected to be paid on or around <span class="xn-chron">June 21, 2024</span> and on or around <span class="xn-chron">June 27, 2024</span> for holders of ordinary shares and holders of ADSs, respectively. Holders of the Company's ADSs will receive the cash dividends through the depositary, The Bank of New York Mellon, subject to the terms of the deposit agreement.</p>
+<p class="prntal"><b>Social Responsibilities</b></p>
+<p class="prntal">We cooperated with <span class="xn-money">Tencent</span> Charity for the third consecutive year on our themed program to raise autism awareness, &quot;If Music Has a Shape.&quot; This year, more than 60 renowned artists and groups from <span class="xn-location">China</span> and abroad shared songs in support of children with autism. We then hosted an art exhibition featuring artwork by children with autism inspired by these musical works, leveraging multimedia to amplify our heart-felt message and boost music's social value.</p>
+<p class="prntal"><b>Exchange Rate </b></p>
+<p class="prntal">This announcement contains translations of certain RMB amounts into U.S. dollars (&quot;USD&quot;) at specified rates solely for the convenience of the reader. Unless otherwise stated, all translations from RMB to USD were made at the rate of <span class="xn-money">RMB7.2203</span> to <span class="xn-money">US$1.00</span>, the noon buying rate in effect on <span class="xn-chron">March 29, 2024</span>, in the H.10 statistical release of the Federal Reserve Board. The Company makes no representation that the RMB or USD amounts referred could be converted into USD or RMB, as the case may be, at any particular rate or at all. For analytical presentation, all percentages are calculated using the numbers presented in the financial statements contained in this earnings release.</p>
+<p class="prntal"><b>Non-IFRS Financial Measure </b></p>
+<p class="prntal">The Company uses non-IFRS net profit for the period, which is a non-IFRS financial measure, in evaluating its operating results and for financial and operational decision-making purposes. TME believes that non-IFRS net profit helps identify underlying trends in the Company's business that could otherwise be distorted by the effect of certain expenses that the Company includes in its profit for the period. TME believes that non-IFRS net profit for the period provides useful information about its results of operations, enhances the overall understanding of its past performance and future prospects and allows for greater visibility with respect to key metrics used by its management in its financial and operational decision-making.</p>
+<p class="prntal">Non-IFRS net profit for the period should not be considered in isolation or construed as an alternative to operating profit, net profit for the period or any other measure of performance or as an indicator of its operating performance. Investors are encouraged to review non-IFRS net profit for the period and the reconciliation to its most directly comparable IFRS measure. Non-IFRS net profit for the period presented here may not be comparable to similarly titled measures presented by other companies. Other companies may calculate similarly titled measures differently, limiting their usefulness as comparative measures to the Company's data. TME encourages investors and others to review its financial information in its entirety and not rely on a single financial measure.</p>
+<p class="prntal">Non-IFRS net profit for the period represents profit for the period excluding amortization of intangible and other assets arising from business acquisitions or combinations, share-based compensation expenses, net losses/gains from investments and related income tax effects.</p>
+<p class="prntal">Please see the &quot;Unaudited Non-IFRS Financial Measure&quot; included in this press release for a full reconciliation of non-IFRS net profit for the period to its net profit for the period.</p>
+<div><table border="0" cellspacing="0" cellpadding="1" class="prnbcc"><tr><td class="prnpr2 prnpl2 prnsbtb0 prnrbrb0 prnsbbb0 prnsblb0" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">[1] Non-IFRS net profit and non-IFRS net profit attributable to equity holders of the Company were arrived at after excluding the combined effect of amortization of intangible assets and other assets arising from business acquisitions or combinations, share-based compensation expenses, net losses/gains from investments, and related income tax effec</span><span id="spanHghlt3c2a" class="prnews_span">ts.</span></p>
+</td></tr></table></div><p class="prntal"><b>About Tencent Music Entertainment </b></p>
+<p class="prntal"><span class="xn-money">Tencent</span> Music Entertainment Group (NYSE: TME and HKEX: 1698) is the leading online music and audio entertainment platform in <span class="xn-location">China</span>, operating the country's highly popular and innovative music apps: QQ Music, Kugou Music, Kuwo Music and WeSing. TME's mission is to create endless possibilities with music and technology. TME's platform comprises online music, online audio, online karaoke, music-centric live streaming and online concert services, enabling music fans to discover, listen, sing, watch, perform and socialize around music. For more information, please visit ir.tencentmusic.com.</p>
+<p class="prntal"><b>Safe Harbor Statement </b></p>
+<p class="prntal">This press release contains forward-looking statements. These statements are made under the &quot;safe harbor&quot; provisions of the U.S. Private Securities Litigation Reform Act of 1995. Statements that are not historical facts, including statements about the Company's beliefs and expectations, are forward-looking statements. Forward-looking statements involve inherent risks and uncertainties, and a number of factors could cause actual results to differ materially from those contained in any forward-looking statement. In some cases, forward-looking statements can be identified by words or phrases such as &quot;may,&quot; &quot;will,&quot; &quot;expect,&quot; &quot;anticipate,&quot; &quot;target,&quot; &quot;aim,&quot; &quot;estimate,&quot; &quot;intend,&quot; &quot;plan,&quot; &quot;believe,&quot; &quot;potential,&quot; &quot;continue,&quot; &quot;is/are likely to&quot; or other similar expressions. Further information regarding these and other risks, uncertainties or factors is included in the Company's filings with the SEC and the HKEX. All information provided in this press release is as of the date of this press release, and the Company does not undertake any duty to update such information, except as required under applicable law.</p>
+<p class="prntal"><b>Investor Relations Contact </b></p>
+<p class="prntal"><span class="xn-money">Tencent</span> Music Entertainment Group<br/><a href="mailto:ir@tencentmusic.com" target="_blank" rel="nofollow">ir@tencentmusic.com</a> <br/>+86 (755) 8601-3388 ext. 818415</p>
+<p class="prntal"> </p>
+<div><table border="0" cellspacing="0" cellpadding="1" class="prnbcc"><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="8" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="8" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>CONSOLIDATED INCOME STATEMENTS</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="5" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Three Months Ended March 31</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen9" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>2023</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen10" colspan="3" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>2024</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> US$ </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="5" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>(in millions, except per share data)</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Revenues</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Online music services</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,501</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">5,007</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">693</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Social entertainment services and others</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,503</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,761</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">244</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen12" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">7,004</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen12" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">6,768</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen12" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">937</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Cost of revenues</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(4,689)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(3,997)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(554)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Gross profit</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">2,315</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">2,771</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">384</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Selling and marketing expenses</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(212)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(187)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(26)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">General and administrative expenses</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(1,017)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(949)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(131)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Total operating expenses</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(1,229)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(1,136)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(157)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Interest income </span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">237</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">278</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">39</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Other gains, net</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen15" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">58</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen15" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">46</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen15" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">6</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Operating profit</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,381</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,959</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">271</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Share of net profit/(loss) of investments accounted <br/>for using equity method</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">20</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(18)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(2)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Finance cost</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(34)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(30)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(4)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Profit before income tax</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,367</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,911</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">265</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Income tax expense</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(167)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(381)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(53)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Profit for the period</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen16" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,200</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen16" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,530</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen16" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">212</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Attributable to:</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Equity holders of the Company</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,148</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,422</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">197</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Non-controlling interests</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">52</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">108</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">15</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Earnings per share for Class A and Class B <br/>ordinary shares</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Basic</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.37</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.46</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.06</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Diluted</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.36</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.46</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.06</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Earnings per ADS (2 Class A shares equal to 1 <br/>ADS)</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Basic</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.74</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.92</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.13</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Diluted</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.73</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.91</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.13</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Shares used in earnings per Class A and Class <br/>B ordinary share computation:</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Basic</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,120,690,738</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,081,992,364</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,081,992,364</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Diluted</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,165,297,869</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,123,242,656</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,123,242,656</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>ADS used in earnings per ADS computation</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Basic</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,560,345,369</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,540,996,182</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,540,996,182</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Diluted</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,582,648,934</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,561,621,328</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,561,621,328</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr></table></div><p class="prntaj"> </p>
+<p class="prntaj"> </p>
+<div><table border="0" cellspacing="0" cellpadding="1" class="prnbcc"><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="8" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="8" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>UNAUDITED NON-IFRS FINANCIAL MEASURE</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="5" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Three Months Ended March 31</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen9" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>2023</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen10" colspan="3" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>2024</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> US$ </b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> Unaudited</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> Unaudited</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> Unaudited</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="5" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>(in millions, except per share data)</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Profit for the period</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,200</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,530</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">212</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Adjustments:</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Amortization of intangible and other assets arising<br/>from business acquisitions or combinations*</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">117</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">118</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">16</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Share-based compensation</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">202</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">193</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">27</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(Gains)/losses from investments**</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(17)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">37</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">5</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Income tax effects***</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(39)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(66)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(9)</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Non-IFRS Net Profit</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen16" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,463</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen16" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,812</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen16" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">251</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Attributable to:</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Equity holders of the Company</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,411</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,704</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">236</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Non-controlling interests</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">52</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">108</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">15</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Earnings per share for Class A and Class B <br/>ordinary shares</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Basic</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.45</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.55</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.08</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Diluted</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.45</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.55</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.08</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Earnings per ADS (2 Class A shares equal to 1 <br/>ADS)</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Basic</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.90</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1.11</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.15</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Diluted</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.89</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1.09</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">0.15</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Shares used in earnings per Class A and <br/>Class B ordinary share computation:</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Basic</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,120,690,738</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,081,992,364</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,081,992,364</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Diluted</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,165,297,869</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,123,242,656</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">3,123,242,656</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>ADS used in earnings per ADS computation</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Basic</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,560,345,369</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,540,996,182</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,540,996,182</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Diluted</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,582,648,934</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,561,621,328</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,561,621,328</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen17" colspan="8" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">* Represents the amortization of identifiable assets, including intangible assets such as domain name, trademark, <br/>copyrights, supplier resources, corporate customer relationships and non-compete agreement etc., and fair value <br/>adjustment on music content (i.e., signed contracts obtained for the rights to access to the music contents for <br/>which the amount was amortized over the contract period), resulting from business acquisitions or combination.</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen17" colspan="8" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">** Including the net gains.losses on deemed disposals/disposals of investments, fair value changes arising from<br/>investments, impairment provision of investments and other expenses in relation to equity transactions of <br/>investments.</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen17" colspan="8" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">*** Represents the income tax effects of Non-IFRS adjustments.</span></p>
+</td></tr></table></div><p class="prntaj"> </p>
+<p class="prntaj"> </p>
+<div><table border="0" cellspacing="0" cellpadding="1" class="prnbcc"><tr><td class="prngen7" colspan="7" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+</td></tr><tr><td class="prngen7" colspan="7" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>CONSOLIDATED BALANCE SHEETS</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen8" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>As at December 31, 2023</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen8" colspan="3" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>As at March 31, 2024</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen8" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen8" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen8" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b> US$ </b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b> Audited </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b> Unaudited </b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen7" colspan="5" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>(in millions)</b></span></p>
+</td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>ASSETS</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Non-current assets</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Property, plant and equipment</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">490</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">526</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">73</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Land use rights</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,437</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,419</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">335</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Right-of-use assets</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">367</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">317</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">44</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Intangible assets</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,032</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,023</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">280</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Goodwill</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">19,542</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">19,567</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,710</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Investments accounted for using equity method </span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">4,274</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">4,277</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">592</span></p>
+</td></tr><tr><td class="prngen18" colspan="2" rowspan="1"><p class="prnml4"><span class="prnews_span">Financial assets at fair value through other comprehensive income </span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">6,540</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">8,791</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">1,218</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Other investments</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">307</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">327</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">45</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Prepayments, deposits and other assets</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">540</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">437</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">61</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Deferred tax assets</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">352</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">360</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">50</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Term deposits</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">8,719</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">7,589</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">1,051</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">45,600</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">46,633</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">6,459</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Current assets</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Inventories</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">8</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">11</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Accounts receivable</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,918</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,808</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">389</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Prepayments, deposits and other assets</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">3,438</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">3,068</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">425</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Other investments</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">37</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">37</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">5</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Term deposits</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">9,937</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">16,370</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,267</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Restricted Cash </span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">31</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">31</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">4</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Cash and cash equivalents</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">13,567</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">10,218</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">1,415</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">29,936</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">32,543</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">4,507</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Total assets</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen19" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">75,536</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen19" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">79,176</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen19" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">10,966</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>EQUITY</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Equity attributable to equity holders of the <br/>Company</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Share capital</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">0</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Additional paid-in capital</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">36,576</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">36,559</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">5,063</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Shares held for share award schemes</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen14" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">(302)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen14" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">(327)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen14" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">(45)</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Treasury shares </span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen14" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">(6,996)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen14" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">(7,196)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen14" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">(997)</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Other reserves</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">9,658</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">11,887</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">1,646</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Retained earnings</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">16,969</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">18,391</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,547</span></p>
+</td></tr><tr><td class="prnpr4 prnpl11 prnvab prntar prnsbtb1 prnrbrb1 prnsbbb1 prnsblb1" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">55,907</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">59,316</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">8,215</span></p>
+</td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Non-controlling interests</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">1,295</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">1,439</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">199</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Total equity</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">57,202</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">60,755</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">8,414</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>LIABILITIES</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Non-current liabilities</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Notes payables</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">5,636</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">5,647</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">782</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Deferred tax liabilities</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">239</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">174</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">24</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Lease liabilities</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">297</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">257</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">36</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Deferred revenue </span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">148</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">156</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">22</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">6,320</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">6,234</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">863</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Current liabilities</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Accounts payable </span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">5,006</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">5,493</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">761</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Other payables and other liabilities</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">3,472</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,936</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">407</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Current tax liabilities</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">567</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">670</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">93</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Lease liabilities</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">115</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">97</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">13</span></p>
+</td></tr><tr><td class="prngen18" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Deferred revenue</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,854</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,991</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">414</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">12,014</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">12,187</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">1,688</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Total liabilities</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">18,334</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">18,421</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen15" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">2,551</span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen6" colspan="1" rowspan="1"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Total equity and liabilities</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen19" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">75,536</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen19" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">79,176</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1"><br/></td><td class="prngen19" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">10,966</span></p>
+</td></tr></table></div><p class="prntaj"> </p>
+<p class="prntaj"> </p>
+<div><table border="0" cellspacing="0" cellpadding="1" class="prnbcc"><tr><td class="prngen7" colspan="7" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>TENCENT MUSIC ENTERTAINMENT GROUP</b></span></p>
+</td></tr><tr><td class="prngen7" colspan="7" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="5" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>Three Months Ended March 31</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen9" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>2023</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen10" colspan="3" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>2024</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> RMB </b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen8" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> US$ </b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> Unaudited</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> Unaudited</b></span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b> Unaudited</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen7" colspan="5" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span"><b>(in millions)</b></span></p>
+</td></tr><tr><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td></tr><tr><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Net cash provided by operating activities </span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,852</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">2,686</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">372</span></p>
+</td></tr><tr><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Net cash provided by/(used in) investing activities </span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">811</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(5,498)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(761)</span></p>
+</td></tr><tr><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Net cash used in financing activities</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(80)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(522)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen13" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(72)</span></p>
+</td></tr><tr><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Net increase/(decrease) in cash and cash equivalents </span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen6" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">2,583</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(3,334)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(462)</span></p>
+</td></tr><tr><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Cash and cash equivalents at beginning of the period</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen21" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">9,555</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen21" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">13,567</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen21" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,879</span></p>
+</td></tr><tr><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Exchange differences on cash and cash equivalents</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(9)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(15)</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen14" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">(2)</span></p>
+</td></tr><tr><td class="prngen11" colspan="1" rowspan="1" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">Cash and cash equivalents at end of the period</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen16" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">12,129</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen16" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">10,218</span></p>
+</td><td class="prngen6" colspan="1" rowspan="1" nowrap="nowrap"><br/></td><td class="prngen16" colspan="1" rowspan="1" align="right" nowrap="nowrap"><p class="prnml4"><span class="prnews_span">1,415</span></p>
+</td></tr></table></div><p class="prntaj"> </p>
+
+
+
+
+
+
+
+<p>SOURCE  <span class="xn-money">Tencent</span> Music Entertainment Group</p></div>
+
+
+
+
+ 
+				
+			
+
+<!-- ITEMDATE: 2024-05-13 05:00:00 EDT -->
+
+</div>
+</div>		</div><!-- END CONTENT -->  
+			</div><!-- END ROW -->
+</main>
+<div class="mod_footer" role="footer">
+	<div class="section_inner">
+	  <div class="footer__link">
+		<p class="footer_links">Copyright &copy; 2016 - 2024 Tencent Music Entertainment Group. All Rights Reserved.</p>
+	  </div>
+	  </p>
+	</div>
+  </div>
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$('.dropdown').on('show.bs.dropdown', function() {
+	$(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+});
+$('.dropdown').on('hide.bs.dropdown', function() {
+	$(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+});
+$('.single_slider_carousel_caption').addClass('container');
+	
+
+$(document).ready(function(){
+	$('.wd_newsfeed_releases .wd_layout-simple .wd_item').each(function(){
+
+		var _url = $(this).find('a').attr('href');
+		$(this).append('<a class="wd_more_btn" href="'+_url+'"><i class="fa fa-newspaper-o" aria-hidden="true"></i> View</a>');
+	})
+
+	//Move language toggle to top right of page content
+	$('#wd_printable_content .wd_button_dropdown').wrap('<div class="language-toggle-container"></div>');
+	$('.language-toggle-container').prepend('<div class="current-language">English<span></span></div>');
+	//Move language toggle to top right of page body
+	$('body').prepend($('.language-toggle-container'));
+	//Toggle language button
+	$('.current-language').click(function() {
+		$('.language-toggle-container').toggleClass('language-list-show');
+		$('.language-toggle-container .current-language span').toggleClass('arrow-flip');
+	});
+	$('ul.wd_button_dropdown').mouseleave(function() {
+		$('.language-toggle-container').removeClass('language-list-show');
+		$('.language-toggle-container .current-language span').removeClass('arrow-flip');
+	});
+
+	if (document.querySelector('.wd_pageid_64') != null) {
+		var iframe = document.querySelector('.wd_pageid_64 iframe');
+		iframe.onload = function() {
+			iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+			alert(iframe.contentWindow.document.body.scrollHeight);
+		}
+	}
+
+	//Contact Us text addition
+	// $('.wd_pageid_147 .wd_pageheader .container').append('<div>To subscribe to TME HKEX Filings alerts, please click <a target="_blank" href="https://asia.tools.euroland.com/tools/SubscriptionCentre2/?companycode=ky-tme&lang=en-GB">here</a>.');
+
+	$('.wd_pageid_174 .wd_category .item').each(function(){
+		var itemImg = $(this).find('.wd_imagetable img');
+		var imgAlign = $(this).find('.wd_imagetable').attr('align');
+		var imgMargin = $(this).find('.wd_imagetable').attr('style');
+		$(itemImg).insertAfter($(this).find('.item_name'));
+		$(itemImg).css('float',imgAlign);
+		$(itemImg).attr('style', itemImg.attr('style') + '; ' + imgMargin);
+		$(this).find('.wd_imagetable').remove();
+		if(itemImg.length > 0) {
+			$(this).find('p').css('margin-left','155px');
+		}
+
+		$('>*:not(.item_name)', this).wrapAll('<div class="item_popup_overlay"><div class="item_popup_container"><div class="item_popup_content" /></div></div>');
+		$('.item_popup_container', this).prepend('<span class="close_popup">X</span>')
+	});
+	$('.wd_pageid_174 .wd_category .item .item_name').click(function(e) {
+		if( e.target !== this ) {
+			return;
+		}
+		$(this).addClass('active');
+	});
+	$('.wd_pageid_174 .wd_category .item .close_popup').click(function(e){
+		if( e.target !== this ) {
+			return;
+		}
+		$(this).parents('.item_popup_overlay').siblings('.item_name').removeClass('active');
+	});
+
+	$('.wd_pageid_186 .wd_category_items .item').each(function () {
+		$('.item_name', this).wrap(`<a target="_blank" href="${ $('.wd_imagetable a', this).attr('href') }"></a>`);
+	});
+
+});
+</script>
+
+<!-- begin spin_special_output(body_end) -->
+<script wd_script_id="piwik_tracking_code"></script>
+<!-- Piwik Tracking Code -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+
+  _paq.push(["setCustomVariable", 4, "News Release Feed ID", "202405130500PR_NEWS_USPR_____CN11237", "page"]);
+
+  _paq.push(["setCustomVariable", 1, "Content Type", "News Releases Feed", "page"]);
+
+  _paq.push(["setCustomVariable", 3, "Navigation Page", "Press Releases", "page"]);
+
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+  (function() {
+    var u="//stats.drivetheweb.com/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", 4964]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>
+	<img src="https://stats.drivetheweb.com/piwik.php?idsite=4964&rec=1" style="border:0" alt="" />
+</noscript>
+<!-- End Piwik Tracking Code -->
+		
+<!-- end spin_special_output(body_end) -->
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f44716b0c94a13e',t:'MTc3NzUzMDA1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
